@@ -1,0 +1,42 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+	<servlet>
+		<servlet-name>CustomerReportsServlet</servlet-name>
+		<display-name>CustomerReportsServlet</display-name>
+		<description></description>
+		<servlet-class>com.carserviceapp.servlet.CustomerReportsServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>CustomerViewServlet</servlet-name>
+		<display-name>CustomerViewServlet</display-name>
+		<description></description>
+		<servlet-class>com.carserviceapp.servlet.CustomerViewServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>customerreport</servlet-name>
+		<display-name>customerreport</display-name>
+		<description></description>
+		<servlet-class>com.carserviceapp.servlet.customerreport</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CustomerReportsServlet</servlet-name>
+		<url-pattern>/CustomerReportsServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CustomerViewServlet</servlet-name>
+		<url-pattern>/CustomerViewServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>customerreport</servlet-name>
+		<url-pattern>/customerreport</url-pattern>
+	</servlet-mapping>
+	
+	
+
+<welcome-file-list>
+<welcome-file>Index.jsp</welcome-file>
+</welcome-file-list>
+</web-app>
