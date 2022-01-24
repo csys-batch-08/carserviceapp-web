@@ -143,7 +143,7 @@ td a
        <%!ResultSet rs; %>
 <%
 CarServicesDAOImpl service = new CarServicesDAOImpl();
-rs = service.view();
+rs = service.views();
 %>
 
 <div class="container mt-1	">

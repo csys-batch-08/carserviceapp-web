@@ -61,7 +61,25 @@ public class CenterDetailsDAOImpl implements CenterDetailsDAO
 				e1.printStackTrace();
 			}
 			return centerlist;
-		}    
+		}  
+	   
+	   public ResultSet showsview() 
+		{
+			
+			String showQuery="select center_id,center_name,c_location,c_contact,c_email,c_address from service_center where status='active'";
+			Connection con;
+			ResultSet rs=null;
+			List<CenterDetails> centerlist=new ArrayList<CenterDetails>();
+			try {
+				con = ConnectionUtil.getDBconnection();
+				PreparedStatement stmt=con.prepareStatement(showQuery);
+				rs=stmt.executeQuery(showQuery);	
+			}  catch (SQLException | ClassNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			return rs;
+		}  
 	   
 	   public ResultSet checkservicecenterid(CenterDetails center)
 	   {

@@ -180,7 +180,7 @@ td a
 <%!ResultSet rs; %>
 <%
 CenterDetailsDAOImpl center1 = new CenterDetailsDAOImpl();
-rs = center1.showview();
+rs = center1.showsview();
 %>
 
 <div class="container mt-1">
