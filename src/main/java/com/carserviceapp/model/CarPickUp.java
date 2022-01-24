@@ -9,7 +9,14 @@ private long c_mobile;
 private String pick_address;
 private int center_id;
 private int pickup_id;
+private String status;
 
+public String getStatus() {
+	return status;
+}
+public void setStatus(String status) {
+	this.status = status;
+}
 public int getUser_id() {
 	return user_id;
 }
@@ -110,6 +117,18 @@ public CarPickUp(int pickup_id,int user_id,String c_name, String c_email, long c
 	this.c_mobile = c_mobile;
 	this.pick_address = pick_address;
 	this.center_id = center_id;
+}
+
+public CarPickUp(int pickup_id,int user_id, String c_name, String c_email, long c_mobile, String pick_address, int center_id,String status) {
+	super();
+	this.user_id = user_id;
+	this.c_name = c_name;
+	this.c_email = c_email;
+	this.c_mobile = c_mobile;
+	this.pick_address = pick_address;
+	this.center_id = center_id;
+	this.pickup_id = pickup_id;
+	this.status=status;
 }
 @Override
 public String toString() {

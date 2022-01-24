@@ -5,19 +5,12 @@ import java.sql.SQLException;
 
 public class CarCustomer 
 {
-  //private String usertype;
   private String name;
   private long mobileno;
   private String password; 
   private String email;
   private String address;
   private int user_id;
-//public String getUsertype() {
-//	return usertype;
-//}
-//public void setUsertype(String usertype) {
-//	this.usertype = usertype;
-//}
   
 public String getName() {
 	return name;

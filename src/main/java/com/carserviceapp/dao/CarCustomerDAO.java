@@ -12,5 +12,5 @@ public interface CarCustomerDAO
 	public ResultSet view(CarCustomer myaccount);
 	public boolean update(CarCustomer user);
 	public boolean delete(CarCustomer user);
-	public ResultSet view();
+	public List<CarCustomer> view();
 }

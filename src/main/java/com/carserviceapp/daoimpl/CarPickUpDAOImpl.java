@@ -82,20 +82,26 @@ public class CarPickUpDAOImpl implements CarPickUpDAO
       }
          return false;
 	   }
-	   public ResultSet pickupview() 
+	   public List<CarPickUp> pickupview() 
 		{	
 			String showQuery="select * from pickup order by pickup_id desc";
 			ResultSet rs=null;
 			Connection con;
+			List<CarPickUp> pickuplist = new ArrayList<CarPickUp>();
 			try {
 				con = ConnectionUtil.getDBconnection();
 				PreparedStatement pstmt=con.prepareStatement(showQuery);
-				rs=pstmt.executeQuery();				
+				rs=pstmt.executeQuery();
+				while(rs.next())
+				{
+					CarPickUp pickup = new CarPickUp(rs.getInt(1),rs.getInt(2),rs.getString(3),rs.getString(4),rs.getLong(5),rs.getString(6),rs.getInt(7),rs.getString(8));
+					pickuplist.add(pickup);
+				}
 			}  catch (SQLException | ClassNotFoundException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-			return rs;
+			return pickuplist;
 		}
 	   public List<CarPickUp> admincenterview(CarPickUp admincenter) 
 		{

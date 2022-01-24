@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"  import="com.carserviceapp.connection.*" import ="java.sql.*" import="com.carserviceapp.daoimpl.*"  import="com.carserviceapp.dao.*"%>
+    pageEncoding="ISO-8859-1"  import="com.carserviceapp.connection.*" import ="java.sql.*" import="com.carserviceapp.daoimpl.*"  import="com.carserviceapp.dao.*" isELIgnored ="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -124,11 +125,6 @@ body
        </div>
     </div>
     
-    <%!ResultSet rs; %>
-<%
-CarServicesDAOImpl service = new CarServicesDAOImpl();
-rs = service.view();
-%>
 <div class="container mt-1">
 <h1>Services</h1>
 <table class="table table-bordered table-sm">
@@ -140,14 +136,14 @@ rs = service.view();
        <th>Service ID</th>
   </tr>
   </thead>
-  <%while(rs.next()) {%>
+   <c:forEach items="${showservice}" var="p" >
   <tr>
-       <td><%=rs.getString(1)%></td>
-       <td><%=rs.getInt(2)%></td>
-       <td><%=rs.getString(3) %></td>
-       <td><%=rs.getInt(4) %></td>
+     <td>${p.service_name}</td>
+     <td>${p.service_cost}</td>
+     <td>${p.service_desc}</td>
+     <td>${p.service_id}</td>
   </tr>
-  <%} %>
+  </c:forEach>
 </table>
 </div>
 <a href="AdminPage.jsp"><button type="submit" class="btn btn-dark">Back</button></a>

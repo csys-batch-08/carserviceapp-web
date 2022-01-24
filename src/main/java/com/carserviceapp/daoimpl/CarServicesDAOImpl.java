@@ -103,19 +103,25 @@ public class CarServicesDAOImpl implements CarServicesDAO
 			return rs;
 	   }
 	   
-	   public ResultSet view() 
+	   public List<CarServices> view() 
 		{
 			ResultSet rs=null;
 			String showQuery="select service_name,service_cost,service_desc,service_id from services where status='active'";
 			Connection con;
+			List<CarServices> servicelist=new ArrayList<CarServices>();
 			try {
 				con = ConnectionUtil.getDBconnection();
 				PreparedStatement stmt=con.prepareStatement(showQuery);
-				rs=stmt.executeQuery(showQuery);	
+				rs=stmt.executeQuery(showQuery);
+				while(rs.next())
+				{
+					CarServices pickup = new CarServices(rs.getString(1),rs.getInt(2),rs.getString(3),rs.getInt(4));
+					servicelist.add(pickup);
+				}
 			}  catch (SQLException | ClassNotFoundException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-			return rs;
+			return servicelist;
 		}
 	}

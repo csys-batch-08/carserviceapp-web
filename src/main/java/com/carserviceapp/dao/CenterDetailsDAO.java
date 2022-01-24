@@ -8,7 +8,7 @@ import com.carserviceapp.model.CenterDetails;
 public interface CenterDetailsDAO
 {
 	public boolean insert(CenterDetails center);
-	public ResultSet showview();
+	public List<CenterDetails> showview();
 	public boolean delete(CenterDetails center);
 	public boolean update(CenterDetails center);
 }

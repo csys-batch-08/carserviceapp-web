@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"  import="com.carserviceapp.connection.*" import ="java.sql.*" import="com.carserviceapp.daoimpl.*"  import="com.carserviceapp.dao.*"%>
+    pageEncoding="ISO-8859-1"  import="com.carserviceapp.connection.*" import ="java.sql.*" import="com.carserviceapp.daoimpl.*"  import="com.carserviceapp.dao.*" isELIgnored ="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -122,12 +123,6 @@ body
         <a href="AdminPage.jsp" >Home</a>          
        </div>
     </div>
-    
-     <%!ResultSet rs; %>
-<%
-CarPickUpDAOImpl cpdao= new CarPickUpDAOImpl();
-rs = cpdao.pickupview();
-%>
 
 <div class="container mt-1">
 <h1><b>PickUp Reports</b></h1>
@@ -144,18 +139,18 @@ rs = cpdao.pickupview();
        <th>Status</th>
   </tr>
   </thead>
-  <%while(rs.next()) {%>
-  <tr>
-       <td><%=rs.getInt(1)%></td>
-       <td><%=rs.getInt(2)%></td>
-       <td><%=rs.getString(3)%></td>
-       <td><%=rs.getString(4) %></td>
-       <td><%=rs.getLong(5)%></td>
-       <td><%=rs.getString(6) %></td>
-       <td><%=rs.getInt(7)%></td>
-       <td><%=rs.getString(8)%></td>
+   <c:forEach items="${pickuplist}" var="p" >
+  <tr> 
+     <td>${p.user_id}</td>
+     <td>${p.c_name}</td>
+     <td>${p.c_email}</td>
+     <td>${p.c_mobile}</td>
+     <td>${p.pick_address}</td>
+     <td>${p.center_id}</td>
+     <td>${p.pickup_id}</td>
+     <td>${p.status}</td>
   </tr>
-  <%} %>
+     </c:forEach>
 </table>
 </div>
 <a href="AdminPage.jsp"><button type="submit"  class="btn btn-dark">Back</button></a>

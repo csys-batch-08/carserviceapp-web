@@ -10,7 +10,7 @@ public interface CarPickUpDAO
 	 public int insert(CarPickUp pickup) ;
 	 public boolean update(CarPickUp pickup);
 	 public boolean delete(CarPickUp pickup);
-	 public ResultSet pickupview();
+	 public List<CarPickUp> pickupview();
 	 public List<CarPickUp> admincenterview(CarPickUp admincenter);
 	 
 }

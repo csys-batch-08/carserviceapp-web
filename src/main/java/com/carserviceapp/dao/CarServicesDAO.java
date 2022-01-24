@@ -10,5 +10,5 @@ public interface CarServicesDAO
 	public boolean insert(CarServices service);
 	public boolean update(CarServices service);
 	public boolean delete(CarServices service);
-	public ResultSet view();
+	public List<CarServices> view();
 }

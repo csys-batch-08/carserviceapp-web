@@ -249,21 +249,27 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 	   
 	   
 	   
-	   public ResultSet view()
+	   public List<CarCustomer> view()
 	   {
 		   ResultSet rs=null;
 			String showQuery="select u_name,mobileno,u_email,u_address,user_id from userdetails where usertype='user' or usertype='invalid'";
 			Connection con;
+			List<CarCustomer> custlist=new ArrayList<CarCustomer>();
 			try {
 				con = ConnectionUtil.getDBconnection();
 				PreparedStatement pstmt=con.prepareStatement(showQuery);
 				//pstmt.setInt(1, user_id);
 				rs=pstmt.executeQuery(showQuery);
+				while(rs.next())
+				{
+					CarCustomer customer = new CarCustomer(rs.getString(1),rs.getLong(2),rs.getString(3),rs.getString(4),rs.getInt(5));
+					custlist.add(customer);
+				}
 				
 			}  catch (SQLException | ClassNotFoundException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-			return rs;
+			return custlist;
 	   }
 	}

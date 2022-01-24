@@ -381,19 +381,19 @@ body
     <div class="cruds">
       <a href="AddBill.jsp"><h2 class="btn button1">Add Bill</h2></a>
         <a href="AddServiceCenter.jsp"><h2 class="btn button2">Add Service Center</h2></a>
-       <a href="ServiceCenterShow.jsp"><h2 class="btn button3">View Service Center</h2></a>
+       <a href="ShowServiceCenter"><h2 class="btn button3">View Service Center</h2></a>
        <a href="UpdateServiceCenter.jsp"><h2 class="btn button4">Update Service Center</h2></a>
        <a href="DeleteServiceCenter.jsp"><h2 class="btn button5">Delete Service Center</h2></a>
        <a href="AddServices.jsp"><h2 class="btn button6">Add Services</h2></a>
-       <a href="ShowServices.jsp"><h2 class="btn button7">View Services</h2></a>
+       <a href="serviceshow"><h2 class="btn button7">View Services</h2></a>
        <a href="UpdateService.jsp"><h2 class="btn button8">Update Services</h2></a>
        <a href="DeleteService.jsp"><h2 class="btn button9">Delete Services</h2></a>
        <a href="UserUpdatePassword.jsp"><h2 class="btn button14">Change Password</h2></a>
      </div>  
      <div class="reportbtns">  
       <a href="CenterReportsOne.jsp"><h2 class="btns button10">Center Reports</h2></a>
-       <a href="CustomerReportsOne.jsp"><h2 class="btns button11">Customer Reports</h2></a>
-       <a href="PickUpReports.jsp"><h2 class="btns button12">Pickup Report</h2></a>
+       <a href="CustomerReports"><h2 class="btns button11">Customer Reports</h2></a>
+       <a href="PickUpReports"><h2 class="btns button12">Pickup Report</h2></a>
        <a href="BillReportsOne.jsp"><h2 class="btns button13">Bill Report</h2></a>
        </div>
        

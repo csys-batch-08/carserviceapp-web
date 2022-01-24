@@ -40,21 +40,27 @@ public class CenterDetailsDAOImpl implements CenterDetailsDAO
 		}
 		return false;
 	   }
-	   public ResultSet showview() 
+	   public List<CenterDetails> showview() 
 		{
 			
 			String showQuery="select center_id,center_name,c_location,c_contact,c_email,c_address from service_center where status='active'";
 			Connection con;
 			ResultSet rs=null;
+			List<CenterDetails> centerlist=new ArrayList<CenterDetails>();
 			try {
 				con = ConnectionUtil.getDBconnection();
 				PreparedStatement stmt=con.prepareStatement(showQuery);
-				rs=stmt.executeQuery(showQuery);			
+				rs=stmt.executeQuery(showQuery);	
+				while(rs.next())
+				{
+					CenterDetails pickup = new CenterDetails(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getLong(4),rs.getString(5),rs.getString(6));
+					centerlist.add(pickup);
+				}
 			}  catch (SQLException | ClassNotFoundException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-			return rs;
+			return centerlist;
 		}    
 	   
 	   public ResultSet checkservicecenterid(CenterDetails center)

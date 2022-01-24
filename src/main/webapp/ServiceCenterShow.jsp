@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"  import="com.carserviceapp.connection.*" import ="java.sql.*" import="com.carserviceapp.daoimpl.*"  import="com.carserviceapp.dao.*"%>
+    pageEncoding="ISO-8859-1"  import="com.carserviceapp.connection.*" import ="java.sql.*" import="com.carserviceapp.daoimpl.*"  import="com.carserviceapp.dao.*" isELIgnored ="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -123,11 +124,6 @@ body
         <a href="AdminPage.jsp" >Home</a>          
        </div>
     </div>
-<%!ResultSet rs; %>
-<%
-CenterDetailsDAOImpl center1 = new CenterDetailsDAOImpl();
-rs = center1.showview();
-%>
 <div class="container mt-1">
 <h1><b>ServiceCenters</b></h1>
 <table class="table table-bordered table-sm">
@@ -141,16 +137,16 @@ rs = center1.showview();
        <th>Center Address</th>
   </tr>
   </thead>
-  <%while(rs.next()) {%>
+  <c:forEach items="${showcenter}" var="p" >
   <tr>
-       <td><%=rs.getInt(1)%></td>
-       <td><%=rs.getString(2)%></td>
-       <td><%=rs.getString(3) %></td>
-       <td><%=rs.getLong(4)%></td>
-       <td><%=rs.getString(5)%></td>
-       <td><%=rs.getString(6)%></td>
+     <td>${p.center_id}</td>
+     <td>${p.center_name}</td>
+     <td>${p.center_location}</td>
+     <td>${p.center_contact}</td>
+     <td>${p.center_email}</td>
+     <td>${p.center_address}</td>
   </tr>
-  <%} %>
+  </c:forEach>
 </table>
 <a href="AdminPage.jsp"><button type="submit" class="btn btn-dark">Back</button></a>
 </div>

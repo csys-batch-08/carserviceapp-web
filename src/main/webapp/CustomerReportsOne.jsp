@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"  import="com.carserviceapp.connection.*" import ="java.sql.*" import="com.carserviceapp.daoimpl.*"  import="com.carserviceapp.dao.*"%>
+    pageEncoding="ISO-8859-1"  import="com.carserviceapp.connection.*" import ="java.sql.*" import="com.carserviceapp.daoimpl.*"  import="com.carserviceapp.dao.*" isELIgnored ="false"%>
 <!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -122,12 +123,6 @@ body
         <a href="AdminPage.jsp" >Home</a>          
        </div>
     </div>
-    
-     <%!ResultSet rs; %>
-<%
-CarCustomerDAOImpl ccdao = new CarCustomerDAOImpl();
-rs = ccdao.view();
-%>
 
 <div class="container mt-1">
 <h1><b>Customers</b></h1>
@@ -141,15 +136,15 @@ rs = ccdao.view();
        <th>Customer ID</th>
   </tr>
  </thead> 
-  <%while(rs.next()) {%>
+   <c:forEach items="${custlist}" var="p" >
   <tr>
-       <td><%=rs.getString(1)%></td>
-       <td><%=rs.getLong(2)%></td>
-       <td><%=rs.getString(3) %></td>
-       <td><%=rs.getString(4) %></td>
-       <td><%=rs.getInt(5) %></td>
+     <td>${p.name}</td>
+     <td>${p.mobileno}</td>
+     <td>${p.email}</td>
+     <td>${p.address}</td>
+     <td>${p.user_id}</td>
   </tr>
-  <%} %>
+  </c:forEach>
 </table>
 </div>
 <a href="AdminPage.jsp"><button type="button" class="btn btn-dark">Back</button></a>
