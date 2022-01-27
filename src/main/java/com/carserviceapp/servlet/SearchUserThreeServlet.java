@@ -9,26 +9,25 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.carserviceapp.daoimpl.CenterDetailsDAOImpl;
+
+import com.carserviceapp.daoimpl.CarServicesDAOImpl;
+import com.carserviceapp.model.CarServices;
 import com.carserviceapp.model.CenterDetails;
 
 /**
- * Servlet implementation class ShowServiceCenterServlet
+ * Servlet implementation class SearchUserThreeServlet
  */
-@WebServlet("/ShowServiceCenter")
-public class ShowServiceCenterServlet extends HttpServlet {
+@WebServlet("/SearchUserThreeServlet")
+public class SearchUserThreeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-     @Override
+    @Override   
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-	{
-		CenterDetailsDAOImpl center1 = new CenterDetailsDAOImpl();
-		 List<CenterDetails> showcenter = center1.showview();
-					if (!showcenter.isEmpty())
-					{
-						request.setAttribute("showcenter",showcenter);
-						RequestDispatcher rd=request.getRequestDispatcher("ServiceCenterShow.jsp");
-						rd.forward(request, response);
-					}
+    {
+        CarServicesDAOImpl service = new CarServicesDAOImpl();
+        List<CarServices> servicelist = service.views();
+        request.setAttribute("servicelist",servicelist);
+		RequestDispatcher rd=request.getRequestDispatcher("SearchUserThree.jsp");
+		rd.forward(request, response);
 	}
 
 }

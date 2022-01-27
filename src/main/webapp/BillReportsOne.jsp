@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"  import="com.carserviceapp.connection.*" import ="java.sql.*" import="com.carserviceapp.daoimpl.*"  import="com.carserviceapp.dao.*"%>
+    pageEncoding="ISO-8859-1"  isELIgnored="false" import="com.carserviceapp.connection.*" import ="java.sql.*" import="com.carserviceapp.daoimpl.*"  import="com.carserviceapp.dao.*"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -104,15 +105,9 @@ body
 </style>
 </head>
 <body>
-<%
-	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
-	if ((session.getAttribute("user") == null)&&(session.getAttribute("admin")==null)&&(session.getAttribute("invalid")==null)) {
-		response.sendRedirect("Index.jsp");
-	}
-	%>
     <div class="topnavbar">
         <div class="heading">
-       <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
+       <a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
@@ -122,34 +117,28 @@ body
         <a href="AdminPage.jsp" >Home</a>          
        </div>
     </div>
-    
-     <%!ResultSet rs; %>
-<%
-BillDetailsDAOImpl bDao = new BillDetailsDAOImpl();
-rs= bDao.adminview();
-%>
-
 <div class="container mt-1">	
-<h1><b>PickUp Reports</b></h1>
+<h1><strong>PickUp Reports</strong></h1>
 <table  class="table table-bordered table-sm">
+ <caption style="visibility:hidden;">bill reports details</caption>
 <thead class="table-dark">
   <tr>
-       <th>BillNo</th>
-       <th>UserID</th>
-       <th>Service-Date</th>
-       <th>Amount</th>
-       <th>Status</th>
+       <th scope="col">BillNo</th>
+       <th scope="col">UserID</th>
+       <th scope="col">Service-Date</th>
+       <th scope="col">Amount</th>
+       <th scope="col">Status</th>
   </tr>
   </thead>
-  <%while(rs.next()) {%>
+  <c:forEach items="${billlist}" var="p" >
   <tr>
-       <td><%=rs.getInt(1)%></td>
-       <td><%=rs.getInt(2)%></td>
-       <td><%=rs.getDate(3)%></td>
-       <td><%=rs.getInt(4)%></td>
-       <td><%=rs.getString(5) %></td>
+     <td>${p.bill_num}</td>
+     <td>${p.user_id}</td>
+     <td>${p.serv_date}</td>
+     <td>${p.amount}</td>
+     <td>${p.status}</td>
   </tr>
-  <%} %>
+  </c:forEach>
 </table>
 </div>
 <a href="AdminPage.jsp"><button type="submit"  class="btn btn-dark">Back</button></a>

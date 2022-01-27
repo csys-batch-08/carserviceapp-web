@@ -5,7 +5,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Center Reports</title>
@@ -103,32 +102,13 @@ body
          background-color:white;
          color:black;
       }
-  /*    .billreportback {
-  background-color:black;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  position:absolute;
-  top:380px;
-  left:110px;
-}   */
   
 </style>
 </head>
 <body>
-<%
-	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
-	if ((session.getAttribute("user") == null)&&(session.getAttribute("admin")==null)&&(session.getAttribute("invalid")==null)) {
-		response.sendRedirect("Index.jsp");
-	}
-	%>
     <div class="topnavbar">
         <div class="heading">
-       <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
+       <a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
@@ -140,17 +120,18 @@ body
     </div>
 				
 <div class="container mt-1">				
-<h1><b>Services</b></h1>
+<h1><strong>Services</strong></h1>
 <table  class="table table-bordered table-sm">
+<caption style="visibility:hidden;">center reports details</caption>
 <thead class="table-dark">
   <tr>
-       <th>PickUp ID</th>
-       <th>User ID</th>
-       <th>Customer Name</th>
-       <th>Customer Email</th>
-       <th>Customer Contact</th>
-       <th>PickUp Address</th>
-       <th>Center ID</th>  
+       <th scope="col">PickUp ID</th>
+       <th scope="col">User ID</th>
+       <th scope="col">Customer Name</th>
+       <th scope="col">Customer Email</th>
+       <th scope="col">Customer Contact</th>
+       <th scope="col">PickUp Address</th>
+       <th scope="col">Center ID</th>  
   </tr>
   </thead>
   <c:forEach items="${viewcenters}" var="p" >

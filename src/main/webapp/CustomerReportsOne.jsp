@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" 
     pageEncoding="ISO-8859-1"  import="com.carserviceapp.connection.*" import ="java.sql.*" import="com.carserviceapp.daoimpl.*"  import="com.carserviceapp.dao.*" isELIgnored ="false"%>
 <!DOCTYPE html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -105,15 +105,9 @@ body
 </style>
 </head>
 <body>
-<%
-	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
-	if ((session.getAttribute("user") == null)&&(session.getAttribute("admin")==null)&&(session.getAttribute("invalid")==null)) {
-		response.sendRedirect("Index.jsp");
-	}
-	%>
     <div class="uppernav">
         <div class="heading">
-       <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
+       <a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
@@ -123,17 +117,17 @@ body
         <a href="AdminPage.jsp" >Home</a>          
        </div>
     </div>
-
 <div class="container mt-1">
-<h1><b>Customers</b></h1>
+<h1><strong>Customers</strong></h1>
 <table  class="table table-bordered table-sm">
+ <caption style="visibility:hidden;">customer details</caption>
 <thead class="table-dark">
   <tr>
-       <th>Customer Name</th>
-       <th>Customer Mobile</th>
-       <th>Customer Email</th>
-       <th>Customer Address</th>
-       <th>Customer ID</th>
+       <th scope="col">Customer Name</th>
+       <th scope="col">Customer Mobile</th>
+       <th scope="col">Customer Email</th>
+       <th scope="col">Customer Address</th>
+       <th scope="col">Customer ID</th>
   </tr>
  </thead> 
    <c:forEach items="${custlist}" var="p" >

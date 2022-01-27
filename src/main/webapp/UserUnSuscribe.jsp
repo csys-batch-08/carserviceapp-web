@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Unsuscribe</title>
+    <title>User Unsubscribe</title>
          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     
@@ -101,15 +101,9 @@ function activatealrt()
 </script>
 </head>
 <body>
-<%
-	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
-	if ((session.getAttribute("user") == null)&&(session.getAttribute("admin")==null)&&(session.getAttribute("invalid")==null)) {
-		response.sendRedirect("Index.jsp");
-	}
-	%>
     <div class="topnavbar">
         <div class="heading">
-       <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
+       <a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
@@ -123,7 +117,7 @@ function activatealrt()
     
     <h1 class="finish">Your Account is OutOfService....</h1>
     <h1 class="finish1">Please activate your account..</h1>
-    <a href="UserAccountReactivate.jsp"><button class="btn btn-dark" onclick="activatealrt()">Activate</button></a>
+    <a href="UserReactivate"><button class="btn btn-dark" onclick="activatealrt()">Activate</button></a>
     
 </body>
 </html>

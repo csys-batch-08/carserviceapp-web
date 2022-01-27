@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"  import="com.carserviceapp.connection.*" import ="java.sql.*" import="com.carserviceapp.model.*"
-    import="javax.servlet.http.HttpSession"  import="com.carserviceapp.daoimpl.*"  import="com.carserviceapp.dao.*" %>
+    import="javax.servlet.http.HttpSession"  import="com.carserviceapp.daoimpl.*"  import="com.carserviceapp.dao.*" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -103,15 +104,9 @@ body
 </style>
 </head>
 <body>
-<%
-	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
-	if ((session.getAttribute("user") == null)&&(session.getAttribute("admin")==null)&&(session.getAttribute("invalid")==null)) {
-		response.sendRedirect("Index.jsp");
-	}
-	%>
     <div class="topnavbar">
         <div class="heading">
-       <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
+       <a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
@@ -121,36 +116,27 @@ body
         <a href="UserPage.jsp" >Home</a>          
        </div>
     </div>
-             
-<%!ResultSet rs;%>
-<%
-session=request.getSession();
-int user_id=(int)(session.getAttribute("userid"));
-BillDetails obj1 = new BillDetails(user_id);
-BillDetailsDAOImpl cent = new BillDetailsDAOImpl();
-rs=cent.pendingview(obj1);
-%>
 
 <div class="container mt-1">
-<h1><b>My Services</b></h1>
+<h1><strong>My Services</strong></h1>
 <table  class="table table-bordered table-sm">
+<caption style="visibility:hidden;">my orders details</caption>
 <thead class="table-dark">
   <tr>
-       <th>Bill No</th>
-       <th>Service Date</th>
-       <th>Amount</th>
-       <th>Status</th>
+       <th scope="col">Bill No</th>
+       <th scope="col">Service Date</th>
+       <th scope="col">Amount</th>
+       <th scope="col">Status</th>
   </tr>
     </thead>
-  <%while(rs.next()) {%>
+ <c:forEach items="${myorderstwo}" var="p" >
   <tr>
-       <td><%=rs.getInt(1)%></td>
-       <td><%=rs.getDate(2)%></td>
-       <td><%=rs.getInt(3)%></td>
-       <td><%=rs.getString(4) %></td>
+     <td>${p.bill_num}</td>
+     <td>${p.serv_date}</td>
+     <td>${p.amount}</td>
+     <td>${p.status}</td>
   </tr>
-
-  <%} %>
+  </c:forEach>
 	      
 </table>  
 <a href="MyOrders.jsp"><button type="submit" class="btn btn-dark">Back</button></a>

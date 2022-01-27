@@ -77,7 +77,7 @@ form
   }
   .addservice
   {
-   margin-top:50px;
+   margin-top:40px;
     margin-left:100px;
     margin-right:500px;
   }
@@ -89,15 +89,9 @@ form
 </style>
 </head>
 <body>
-<%
-	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
-	if ((session.getAttribute("user") == null)&&(session.getAttribute("admin")==null)&&(session.getAttribute("invalid")==null)) {
-		response.sendRedirect("Index.jsp");
-	}
-	%>
     <div class="topnavbar">
         <div class="heading">
-       <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
+       <a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
@@ -109,32 +103,33 @@ form
         <div class="addservice">
        <h1>ServiceCenter Entry Form</h1>
           <form action="centerdetail" method="post" class="was-validated">
-               <legend>Add Service Center</legend>
+               <h2>Add Service Center</h2>
                       <hr>
                       <div class="mt-1 mb-1">
-                     <label for="centername" class="form-label"><b>Service Center Name</b></label>
+                     <label for="centername" class="form-label"><strong>Service Center Name</strong></label>
                      <input type="text" class="form-control" placeholder="Enter CenterName" name="centername" id="centername" pattern="^[#.0-9a-zA-Z\s,-]+$" required>
                      </div>
                      <div class="mt-1 mb-1">
-                      <label for="centerlocation" class="form-label"><b>Service Center Location</b></label>
+                      <label for="centerlocation" class="form-label"><strong>Service Center Location</strong></label>
                      <input type="text" class="form-control" placeholder="Enter Center Location" name="centerlocation" id="centerlocation" pattern="^[#.0-9a-zA-Z\s,-]+$" required>
                      </div>
                      <div class="mt-1 mb-1">
-                     <label for="centermob" class="form-label"><b>Service Center Contact</b></label>
+                     <label for="centermob" class="form-label"><strong>Service Center Contact</strong></label>
                      <input type="tel" class="form-control" name="centercontact" pattern="[6-9][0-9]{9}" id="centercontact" placeholder="Enter Center Mobilenumber" required>
                      </div>
-                     <label for="email" class="form-label"><b>Service Center Email</b></label>
+                     <label for="email" class="form-label"><strong>Service Center Email</strong></label>
                      <input type="email" class="form-control" name="centeremail" id="centeremail" placeholder="Enter Center Email" pattern="[a-zA-Z0-9.]+[@][a-zA-Z]+[.][a-z]+{15,}" required>
                      <div class="mt-1 mb-1">
-                     <label for="address" class="form-label"><b>Service Center Address</b></label>
+                     <label for="address" class="form-label"><strong>Service Center Address</strong></label>
                      <input type="text" class="form-control" placeholder="Enter Center Address" id="centeraddress" name="centeraddress" pattern="^[#.0-9/a-zA-Z\s,-]+$" required>
                      </div>
                      <div class="mt-3 mb-0">
                      <button type="submit" class="btn btn-dark" onclick="addcenter()">Add Center</button>
                      <a href="AdminPage.jsp" class="btn btn-dark">Back</a>
                      </div>
-                     </div>
+                    
             </form>
+             </div>
     </div>          
             <script type="text/javascript">
             function addcenter()

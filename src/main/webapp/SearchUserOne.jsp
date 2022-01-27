@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-pageEncoding="ISO-8859-1"  import="com.carserviceapp.connection.*" import ="java.sql.*" import="com.carserviceapp.daoimpl.*"  import="com.carserviceapp.dao.*"%>
+pageEncoding="ISO-8859-1"  import="com.carserviceapp.connection.*" isELIgnored="false" import ="java.sql.*" import="com.carserviceapp.daoimpl.*"  import="com.carserviceapp.dao.*"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -119,20 +120,6 @@ body
     font-size: 17px;
     font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-/*  .signupbtn
-{
-  background-color:black;
-  border: none;
-  color: white;
-  padding: 10px 15px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 15px;
-  position:relative;
-  left:100px;
-  top:15px;
-}*/
 .btn
 {
   position:relative;
@@ -153,15 +140,9 @@ td a
 </style>
 </head>
 <body>
-<%
-	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
-	if ((session.getAttribute("user") == null)&&(session.getAttribute("admin")==null)&&(session.getAttribute("invalid")==null)) {
-		response.sendRedirect("Index.jsp");
-	}
-	%>
     <div class="topnavbar">
         <div class="heading">
-       <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
+       <a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
@@ -171,44 +152,31 @@ td a
         <a href="UserPage.jsp" >Home</a>          
        </div>
     </div>
-  <!--   <div class="navnav">
-        <a href="MyOrders.jsp">My Orders</a>
-       <a href="UserAccount.jsp">My Account</a>
-       <a href="UserUpdatePassword.jsp">Change Password</a>
-       <a href="UserDeleteAccount.jsp">Delete My Account</a>
-    </div> -->
-<%!ResultSet rs; %>
-<%
-CenterDetailsDAOImpl center1 = new CenterDetailsDAOImpl();
-rs = center1.showsview();
-%>
 
 <div class="container mt-1">
-<h1><b>ServiceCenters</b></h1>
+<h1><strong>ServiceCenters</strong></h1>
 <table  class="table table-bordered table-sm">
+<caption style="visibility:hidden;">service center details</caption>
 <thead class="table-dark">
   <tr>
-       <th>Center ID</th>
-       <th>Center Name</th>
-       <th>Center Location</th>
-       <th>Center Contact</th>
-       <th>Center Address</th>
-       <th>Select Center</th>
+       <th scope="col">Center ID</th>
+       <th scope="col">Center Name</th>
+       <th scope="col">Center Location</th>
+       <th scope="col">Center Contact</th>
+       <th scope="col">Center Address</th>
+       <th scope="col">Select Center</th>
   </tr>
   </thead>
-  <%while(rs.next()) {%>
-  
-       <tr>
-      
-       <td><%=rs.getInt(1)%></td>
-       <td><%=rs.getString(2)%></td>
-       <td><%=rs.getString(3) %></td>
-       <td><%=rs.getLong(4)%></td>
-       <td><%=rs.getString(5)%></td>
-       <td> <a  href="SearchUserTwo.jsp?centerId=<%=rs.getInt(1)%>"><button type="button" class="btn btn-dark">Select</button> </a></td>     
+ <c:forEach items="${centerlist}" var="p" >
+     <tr>
+     <td>${p.center_id}</td>
+     <td>${p.center_name}</td>
+     <td>${p.center_location}</td>
+     <td>${p.center_contact}</td>
+     <td>${p.center_address}</td>
+     <td><a  href="SearchUserTwo?centerId=${p.center_id}"><button type="button" class="btn btn-dark">Select</button> </a></td>     
      </tr>
- 
-  <%} %>
+    </c:forEach>
 </table>
 </div>
 <a href="UserPage.jsp" class="btn btn-dark">Back</a>

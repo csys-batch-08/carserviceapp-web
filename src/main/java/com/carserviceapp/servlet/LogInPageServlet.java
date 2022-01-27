@@ -3,6 +3,7 @@ package com.carserviceapp.servlet;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,33 +15,30 @@ import com.carserviceapp.daoimpl.CarCustomerDAOImpl;
 import com.carserviceapp.exception.InvalidUserException;
 import com.carserviceapp.model.CarCustomer;
 
-/**
- * Servlet implementation class LogInPageServlet
- */
+
 @WebServlet("/loginpage")
 public class LogInPageServlet extends HttpServlet {
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	private static final long serialVersionUID = 1L;
+
+	@Override
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-		// TODO Auto-generated method stub
-//		doGet(request, response);
 		   HttpSession session =request.getSession();
 		   String username=request.getParameter("uname");
 		   String password=request.getParameter("psw");
 		   CarCustomer obj1 = new CarCustomer(username,password);
 		   CarCustomerDAOImpl cust = new CarCustomerDAOImpl();
 		   cust.fetch(obj1);
-		   int user_id = 0;
+		   int getuserid = 0;
 		try {
-			user_id = cust.fetchid(obj1);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			getuserid = cust.fetchid(obj1);
+		} catch (SQLException e) 
+		{
 			e.printStackTrace();
 		}
-		   System.out.println(user_id);
 		   session.setAttribute("username", username);
 		   session.setAttribute("password", password);
-		   session.setAttribute("userid",user_id);
-		  System.out.println(session.getAttribute(("userid").toString()));
+		   session.setAttribute("userid",getuserid);
 		    String val = null;
 			CarCustomer userpasscheck = new CarCustomer(username,password);
 			val = cust.fetch(userpasscheck);
@@ -50,11 +48,13 @@ public class LogInPageServlet extends HttpServlet {
 			if (val.equals("user")) {
 				response.sendRedirect("UserPage.jsp");
 			} else if (val.equals("admin")) {
-				response.sendRedirect("AdminPage.jsp");
+				RequestDispatcher rd=request.getRequestDispatcher("AdminPage.jsp");
+				rd.forward(request, response);
 			}
 			else if(val.equals("invalid"))
 			{
-				response.sendRedirect("UserUnSuscribe.jsp");
+				RequestDispatcher rd=request.getRequestDispatcher("UserUnSuscribe.jsp");
+				rd.forward(request, response);
 			}
 			else 
 			{
@@ -63,7 +63,6 @@ public class LogInPageServlet extends HttpServlet {
 				   throw new InvalidUserException();	
 				}catch(InvalidUserException e)
 				{
-				   String invaliduser = e.getMessage();
 				   response.sendRedirect("UserPageWarn.jsp?message="+e.getMessage()+"&url=LogIn.jsp");
 				}
 			}

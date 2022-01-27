@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 import javax.servlet.ServletException;
@@ -26,35 +27,17 @@ import com.carserviceapp.model.BillDetails;
 public class AddBill extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public AddBill() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+    @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 		 HttpSession session =request.getSession();
+		 DateTimeFormatter formatter =
+			     DateTimeFormatter.ofPattern("dd-MM-yyyy");
 		int userid = Integer.parseInt(request.getParameter("userid"));
 		String date =request.getParameter("servdate");
 		System.out.println(date);
 		LocalDate servdate = null;
 		servdate = LocalDate.parse(date);
-		System.out.println(servdate);
+		System.out.println(servdate.format(formatter));
 		BillDetails c1 = new BillDetails(userid,servdate,userid);
         BillDetailsDAOImpl cDao = new BillDetailsDAOImpl();
         int l=cDao.insert(c1);  
@@ -71,7 +54,7 @@ public class AddBill extends HttpServlet {
 			 catch(UserIdNotFoundException e)
 			 {
 				String invaliduserid =e.getMessage();
-				response.sendRedirect("UserPageWarn.jsp?message="+e.getMessage()+"&url=AddBill.jsp");
+				response.sendRedirect("UserPageWarn?message="+e.getMessage()+"&url=AddBill.jsp");
 			 }	
 		 }
 	}

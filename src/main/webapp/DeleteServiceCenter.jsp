@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" isELIgnored="false"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -89,15 +90,9 @@ form
 </style>
 </head>
 <body>
-<%
-	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
-	if ((session.getAttribute("user") == null)&&(session.getAttribute("admin")==null)&&(session.getAttribute("invalid")==null)) {
-		response.sendRedirect("Index.jsp");
-	}
-	%>
     <div class="topnavbar">
         <div class="heading">
-       <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
+       <a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
@@ -111,16 +106,16 @@ form
           <form action="deletecenter" method="post">
             <fieldset>
                    <div class="mt-1 mb-1">
-                     <label for="center" class="form-label"><b>CenterId</b></label><br>
+                     <label for="center" class="form-label"><strong>CenterId</strong></label><br>
                      <input type="text" class="form-control" placeholder="Enter CenterId" name="centerid" pattern="^[0-9]{3}$" required>
                      </div>
                    <div class="mt-3 mb-1">  
                      <button type="submit" class="btn btn-dark">Delete Center Contact</button>
                      <a href="AdminPage.jsp" class="btn btn-dark">Back</a>
-                   </div>  
-                     </div>
+                   </div>   
                </fieldset>
             </form>
+          </div>
     </div>
 </body>
 </html>

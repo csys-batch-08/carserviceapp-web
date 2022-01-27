@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -91,15 +92,9 @@ body
 </style>
 </head>
 <body>
-<%
-	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
-	if ((session.getAttribute("user") == null)&&(session.getAttribute("admin")==null)&&(session.getAttribute("invalid")==null)) {
-		response.sendRedirect("Index.jsp");
-	}
-	%>
     <div class="topnavbar">
         <div class="heading">
-       <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
+       <a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
@@ -111,12 +106,12 @@ body
         <div class="addservice">
        <h2>Delete Services</h2>
           <form action="deleteservice" method="post">                
-                     <label for="service"><b>ServiceId</b></label><br>
+                     <label for="service"><strong>ServiceId</strong></label><br>
                      <input type="text" placeholder="Enter ServiceId" class="form-control" name="serviceid" pattern="^[0-9]{3}$" required><br>  
                      <button type="submit" class="btn btn-dark">Delete Service</button>
-                     <a href="AdminPage.jsp" class="btn btn-dark">Back</a>
-                     </div>
+                     <a href="AdminPage.jsp" class="btn btn-dark">Back</a>           
             </form>
+            </div>
     </div>
 </body>
 </html>

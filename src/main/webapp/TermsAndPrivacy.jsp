@@ -130,7 +130,7 @@ h4
 <body>
     <div class="container">
         <div class="heading">
-       <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
+       <a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
@@ -140,12 +140,6 @@ h4
         <a href="Index.jsp" >Home</a>          
        </div>
     </div>
-     <%
-   if(session.getAttribute("userinactive") != null){%>
-	   <h1>Your Account is Successfully Removed!!</h1>
-	   
-   <%session.removeAttribute("userinactive"); }
-   %>
    <h2 id="aboutus1">Terms of Use</h2> 
    <div class="aboutus">
     <h4 class="abouthead">CONTRACTUAL RELATIONSHIP</h4> 

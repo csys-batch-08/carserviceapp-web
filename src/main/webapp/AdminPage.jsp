@@ -12,7 +12,6 @@
 *{
  margin: 0;
  padding: 0;   
- 
 }
 body
 {
@@ -325,13 +324,6 @@ body
 </style>
 </head>
 <body>
-<%
-	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
-	if ((session.getAttribute("user") == null)&&(session.getAttribute("admin")==null)&&(session.getAttribute("invalid")==null)) {
-		response.sendRedirect("Index.jsp");
-	}
-	%>
-	
 	 <%
    if(session.getAttribute("addbill") != null){%>
 	   <h1 style="position:absolute; top:80px; right:500px;">Bill is generated!!</h1>
@@ -368,7 +360,7 @@ body
    %>
     <div class="container">
         <div class="heading">
-       <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
+       <a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
@@ -394,7 +386,7 @@ body
       <a href="CenterReportsOne.jsp"><h2 class="btns button10">Center Reports</h2></a>
        <a href="CustomerReports"><h2 class="btns button11">Customer Reports</h2></a>
        <a href="PickUpReports"><h2 class="btns button12">Pickup Report</h2></a>
-       <a href="BillReportsOne.jsp"><h2 class="btns button13">Bill Report</h2></a>
+       <a href="BillReports"><h2 class="btns button13">Bill Report</h2></a>
        </div>
        
     </form> 

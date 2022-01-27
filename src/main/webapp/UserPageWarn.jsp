@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" isELIgnored="false"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -88,9 +89,8 @@ body
 </style>
 </head>
 <body>
-    <div class="topnavbar">
         <div class="heading">
-       <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
+       <a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
@@ -99,10 +99,8 @@ body
         <a href="AboutUs.jsp">About Us</a>
         <a href="UserPage.jsp" >Home</a>          
        </div>
-       <%String message=request.getParameter("message");
-       String url=request.getParameter("url");
-       %>
-       <h1 class="finish"><%=message %></h1>
-    <a href="<%=url%>"><button class="btn btn-dark">Retry</button></a>
+     
+       <h1 class="finish">${message}</h1>
+    <a href="${url}"><button class="btn btn-dark">Retry</button></a>
 </body>
 </html>

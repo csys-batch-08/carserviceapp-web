@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"  import="com.carserviceapp.connection.*" import ="java.sql.*" import="com.carserviceapp.model.*"
-    import="javax.servlet.http.HttpSession"  import="com.carserviceapp.daoimpl.*"  import="com.carserviceapp.dao.*"%>
+    import="javax.servlet.http.HttpSession"  import="com.carserviceapp.daoimpl.*"  import="com.carserviceapp.dao.*" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -106,15 +107,9 @@ body
 </style>
 </head>
 <body>
-<%
-	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
-	if ((session.getAttribute("user") == null)&&(session.getAttribute("admin")==null)&&(session.getAttribute("invalid")==null)) {
-		response.sendRedirect("Index.jsp");
-	}
-	%>
     <div class="topnavbar">
         <div class="heading">
-       <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
+       <a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
@@ -124,40 +119,31 @@ body
         <a href="UserPage.jsp" >Home</a>          
        </div>
     </div>
-    
-    <%!ResultSet rs; %>
-<%
-String user_name=session.getAttribute("username").toString();
-String user_pass=session.getAttribute("password").toString();
-CarCustomer myaccount = new CarCustomer(user_name,user_pass);
-CarCustomerDAOImpl cust = new CarCustomerDAOImpl();
-rs = cust.view(myaccount);
-%>
 
 <div class="container mt-1">
-<h1><b>My Account</b></h1>
+<h1><strong>My Account</strong></h1>
 <table  class="table table-bordered table-sm">
+<caption style="visibility:hidden;">show center details</caption>
 <thead class="table-dark">
-  <tr>
-       <th>UserID </th>
-       <th>Name</th>
-       <th>Mobile Number</th>
-       <th>Password</th>
-       <th>Email </th>
-       <th>Address </th>    
+  <tr style="text-align:center;">
+       <th scope="col">UserID </th>
+       <th scope="col">Name</th>
+       <th scope="col">Mobile Number</th>
+       <th scope="col">Password</th>
+       <th scope="col">Email </th>
+       <th scope="col">Address </th>    
   </tr>
   </thead>
-  <%while(rs.next()) {%>
+    <c:forEach items="${myprofile}" var="p" >
   <tr>
-       <td> <%=rs.getInt(1)%></td>
-       <td><%=rs.getString(2)%></td>
-       <td><%=rs.getLong(3)%></td>
-       <td><%=rs.getString(4) %></td>
-       <td><%=rs.getString(5) %></td>
-       <td><%=rs.getString(6) %></td>
-      
+     <td>${p.user_id}</td>
+     <td>${p.name}</td>
+     <td>${p.mobileno}</td>
+     <td>${p.password}</td>
+     <td>${p.email}</td>
+     <td>${p.address}</td>    
   </tr>
-  <%} %>
+ </c:forEach>
 </table>
 </div>
 <a href="UserPage.jsp"><button type="submit" class="btn btn-dark">Back</button></a>

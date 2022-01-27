@@ -89,15 +89,9 @@ body
 </style>
 </head>
 <body>
-<%
-	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
-	if ((session.getAttribute("user") == null)&&(session.getAttribute("admin")==null)&&(session.getAttribute("invalid")==null)) {
-		response.sendRedirect("Index.jsp");
-	}
-	%>
     <div class="topnavbar">
         <div class="heading">
-       <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
+       <a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
@@ -110,6 +104,7 @@ body
     <div class="centerreports"> 
     <form action="centerreports" method="post">
     <fieldset>
+    <legend></legend>
         <label for="centerid"><h3>CenterID</h3></label><br>
                      <input type="number" placeholder="Enter CenterID" class="form-control" name="centerid" pattern="^[0-9]{3}$" required><br>
                      <button type="submit" class="btn btn-dark">Search</button>

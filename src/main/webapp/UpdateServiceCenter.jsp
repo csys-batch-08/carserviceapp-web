@@ -90,15 +90,9 @@ form
 </style>
 </head>
 <body>
-<%
-	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
-	if ((session.getAttribute("user") == null)&&(session.getAttribute("admin")==null)&&(session.getAttribute("invalid")==null)) {
-		response.sendRedirect("Index.jsp");
-	}
-	%>
     <div class="topnavbar">
         <div class="heading">
-       <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
+       <a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
@@ -110,22 +104,20 @@ form
         <div class="addservice">
        <h2>Update ServiceCenter</h2>
           <form action="updatecontact" method="post">
-            <fieldset>
                   <div class="mt-1 mb-1">
-                     <label for="center" class="form-label"><b>CenterId</b></label>
+                     <label for="center" class="form-label"><strong>CenterId</strong></label>
                      <input type="text" class="form-control" placeholder="Enter CenterId" name="centerid" pattern="^[0-9]{3}$" required>
                    </div>
                    <div class="mt-1 mb-1">
-                     <label for="newcentermob" class="form-label"><b>New Contact Number</b></label>
+                     <label for="newcentermob" class="form-label"><strong>New Contact Number</strong></label>
                      <input type="tel" class="form-control" id="mob" name="updatecentercontact" pattern="[6-9][0-9]{9}" placeholder="Enter New Center Mobilenumber" required>
                    </div>
                    <div class="mt-3 mb-1"> 
                      <button type="submit" class="btn btn-dark">Update Center Contact</button>
                      <a href="AdminPage.jsp" class="btn btn-dark" id="addcen">Back</a>
                    </div>
-                     </div>
-               </fieldset>
             </form>
+         </div>
     </div>
 </body>
 </html>

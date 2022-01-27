@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-pageEncoding="ISO-8859-1"  import="com.carserviceapp.connection.*" import ="java.sql.*" import="com.carserviceapp.daoimpl.*"  import="com.carserviceapp.dao.*"%>
+pageEncoding="ISO-8859-1"  import="com.carserviceapp.connection.*" import ="java.sql.*" import="com.carserviceapp.daoimpl.*" isELIgnored="false"  import="com.carserviceapp.dao.*"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -123,15 +124,9 @@ td a
 
 </head>
 <body>
-<%
-	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
-	if ((session.getAttribute("user") == null)&&(session.getAttribute("admin")==null)&&(session.getAttribute("invalid")==null)) {
-		response.sendRedirect("Index.jsp");
-	}
-	%>
     <div class="topnavbar">
         <div class="heading">
-       <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
+       <a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
@@ -140,34 +135,29 @@ td a
         <a href="AboutUs.jsp">About Us</a>
         <a href="UserPage.jsp" >Home</a>          
        </div>
-       <%!ResultSet rs; %>
-<%
-CarServicesDAOImpl service = new CarServicesDAOImpl();
-rs = service.views();
-%>
 
 <div class="container mt-1	">
-<h1><b>Services</b></h1>
+<h1><strong>Services</strong></h1>
 <table  class="table table-bordered table-sm">
+<caption style="visibility:hidden;">search user details</caption>
 <thead class="table-dark">
   <tr>
-       <th>Service Name</th>
-       <th>Service Cost</th>
-       <th>Service Desc</th>
-       <th>Service ID</th>
-       <th>Select Service</th>
-       <th>
+       <th scope="col">Service Name</th>
+       <th scope="col">Service Cost</th>
+       <th scope="col">Service Desc</th>
+       <th scope="col">Service ID</th>
+       <th scope="col">Select Service</th>
   </tr>
   </thead>
-  <%while(rs.next()) {%>
+  <c:forEach items="${servicelist}" var="p" >
   <tr>
-       <td><%=rs.getString(1)%></td>
-       <td><%=rs.getInt(2)%></td>
-       <td><%=rs.getString(3) %></td>
-       <td><%=rs.getInt(4) %></td>
-       <td> <a  href="chooseservices?serviceId=<%=rs.getInt(4)%>"><button type="button" class="btn btn-dark">Select service</button></a></td>     
+     <td>${p.service_name}</td>
+     <td>${p.service_cost}</td>
+     <td>${p.service_desc}</td>
+     <td>${p.service_id}</td>
+     <td> <a  href="chooseservices?serviceId=${p.service_id}"><button type="button" class="btn btn-dark">Select service</button></a></td>     
   </tr>
-  <%} %>
+  </c:forEach>
 </table>
 </div>
 </body>

@@ -119,7 +119,7 @@ body
 <body>
     <div class="container">
         <div class="heading">
-       <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
+       <a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
@@ -128,14 +128,7 @@ body
         <a href="ContactUs.jsp">Contact Us</a>
         <a href="Index.jsp" >Home</a>          
        </div>
-    </div>
-     <%
-   if(session.getAttribute("userinactive") != null){%>
-	   <h1>Your Account is Successfully Removed!!</h1>
-	   
-   <%session.removeAttribute("userinactive"); }
-   %>
-   
+    </div> 
    <div class="aboutus">
            <h2 id="aboutus1">About Us</h2> 
            <p id="aboutus2">MechCent aims to be the best of both worlds - Reliable and Cost-effective Car Services

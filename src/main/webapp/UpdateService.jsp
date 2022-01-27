@@ -95,15 +95,9 @@ h2
 </style>
 </head>
 <body>
-<%
-	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
-	if ((session.getAttribute("user") == null)&&(session.getAttribute("admin")==null)&&(session.getAttribute("invalid")==null)) {
-		response.sendRedirect("Index.jsp");
-	}
-	%>
     <div class="topnavbar">
         <div class="heading">
-       <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
+       <a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
@@ -116,19 +110,19 @@ h2
        <h2>Update Service Price</h2>
           <form action="updateservice" method="post">
                   <div class="mb-1 mt-1">
-                     <label for="service" class="form-label"><b>ServiceId</b></label><br>
+                     <label for="service" class="form-label"><strong>ServiceId</strong></label><br>
                      <input type="number" class="form-control" placeholder="Enter ServiceId" name="serviceid" pattern="^[0-9]{3}$" required>
                    </div>
                    <div class="mb-2 mt-2">
-                     <label for="servnewprice" class="form-label"><b>New Service Price</b></label><br>
+                     <label for="servnewprice" class="form-label"><strong>New Service Price</strong></label><br>
                      <input type="number" id="servamount" class="form-control" name="updateservcost" placeholder="Enter New Price" pattern="^[0-9]{3,}$" required>
                   </div>
                   <div class="mb-1 mt-1">
                      <button type="submit" class="btn btn-dark">Update Price</button>
                      <a href="AdminPage.jsp" class="btn btn-dark">Back</a>
-                  </div>   
-                     </div>
+                  </div>          
             </form>
+         </div>
     </div>
 </body>
 </html>

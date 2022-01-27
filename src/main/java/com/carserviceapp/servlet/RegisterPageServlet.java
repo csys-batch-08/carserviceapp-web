@@ -31,8 +31,7 @@ public class RegisterPageServlet extends HttpServlet
 		   String email=request.getParameter("email");
 		   String address=request.getParameter("address");
 		   CarCustomer obj1 = new CarCustomer(username,mobileno,password,email,address);
-		   CarCustomerDAOImpl cust = new CarCustomerDAOImpl();
-		   
+		   CarCustomerDAOImpl cust = new CarCustomerDAOImpl();	   
 		   String dummy="";
 		   CarCustomer obj2 = new CarCustomer(mobileno,email,dummy);
 		   ResultSet rs=cust.getEmail(obj2);
@@ -58,20 +57,12 @@ public class RegisterPageServlet extends HttpServlet
 		   response.sendRedirect("LogIn.jsp");
 		   }
        }
-  catch (ExistMobileNoException e)
+  catch (ExistMobileNoException | ExistEmailIdException d)
   {
-// TODO Auto-generated catch block
-	  String invalidmobile = e.getMessage();
-	   response.sendRedirect("UserPageWarn.jsp?message="+e.getMessage()+"&url=RegisterPage.jsp");
+	   response.sendRedirect("UserPageWarn.jsp?message="+d.getMessage()+"&url=RegisterPage.jsp");
    } 
-  catch (ExistEmailIdException e)
-  {
-   String invalidemail = e.getMessage();
-   response.sendRedirect("UserPageWarn.jsp?message="+e.getMessage()+"&url=RegisterPage.jsp");
-  }
   catch (IOException | SQLException e) 
            {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		   }
 	   }

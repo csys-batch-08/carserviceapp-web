@@ -11,6 +11,7 @@ public class CarCustomer
   private String email;
   private String address;
   private int user_id;
+  private String usertype;
   
 public String getName() {
 	return name;
@@ -49,10 +50,10 @@ public void setAddress(String address) {
 	this.address = address;
 }
 
-public CarCustomer( String name, long mobileno, String password, String email,
+public CarCustomer( int user_id,String name, long mobileno, String password, String email,
 		String address) {
 	super();
-	//this.usertype = usertype;
+	this.user_id=user_id;
 	this.name = name;
 	this.mobileno = mobileno;
 	this.password = password;
@@ -98,6 +99,15 @@ public CarCustomer(String name, long mobileno, String email, String address, int
 	this.email = email;
 	this.address = address;
 	this.user_id = user_id;
+}
+
+public CarCustomer(String name, long mobileno, String password, String email, String address) {
+	super();
+	this.name = name;
+	this.mobileno = mobileno;
+	this.password = password;
+	this.email = email;
+	this.address = address;
 }
 public CarCustomer(long mobileno) {
 	super();

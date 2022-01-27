@@ -90,15 +90,9 @@ form
 </style>
 </head>
 <body>
-<%
-	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
-	if ((session.getAttribute("user") == null)&&(session.getAttribute("admin")==null)&&(session.getAttribute("invalid")==null)) {
-		response.sendRedirect("Index.jsp");
-	}
-	%>
     <div class="topnavbar">
         <div class="heading">
-       <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
+       <a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
@@ -110,19 +104,18 @@ form
         <div class="addservice">
        <h1>Services Entry Form</h1>
           <form action="servicedetail" method="post" class="was-validated">
-            <fieldset>
-               <legend><b>Add Services</b></legend>
+               <h2>Add Services</h2>
                <hr>
                     <div class="mt-1 mb-1">
-                     <label for="services" class="form-label"><b>Service Name</b></label><br>
+                     <label for="services" class="form-label"><strong>Service Name</strong></label><br>
                      <input type="text" class="form-control" placeholder="Enter Service Name" name="servname" id="servname" pattern="[a-zA-Z\s-]{3,}" required>
                      </div>
                      <div class="mt-1 mb-1">
-                     <label for="servicecost" class="form-label"><b>Service Cost</b></label><br>
+                     <label for="servicecost" class="form-label"><strong>Service Cost</strong></label><br>
                      <input type="number" class="form-control" placeholder="Enter Service Cost" name="servcost" id="servcost" pattern="^[0-9]{3,}$"required>
                      </div>
                      <div class="mt-1 mb-1">
-                      <label for="servicedesc" class="form-label"><b>Service Description</b></label><br>
+                      <label for="servicedesc" class="form-label"><strong>Service Description</strong></label><br>
                      <input type="text" class="form-control" placeholder="Enter Service description" name="servdesc" id="servdesc" pattern="^[#.0-9a-zA-Z\s,-]+$" required>
                      </div>
                      <div class="mt-2">
@@ -147,10 +140,9 @@ form
                     	}
                        } 
                       </script>
-                     </div>
-                     </div>
-               </fieldset>
+                     </div>                  
             </form>
+           </div>
     </div>
 </body>
 </html>

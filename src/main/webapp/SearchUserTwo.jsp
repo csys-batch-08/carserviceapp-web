@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -108,15 +109,9 @@ form{
 </style>
 </head>
 <body>
-<%
-	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
-	if ((session.getAttribute("user") == null)&&(session.getAttribute("admin")==null)&&(session.getAttribute("invalid")==null)) {
-		response.sendRedirect("Index.jsp");
-	}
-	%>
     <div class="topnavbar">
         <div class="heading">
-       <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
+       <a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
@@ -130,30 +125,29 @@ form{
  <div class="container mt-1"> 
     <form action="pickuprequest" method="post" class="was-validated">
                <div class="register">
-               <fieldset>
                      <h1>PickUp Request Form</h1>
                      <p>Please fill in this form for pickup purposes</p>
                      <hr>
                   <div class="mb-0 mt-1">
-                     <label for="cusname" class="form-label"><b>Customer Name</b></label><br>
+                     <label for="cusname" class="form-label"><strong>Customer Name</strong>></label><br>
                     <input type="text" placeholder="Enter Name" class="form-control" title="username should be more than 3 characters" name="custname" pattern="[a-zA-Z\\s]{3,}" required>
                   </div>
                   <div class="mb-0 mt-1">
-                     <label for="email" class="form-label"><b>Customer Email</b></label><br>
+                     <label for="email" class="form-label"><strong>Customer Email</strong></label><br>
                       <input type="email" id="email" name="custemail"class="form-control" placeholder="Enter email" pattern="[a-zA-Z0-9.]+[@][a-zA-Z]+[.][a-z]+{15,}" required>
                   </div>
                   <div class="mb-0 mt-1">
-                     <label for="contact" class="form-label"><b>Customer Contact</b></label><br>
+                     <label for="contact" class="form-label"><strong>Customer Contact</strong></label><br>
                      <input type="tel" id="mob" name="custmob" class="form-control" title="mobile number should be 10 numbers" pattern="[6-9][0-9]{9}" placeholder="Enter Mobilenumber" required>
                   </div>
                   <div class="mb-0 mt-1">
-                     <label for="address" class="form-label"><b>Car PickupAddress</b></label><br>
+                     <label for="address" class="form-label"><strong>Car PickupAddress</strong></label><br>
                      <input type="text" placeholder="Enter PickUp Address.." class="form-control"name="custaddress" pattern="^[#.0-9a-zA-Z\s,-]+$" required>
                   </div>
-                     <% int centerId=(Integer.parseInt(request.getParameter("centerId").toString())); %>
+                  
                   <div class="mb-0 mt-1">
-                     <label for="centerid" class="form-label"><b>Center ID</b></label><br>
-                     <input type="number" placeholder="Enter CenterID" name="centerid"  class="form-control"value="<%=centerId %>" readonly="readonly" pattern="^[0-9]{3}$" required>
+                     <label for="centerid" class="form-label"><strong>Center ID</strong></label><br>
+                     <input type="number" placeholder="Enter CenterID" name="centerid"  class="form-control" value="<c:out value="${centerId}" />" readonly="readonly" pattern="^[0-9]{3}$" required>
                   </div>
                   
                    <div class="form-check mb-1">
@@ -168,7 +162,6 @@ form{
                          <button type="submit" class="btn btn-dark">Submit</button>
                     </div> 
                </div>
-                </fieldset>
        </form>
     </div> 
 </body>

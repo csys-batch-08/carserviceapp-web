@@ -99,15 +99,9 @@ body
 </style>
 </head>
 <body>
-<%
-	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
-	if ((session.getAttribute("user") == null)&&(session.getAttribute("admin")==null)&&(session.getAttribute("invalid")==null)) {
-		response.sendRedirect("Index.jsp");
-	}
-	%>
     <div class="topnavbar">
         <div class="heading">
-       <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
+       <a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
@@ -122,8 +116,9 @@ body
     <h2>Change Password</h2>
           <form action="updatepassword" method="post">
             <fieldset>
+            <legend></legend>
                  <div class="mb-3 mt-3">
-                     <label for="servnewprice"><b>New Password</b></label><br>
+                     <label for="servnewprice"><strong>New Password</strong></label><br>
                      <input type="password" id="updatepassword" class="form-control" name="updatepassword" placeholder="Enter New Password" pattern="(?=.*[0-9])(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,}" required><br><br>
                   </div>   
                      <button type="submit" class="btn btn-dark">Change Password</button>

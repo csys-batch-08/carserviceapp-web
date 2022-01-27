@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"  import="com.carserviceapp.connection.*" import ="java.sql.*" import="com.carserviceapp.model.*"
-    import="javax.servlet.http.HttpSession"  import="com.carserviceapp.daoimpl.*"  import="com.carserviceapp.dao.*"%>
+    import="javax.servlet.http.HttpSession"  import="com.carserviceapp.daoimpl.*"  import="com.carserviceapp.dao.*" isELIgnored="false"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -86,48 +87,17 @@ body
     margin-right:900px;
     margin-top:200px;
   }
- /* .selectbtn
-{
-  background-color:black;
-  border: none;
-  color: white;
-  padding: 5px 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 15px;
-  margin-left:20px;
-}*/
 .btn:hover
 {
  background-color:white;
  color:black;
 }
-/*.paymentone1 {
-  background-color:black;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  position:absolute;
-  top:380px;
-  left:110px;
-}*/
 </style>
 </head>
 <body>
-<%
-	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
-	if ((session.getAttribute("user") == null)&&(session.getAttribute("admin")==null)&&(session.getAttribute("invalid")==null)) {
-		response.sendRedirect("Index.jsp");
-	}
-	%>
     <div class="topnavbar">
         <div class="heading">
-       <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
+       <a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
@@ -142,9 +112,9 @@ body
           <fieldset>
               <legend><h2>My Orders</h2></legend>
                  <div class="mb-3 mt-3">
-                     <label for="billdet"><b>Is your car under Service...yes/no</b></label><br><br>
-                     <a href="MyOrdersOne.jsp"><button type="submit" class="btn btn-dark">Yes</button></a>
-                     <a href="MyOrdersTwo.jsp"><button type="submit" class="btn btn-dark">No</button></a> 
+                     <label for="billdet"><strong>Is your car under Service...yes/no</strong></label><br><br>
+                     <a href="MyOrdersOne"><button type="submit" class="btn btn-dark">Yes</button></a>
+                     <a href="MyOrdersTwo"><button type="submit" class="btn btn-dark">No</button></a> 
                      <a href="UserPage.jsp"><button type="submit" class="btn btn-dark">Back</button></a>
                  </div>                    
           </fieldset>   

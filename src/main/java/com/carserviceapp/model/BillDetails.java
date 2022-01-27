@@ -2,6 +2,7 @@ package com.carserviceapp.model;
 
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 public class BillDetails
 {
@@ -10,6 +11,8 @@ private int user_id;
 private LocalDate serv_date;
 private int amount;
 private String status;
+DateTimeFormatter formatter =
+DateTimeFormatter.ofPattern("dd-MM-yyyy");
 public int getBill_num() {
 	return bill_num;
 }
@@ -22,8 +25,9 @@ public int getUser_id() {
 public void setUser_id(int user_id) {
 	this.user_id = user_id;
 }
-public LocalDate getServ_date() {
-	return serv_date;
+public String getServ_date()
+{
+	return serv_date.format(formatter);
 }
 public void setServ_date(LocalDate serv_date) {
 	this.serv_date = serv_date;
@@ -36,7 +40,6 @@ public void setAmount(int amount) {
 }
 public BillDetails() {
 	super();
-	// TODO Auto-generated constructor stub
 }
 public String getStatus() {
 	return status;

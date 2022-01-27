@@ -4,8 +4,9 @@
       import ="java.sql.*" 
       import="com.carserviceapp.daoimpl.*"  
       import="com.carserviceapp.dao.*"
-     import="com.carserviceapp.model.*" 
+     import="com.carserviceapp.model.*"  isELIgnored="false"
      %>
+     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -125,15 +126,9 @@ p
 </style>
 </head>
 <body>
-<%
-	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
-	if ((session.getAttribute("user") == null)&&(session.getAttribute("admin")==null)&&(session.getAttribute("invalid")==null)) {
-		response.sendRedirect("Index.jsp");
-	}
-	%>
     <div class="topnavbar">
         <div class="heading">
-       <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
+       <a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
@@ -151,40 +146,27 @@ p
                      <h2>Payment</h2>
                      <hr>
                      <div class="mb-0 mt-0">
-                      <label for="cardnum" class="form-label"><b>Card Number</b></label><br>
+                      <label for="cardnum" class="form-label"><strong>Card Number</strong></label><br>
                      <input type="text" class="form-control" placeholder="Enter CardNumber" name="cardnum" required pattern="[0-9]{16}" title="please enter 16 numbers" >
                      </div>
                      <div class="mb-0 mt-0">
-                     <label for="holdername" class="form-label"><b>Card Holder Name</b></label><br>
+                     <label for="holdername" class="form-label"><strong>Card Holder Name</strong></label><br>
                     <input type="text" placeholder="Enter CardHolderName" class="form-control" name="holdername" pattern="[a-zA-Z]{3,}" required>                  
                       </div>
                       <div class="mb-0 mt-0">
-                     <label for="expdate" class="form-label"><b>Expiry Date</b></label><br>
+                     <label for="expdate" class="form-label"><strong>Expiry Date</strong></label><br>
                      <input type="month" id="expdate" class="form-control" name="expdate" min="2022-03" max="2030-03" placeholder="Enter ExpDate" required>
                      </div>
-                     <!-- "^(((0)[0-9])|((1)[0-2]))(\\/)\\d{2}$" -->
                      <div class="mb-0 mt-0">
-                     <label for="cvvno" class="form-label"><b>CVV</b></label><br>
+                     <label for="cvvno" class="form-label"><strong>CVV</strong></label><br>
                      <input type="password" class="form-control" placeholder="Enter CvvNo" name="cvvno" pattern="^[0-9]{3}$" required><br>
                      </div>
-                     <%!ResultSet rs;
-                    		 int amount;%>
-                     <%  
-                    int userid=(int)session.getAttribute("userid");
-                     int billnum =(int)session.getAttribute("bill_num");
-                     BillDetailsDAOImpl bDao = new BillDetailsDAOImpl(); 
-                     String dummy="23";
-                     BillDetails billpay = new BillDetails(userid,billnum,dummy);	 
-                     amount=bDao.view1(billpay);	  
-                    		 %>
-                    	<p>your bill is ..<%=amount%></p> 		                   		 
-                    
+                     <p>your bill is ..<c:out value="${amount}" />	</p> 	
                     <div class="mb-0 mt-0 cash">		 
-                     <label for="amountpaid" class="form-label"><b>Amount Paid</b></label><br>
-                     <input type="number" placeholder="Enter Amount" class="form-control" name="amountpaid" value="<%=amount %>" readonly="readonly" required><br>
+                     <label for="amountpaid" class="form-label"><strong>Amount Paid</strong></label><br>
+                     <input type="number" placeholder="Enter Amount" class="form-control" name="amountpaid" <c:out value="${amount}" />	 readonly="readonly" required><br>
                     </div>
                      <p id="terms">By accepting you agree to our <a href="TermsAndPrivacy.jsp" style="color:red">Terms & Privacy</a>.</p>
-    
                      <div class="clearfix">
                          <button type="submit" class="btn btn-dark">Submit</button>
                     </div> 

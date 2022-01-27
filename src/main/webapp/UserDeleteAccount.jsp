@@ -96,15 +96,9 @@ body
 </style>
 </head>
 <body>
-<%
-	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
-	if ((session.getAttribute("user") == null)&&(session.getAttribute("admin")==null)&&(session.getAttribute("invalid")==null)) {
-		response.sendRedirect("Index.jsp");
-	}
-	%>
     <div class="topnavbar">
         <div class="heading">
-       <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
+       <a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
@@ -114,18 +108,16 @@ body
         <a href="UserPage.jsp" >Home</a>          
        </div>
         <div class="addservice">
-       <h1>Unsuscribe</h1>
+       <h1>Unsubscribe</h1>
           <form action="deleteaccount" method="post">
-            <fieldset>
-               <legend>Delete Account</legend>
+               <h2>Delete Account</h2>
                   
-                     <label for="mobno"><b>MobileNumber</b></label><br>
+                     <label for="mobno"><strong>MobileNumber</strong></label><br>
                      <input type="tel" placeholder="Enter Registered MobileNumber" class="form-control" name="mobileno" pattern="[6-9][0-9]{9}" required><br>  <br>
                      <button type="submit" class="btn btn-dark">Unsuscribe</button>
-                      <a href="UserUpdatePassword.jsp" class="btn btn-dark">Back</a>
-                     </div>
-               </fieldset>
+                      <a href="UserUpdatePassword.jsp" class="btn btn-dark">Back</a>   
             </form>
+         </div>
     </div>
 </body>
 </html>

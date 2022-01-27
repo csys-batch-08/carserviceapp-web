@@ -153,15 +153,16 @@ h5{
 </style>
 </head>
 <body>
-<%
+     <%
 	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
-	if ((session.getAttribute("user") == null)&&(session.getAttribute("admin")==null)&&(session.getAttribute("invalid")==null)) {
+	if ((session.getAttribute("user") == null)&&(session.getAttribute("admin")==null)&&(session.getAttribute("supplier")==null)) {
 		response.sendRedirect("Index.jsp");
 	}
 	%>
+	
     <div class="container">
         <div class="heading">
-       <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
+       <a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
@@ -180,7 +181,7 @@ h5{
                              <a href="SearchUserOne.jsp"><button type="button">Explore</button></a>
                      </div>
                      <div class="col1">
-                         <a href="SearchUserOne.jsp"><div class="card card1">
+                         <a href="SearchUserOne"><div class="card card1">
                              <h5>Search Service Center</h5>
                          </div></a>
                          
@@ -189,7 +190,7 @@ h5{
                         </div></a>
                         
                         
-                        <a href="UserAccount.jsp"> <div class="card card3">
+                        <a href="UserAccount"> <div class="card card3">
                            <h5>MyAccount</h5>
                         </div></a>
                         

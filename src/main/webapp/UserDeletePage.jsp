@@ -82,16 +82,10 @@ body
 </style>
 </head>
 <body>
-<%
-	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
-	if ((session.getAttribute("user") == null)&&(session.getAttribute("admin")==null)&&(session.getAttribute("invalid")==null)) {
-		response.sendRedirect("Index.jsp");
-	}
-	%>
 	
     <div class="container">
         <div class="heading">
-       <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
+       <a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
@@ -110,7 +104,7 @@ body
        <h2><a href="UserDeleteAccount.jsp">Delete My Account</a></h2>
        <h2><a href="Index.jsp">Logout</a></h2>
     </form> 
-    <h1 class="finish">Thansks For Using MechCent....</h1>
+    <h1 class="finish">Thanks For Using MechCent....</h1>
      <h1 class="finish1">Your Account is Deleted Successfully....</h1>
 </body>
 </html>

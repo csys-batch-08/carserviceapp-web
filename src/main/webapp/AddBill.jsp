@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" isELIgnored="false"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -107,15 +108,9 @@ body
 </style>
 </head>
 <body>
-<%
-	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
-	if ((session.getAttribute("user") == null)&&(session.getAttribute("admin")==null)&&(session.getAttribute("invalid")==null)) {
-		response.sendRedirect("Index.jsp");
-	}
-	%>
     <div class="topnavbar">
         <div class="heading">
-       <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
+       <a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
@@ -127,9 +122,9 @@ body
         <div class="addservice">
        <h1>Generate Bill</h1>
           <form action="addbill" method="post">
-                     <label for="userid" class="form-label"><b>UserId</b></label><br>
+                     <label for="userid" class="form-label"><strong>UserId</strong></label><br>
                      <input type="text" class="form-control" placeholder="Enter UserId" name="userid" id="userid" pattern="^[0-9]{3,}$" required><br>  
-                     <label for="servdate" class="form-label"><b>Service Date</b></label><br>
+                     <label for="servdate" class="form-label"><strong>Service Date</strong></label><br>
                      <input type="date" class="form-control" placeholder="Enter Service Date" id="datefield" name="servdate" required><br><br>
                      <button type="submit" class="btn btn-dark" onclick="generatebill()">Generate Bill</button>
                      <a href="AdminPage.jsp" class="btn btn-dark" id="addbill1">Back</a>

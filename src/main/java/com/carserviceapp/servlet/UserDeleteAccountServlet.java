@@ -14,10 +14,10 @@ import com.carserviceapp.model.CarCustomer;
 public class UserDeleteAccountServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	{
 		 HttpSession session =request.getSession();
-		long mobileno=Long.parseLong(request.getParameter("mobileno").toString());
+		long mobileno=Long.parseLong(request.getParameter("mobileno"));
 		 CarCustomer obj1 = new CarCustomer(mobileno);
 		 CarCustomerDAOImpl cent = new CarCustomerDAOImpl();
 		 boolean flag=cent.delete(obj1);

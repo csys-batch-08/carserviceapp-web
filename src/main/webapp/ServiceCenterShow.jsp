@@ -106,15 +106,9 @@ body
 </style>
 </head>
 <body>
-<%
-	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
-	if ((session.getAttribute("user") == null)&&(session.getAttribute("admin")==null)&&(session.getAttribute("invalid")==null)) {
-		response.sendRedirect("Index.jsp");
-	}
-	%>
     <div class="topnavbar">
         <div class="heading">
-       <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
+       <a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
@@ -125,16 +119,17 @@ body
        </div>
     </div>
 <div class="container mt-1">
-<h1><b>ServiceCenters</b></h1>
+<h1><strong>ServiceCenters</strong></h1>
 <table class="table table-bordered table-sm">
+<caption style="visibility:hidden;">show center details</caption>
 <thead class="table-dark">
   <tr>
-       <th>Center ID</th>
-       <th>Center Name</th>
-       <th>Center Location</th>
-       <th>Center Contact</th>
-       <th>Center Email</th>
-       <th>Center Address</th>
+       <th scope="col">Center ID</th>
+       <th scope="col">Center Name</th>
+       <th scope="col">Center Location</th>
+       <th scope="col">Center Contact</th>
+       <th scope="col">Center Email</th>
+       <th scope="col">Center Address</th>
   </tr>
   </thead>
   <c:forEach items="${showcenter}" var="p" >

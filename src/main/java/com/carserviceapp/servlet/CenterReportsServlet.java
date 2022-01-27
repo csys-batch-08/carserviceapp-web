@@ -24,32 +24,12 @@ import com.carserviceapp.model.CarPickUp;
 @WebServlet("/centerreports")
 public class CenterReportsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public CenterReportsServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+       @Override
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		   HttpSession session =request.getSession();
-		   int center_id=Integer.parseInt(request.getParameter("centerid"));
-		   session.setAttribute("centerid",center_id);
-		   CarPickUp admincenter = new CarPickUp(center_id);
+		   int centerid=Integer.parseInt(request.getParameter("centerid"));
+		   session.setAttribute("centerid",centerid);
+		   CarPickUp admincenter = new CarPickUp(centerid);
 		   CarPickUpDAOImpl cpdao = new CarPickUpDAOImpl();
 		   List<CarPickUp> viewcenters = cpdao.admincenterview(admincenter);
 		try {
@@ -66,14 +46,12 @@ public class CenterReportsServlet extends HttpServlet {
 					}
 				 catch(CenterNotFoundException e)
 					{
-					   String invalidcenter = e.getMessage();
-					   response.sendRedirect("UserPageWarn.jsp?message="+e.getMessage()+"&url=CenterReportsOne.jsp");
+					   response.sendRedirect("UserPageWarn?message="+e.getMessage()+"&url=CenterReportsOne.jsp");
 					}
 				}
 			} 
 			catch (IOException e) 
 			{
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} 
 			}	  

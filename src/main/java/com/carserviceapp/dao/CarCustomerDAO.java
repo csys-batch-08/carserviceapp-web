@@ -9,7 +9,7 @@ public interface CarCustomerDAO
 {
 	public boolean insert(CarCustomer user);
 	public String fetch(CarCustomer userpasscheck);
-	public ResultSet view(CarCustomer myaccount);
+	public List<CarCustomer> view(CarCustomer myaccount);
 	public boolean update(CarCustomer user);
 	public boolean delete(CarCustomer user);
 	public List<CarCustomer> view();

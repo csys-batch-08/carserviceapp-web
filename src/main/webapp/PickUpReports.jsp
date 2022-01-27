@@ -105,15 +105,9 @@ body
 </style>
 </head>
 <body>
-<%
-	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
-	if ((session.getAttribute("user") == null)&&(session.getAttribute("admin")==null)&&(session.getAttribute("invalid")==null)) {
-		response.sendRedirect("Index.jsp");
-	}
-	%>
     <div class="topnavbar">
         <div class="heading">
-       <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
+       <a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
@@ -125,29 +119,30 @@ body
     </div>
 
 <div class="container mt-1">
-<h1><b>PickUp Reports</b></h1>
+<h1><strong>PickUp Reports</strong></h1>
 <table  class="table table-bordered table-sm">
+ <caption style="visibility:hidden;">customer details</caption>
 <thead class="table-dark">
   <tr>
-       <th>PickUp ID</th>
-       <th>Customer UserID</th>
-       <th>Customer Name</th>
-       <th>Customer Email</th>
-       <th>Customer Mobile</th>
-       <th>Customer Address</th>
-       <th>Center ID</th>  
-       <th>Status</th>
+       <th scope="col">PickUp ID</th>
+       <th scope="col">Customer UserID</th>
+       <th scope="col">Customer Name</th>
+       <th scope="col">Customer Email</th>
+       <th scope="col">Customer Mobile</th>
+       <th scope="col">Customer Address</th>
+       <th scope="col">Center ID</th>  
+       <th scope="col">Status</th>
   </tr>
   </thead>
    <c:forEach items="${pickuplist}" var="p" >
   <tr> 
+     <td>${p.pickup_id}</td>
      <td>${p.user_id}</td>
      <td>${p.c_name}</td>
      <td>${p.c_email}</td>
      <td>${p.c_mobile}</td>
      <td>${p.pick_address}</td>
      <td>${p.center_id}</td>
-     <td>${p.pickup_id}</td>
      <td>${p.status}</td>
   </tr>
      </c:forEach>

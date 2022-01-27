@@ -69,22 +69,27 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 		}
 	   
 	   //my account option in user profile
-	   public ResultSet view(CarCustomer myaccount)
+	   public List<CarCustomer> view(CarCustomer myaccount)
 	   {
-		 String query="select * from userdetails where u_name in ?";  
+		 String query="select user_id,u_name,mobileno,u_password,u_email,u_address from userdetails where u_name in ?";  
 			Connection con = null;
 			PreparedStatement pstmt = null;
 			ResultSet rs = null;
+			List<CarCustomer> custdetails=new ArrayList<CarCustomer>();
 			try {
 				con = ConnectionUtil.getDBconnection();
 			    pstmt = con.prepareStatement(query);
 				pstmt.setString(1, myaccount.getName());
-				 rs = pstmt.executeQuery();
+				rs = pstmt.executeQuery();
+				while(rs.next())
+					{
+						CarCustomer customer = new CarCustomer(rs.getInt(1),rs.getString(2),rs.getLong(3),rs.getString(4),rs.getString(5),rs.getString(6));
+						custdetails.add(customer);
+					}
 			} catch (SQLException | ClassNotFoundException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			return rs;
+			return custdetails;
 	   }
 	   
 	   //email check
@@ -216,7 +221,6 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 			stmt.close();
 			con.close();
 		} catch (SQLException | ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		if(l>0)
@@ -241,7 +245,6 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 			stmt.close();
 			con.close();
 		} catch (SQLException | ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return l;
@@ -267,7 +270,6 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 				}
 				
 			}  catch (SQLException | ClassNotFoundException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 			return custlist;

@@ -22,36 +22,27 @@ import com.carserviceapp.model.CarPickUp;
 
 @WebServlet("/paymentpage")
 public class PaymentPageServlet extends HttpServlet {
-       
- 
+	private static final long serialVersionUID = 1L;
+
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		// TODO Auto-generated method stub
-		
-		System.out.println("drtfyguhijokl");
 		 HttpSession session =request.getSession();
+		try
+		{
 		 int userid=Integer.parseInt(session.getAttribute("userid").toString());
 		 
-		     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM");
-			int bill_num1=Integer.parseInt(session.getAttribute("bill_num").toString());
+		    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM");
+			int billnum1=Integer.parseInt(session.getAttribute("bill_num").toString());
 			long cardno=Long.parseLong(request.getParameter("cardnum"));
 			String holdername=request.getParameter("holdername");
-		
 				String dateStr = request.getParameter("expdate");
-				
-			 System.out.println("string : "+dateStr);
-			
 				Date date = null;
-				try {
-					date = sdf.parse(dateStr);
-				} catch (ParseException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				System.out.println("date : "+ sdf.format(date));
-			int cvv_no=Integer.parseInt(request.getParameter("cvvno"));
-			int amount_paid=Integer.parseInt(request.getParameter("amountpaid"));
-			CarPayment obj1 = new CarPayment(bill_num1,cardno,holdername,date,cvv_no,amount_paid);
+			    date = sdf.parse(dateStr);
+			int cvvno=Integer.parseInt(request.getParameter("cvvno"));
+			
+			int amountpaid=Integer.parseInt(request.getParameter("amountpaid"));
+			CarPayment obj1 = new CarPayment(billnum1,cardno,holdername,date,cvvno,amountpaid);
 			CarPaymentDAOImpl cust = new CarPaymentDAOImpl();
 			int x=cust.insert(obj1);
 				if(x==1)
@@ -65,5 +56,10 @@ public class PaymentPageServlet extends HttpServlet {
 					cdao.updatepickupstatus(picker);
 					response.sendRedirect("UserThanksPage.jsp");
 				} 
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 		 } 
 }
