@@ -10,9 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.carserviceapp.daoimpl.CarCustomerDAOImpl;
 import com.carserviceapp.daoimpl.CarPickUpDAOImpl;
-import com.carserviceapp.model.CarCustomer;
 import com.carserviceapp.model.CarPickUp;
 
 @WebServlet("/PickUpReports")

@@ -136,7 +136,6 @@ p
    <div class="container mt-1"> 
     <form action="paymentpage" method="post" class="was-validated">
                <div class="register">
-               <fieldset>
                      <h2>Payment</h2>
                      <hr>
                      <div class="mb-0 mt-0">
@@ -163,10 +162,8 @@ p
                      <p id="terms">By accepting you agree to our <a href="termsAndPrivacy.jsp" style="color:red">Terms & Privacy</a>.</p>
                      <div class="clearfix">
                          <button type="submit" class="btn btn-dark">Submit</button>
-                    </div> 
-               </div>
-                </fieldset>
+                    </div>  
        </form>
-    
+    </div>
 </body>
 </html>

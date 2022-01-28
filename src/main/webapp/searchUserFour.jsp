@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"  import="com.carserviceapp.connection.*" import ="java.sql.*" 
-    import="com.carserviceapp.model.*" import="com.carserviceapp.daoimpl.*"  import="com.carserviceapp.dao.*"%>
+    pageEncoding="ISO-8859-1" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>

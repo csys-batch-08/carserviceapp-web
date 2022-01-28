@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.carserviceapp.daoimpl.CarServicesDAOImpl;
 import com.carserviceapp.model.CarServices;
-import com.carserviceapp.model.CenterDetails;
 
 @WebServlet("/SearchUserThreeServlet")
 public class SearchUserThreeServlet extends HttpServlet {

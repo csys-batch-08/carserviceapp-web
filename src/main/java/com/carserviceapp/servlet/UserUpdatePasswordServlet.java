@@ -1,8 +1,6 @@
 package com.carserviceapp.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,9 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.carserviceapp.daoimpl.CarCustomerDAOImpl;
-import com.carserviceapp.daoimpl.CarServicesDAOImpl;
 import com.carserviceapp.model.CarCustomer;
-import com.carserviceapp.model.CarServices;
 
 @WebServlet("/updatepassword")
 public class UserUpdatePasswordServlet extends HttpServlet {

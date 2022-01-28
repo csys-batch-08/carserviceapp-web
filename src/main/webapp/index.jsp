@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"
+    pageEncoding="ISO-8859-1"   import="com.carserviceapp.connection.*" import ="java.sql.*" import="com.carserviceapp.model.*"
+    import="javax.servlet.http.HttpSession"  import="com.carserviceapp.daoimpl.*"  import="com.carserviceapp.dao.*"
     isELIgnored="false"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -119,7 +120,7 @@ button:hover{
 <body>
     <div class="container">
         <div class="heading">
-       <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
+       <a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">

@@ -25,7 +25,6 @@ public class MyOrdersTwoServlet extends HttpServlet {
     	BillDetails obj1 = new BillDetails(userid);
     	BillDetailsDAOImpl cent = new BillDetailsDAOImpl();
     	myorderstwo= cent.pendingview(obj1);
-    	System.out.println(myorderstwo);
 			request.setAttribute("myorderstwo",myorderstwo);
 			RequestDispatcher rd=request.getRequestDispatcher("myOrdersTwo.jsp");
 			rd.forward(request, response);

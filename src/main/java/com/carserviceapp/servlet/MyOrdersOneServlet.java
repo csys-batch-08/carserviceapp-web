@@ -1,7 +1,6 @@
 package com.carserviceapp.servlet;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -23,7 +22,6 @@ public class MyOrdersOneServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session=request.getSession();
 		int userid=Integer.parseInt(session.getAttribute("userid").toString());
-		System.out.println(userid);
 		BillDetails payment = new BillDetails(userid);
 		BillDetailsDAOImpl dao1 = new BillDetailsDAOImpl();
 		int billnum=0;
