@@ -134,12 +134,12 @@ body
   </thead>
   <c:forEach items="${showcenter}" var="p" >
   <tr>
-     <td>${p.center_id}</td>
-     <td>${p.center_name}</td>
-     <td>${p.center_location}</td>
-     <td>${p.center_contact}</td>
-     <td>${p.center_email}</td>
-     <td>${p.center_address}</td>
+     <td>${p.centerId}</td>
+     <td>${p.centerName}</td>
+     <td>${p.centerLocation}</td>
+     <td>${p.centerContact}</td>
+     <td>${p.centerEmail}</td>
+     <td>${p.centerAddress}</td>
   </tr>
   </c:forEach>
 </table>

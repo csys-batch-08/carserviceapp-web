@@ -3,7 +3,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +22,7 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 			con = ConnectionUtil.getDBconnection();
 			stmt = con.prepareStatement(insertQuery);
 			stmt.setString(1,user.getName());
-			stmt.setLong(2,user.getMobileno());
+			stmt.setLong(2,user.getMobileNo());
 			stmt.setString(3,user.getPassword());
 			stmt.setString(4,user.getEmail());
 			stmt.setString(5,user.getAddress());
@@ -143,7 +142,7 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 			try {
 				con = ConnectionUtil.getDBconnection();
 			    stmt = con.prepareStatement(query);
-				stmt.setLong(1, mobile.getMobileno());
+				stmt.setLong(1, mobile.getMobileNo());
 				 rs = stmt.executeQuery();
 				 while(rs.next())
 				 {
@@ -162,7 +161,7 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 	   
 	   
 	   
-	   public int fetchid(CarCustomer myaccount) throws SQLException
+	   public int fetchid(CarCustomer myaccount)
 	   {
 		    String query="select user_id from userdetails where u_name in ?";  
 			Connection con = null;
@@ -174,7 +173,10 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 			    stmt = con.prepareStatement(query);
 				stmt.setString(1, myaccount.getName());
 				 rs = stmt.executeQuery();
+				 while(rs.next())
+				 {
 				 userid=rs.getInt(1);
+				 }
 			} catch (SQLException | ClassNotFoundException e) 
 			{
 				e.printStackTrace();
@@ -197,7 +199,7 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 			con = ConnectionUtil.getDBconnection();
 			stmt = con.prepareStatement(updateQuery);
 			stmt.setString(1,user.getPassword());
-			stmt.setInt(2,user.getUser_id());	
+			stmt.setInt(2,user.getUserId());	
 			k = stmt.executeUpdate();
 		} catch (SQLException | ClassNotFoundException e) 
 		{
@@ -226,7 +228,7 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
      	  
 			stmt = con.prepareStatement(updateQuery);
 			stmt.setString(1,user.getPassword());
-			stmt.setLong(2,user.getMobileno()); 
+			stmt.setLong(2,user.getMobileNo()); 
 			k = stmt.executeUpdate();
 		} catch (SQLException | ClassNotFoundException e) 
 		{
@@ -254,7 +256,7 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 		try {
 			con = ConnectionUtil.getDBconnection();
 			stmt = con.prepareStatement(deleteQuery);
-			stmt.setLong(1,user.getMobileno());
+			stmt.setLong(1,user.getMobileNo());
 			l = stmt.executeUpdate();
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();

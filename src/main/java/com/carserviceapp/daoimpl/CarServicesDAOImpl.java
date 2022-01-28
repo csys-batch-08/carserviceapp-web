@@ -3,7 +3,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import com.carserviceapp.connection.*;
@@ -21,9 +20,9 @@ public class CarServicesDAOImpl implements CarServicesDAO
 			con = ConnectionUtil.getDBconnection();
 		  
 			stmt = con.prepareStatement(insertQuery);
-			stmt.setString(1,service.getService_name());
-			stmt.setInt(2,service.getService_cost());
-			stmt.setString(3,service.getService_desc());
+			stmt.setString(1,service.getServiceName());
+			stmt.setInt(2,service.getServiceCost());
+			stmt.setString(3,service.getServiceDesc());
 			i = stmt.executeUpdate();
 		} catch (SQLException | ClassNotFoundException e) 
 		{
@@ -48,8 +47,8 @@ public class CarServicesDAOImpl implements CarServicesDAO
 		try {
 			con = ConnectionUtil.getDBconnection();
 			stmt = con.prepareStatement(updateQuery);
-			stmt.setInt(1,service.getService_cost());
-			stmt.setInt(2,service.getService_id());		 
+			stmt.setInt(1,service.getServiceCost());
+			stmt.setInt(2,service.getServiceId());		 
 			k = stmt.executeUpdate();
 		} catch (SQLException | ClassNotFoundException e) 
 		{
@@ -76,7 +75,7 @@ public class CarServicesDAOImpl implements CarServicesDAO
 		   String deleteQuery="update services set status='inactive' where service_id=?";
 		   con =ConnectionUtil.getDBconnection();
 		   stmt=con.prepareStatement(deleteQuery);
-		   stmt.setInt(1,service.getService_id());
+		   stmt.setInt(1,service.getServiceId());
 		   l = stmt.executeUpdate();
 	   } catch (SQLException | ClassNotFoundException e)
 		   {
@@ -96,7 +95,7 @@ public class CarServicesDAOImpl implements CarServicesDAO
 	   
 	   public int checkserviceid(CarServices services)
 	   {
-		 String query="select service_id,service_name,service_cost,service_desc,desc from services where service_id in ?";  
+		 String query="select service_id,service_name,service_cost,service_desc from services where service_id=?";  
 			Connection con = null;
 			PreparedStatement stmt = null;
 			ResultSet rs = null;
@@ -104,7 +103,7 @@ public class CarServicesDAOImpl implements CarServicesDAO
 			try {
 				con = ConnectionUtil.getDBconnection();
 			    stmt = con.prepareStatement(query);
-				stmt.setInt(1,services.getService_id());
+				stmt.setInt(1,services.getServiceId());
 				 rs = stmt.executeQuery();
 				 while(rs.next())
 				 {

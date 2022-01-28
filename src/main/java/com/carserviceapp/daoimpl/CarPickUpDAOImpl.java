@@ -20,12 +20,12 @@ public class CarPickUpDAOImpl implements CarPickUpDAO
 		try {
 			con = ConnectionUtil.getDBconnection();
 			stmt = con.prepareStatement(insertQuery);
-			stmt.setInt(1,pickup.getUser_id());
-			stmt.setString(2,pickup.getC_name());
-			stmt.setString(3,pickup.getC_email());
-			stmt.setLong(4,pickup.getC_mobile());
-			stmt.setString(5,pickup.getPick_address());
-			stmt.setInt(6,pickup.getCenter_id());
+			stmt.setInt(1,pickup.getUserId());
+			stmt.setString(2,pickup.getcName());
+			stmt.setString(3,pickup.getcEmail());
+			stmt.setLong(4,pickup.getcMobile());
+			stmt.setString(5,pickup.getPickAddress());
+			stmt.setInt(6,pickup.getCenterId());
 		    i = 0;
 			i = stmt.executeUpdate();
 		} catch (SQLException | ClassNotFoundException e) {
@@ -48,8 +48,8 @@ public class CarPickUpDAOImpl implements CarPickUpDAO
 		  String updateQuery="update pickup set pick_address=? where user_id=?";
 		  con=ConnectionUtil.getDBconnection();
 		  stmt = con.prepareStatement(updateQuery);
-		  stmt.setString(1,pickup.getPick_address());
-		  stmt.setInt(2,pickup.getUser_id());
+		  stmt.setString(1,pickup.getPickAddress());
+		  stmt.setInt(2,pickup.getUserId());
 		  k =stmt.executeUpdate();
 		  } catch (SQLException | ClassNotFoundException e)
 	           {
@@ -76,7 +76,7 @@ public class CarPickUpDAOImpl implements CarPickUpDAO
 		   String deleteQuery="delete from pickup where pickup_id=?";
 		   con =ConnectionUtil.getDBconnection();
 		   stmt=con.prepareStatement(deleteQuery);
-		   stmt.setInt(1,pickup.getPickup_id());
+		   stmt.setInt(1,pickup.getPickupId());
 		   l = stmt.executeUpdate();
 	   } catch (SQLException | ClassNotFoundException e) 
 		   {
@@ -130,7 +130,7 @@ public class CarPickUpDAOImpl implements CarPickUpDAO
 			try {
 				con = ConnectionUtil.getDBconnection();
 				stmt=con.prepareStatement(showQuery);
-				stmt.setInt(1,admincenter.getCenter_id());
+				stmt.setInt(1,admincenter.getCenterId());
 				rs=stmt.executeQuery();	
 				while(rs.next())
 				{
@@ -158,7 +158,7 @@ public class CarPickUpDAOImpl implements CarPickUpDAO
 		try {
 			con = ConnectionUtil.getDBconnection();
 			stmt = con.prepareStatement(updateQuery);
-			stmt.setInt(1,pick.getUser_id());
+			stmt.setInt(1,pick.getUserId());
 			k =stmt.executeUpdate();
 		} catch (SQLException | ClassNotFoundException e) 
 		{

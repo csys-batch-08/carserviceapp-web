@@ -136,13 +136,13 @@ body
   </thead>
   <c:forEach items="${viewcenters}" var="p" >
   <tr>
-     <td>${p.pickup_id}</td>
-     <td>${p.user_id}</td>
-     <td>${p.c_name}</td>
-     <td>${p.c_email}</td>
-     <td>${p.c_mobile}</td>
-     <td>${p.pick_address}</td>
-     <td>${p.center_id}</td>
+     <td>${p.pickupId}</td>
+     <td>${p.userId}</td>
+     <td>${p.cName}</td>
+     <td>${p.cEmail}</td>
+     <td>${p.cMobile}</td>
+     <td>${p.pickAddress}</td>
+     <td>${p.centerId}</td>
   </tr>
    </c:forEach>
 </table>

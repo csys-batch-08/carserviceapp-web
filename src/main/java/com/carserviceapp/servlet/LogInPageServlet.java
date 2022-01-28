@@ -30,12 +30,7 @@ public class LogInPageServlet extends HttpServlet {
 		   CarCustomerDAOImpl cust = new CarCustomerDAOImpl();
 		   cust.fetch(obj1);
 		   int getuserid = 0;
-		try {
-			getuserid = cust.fetchid(obj1);
-		} catch (SQLException e) 
-		{
-			e.printStackTrace();
-		}
+		   getuserid= cust.fetchid(obj1);
 		   session.setAttribute("username", username);
 		   session.setAttribute("password", password);
 		   session.setAttribute("userid",getuserid);

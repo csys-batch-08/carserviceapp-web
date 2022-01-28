@@ -136,9 +136,9 @@ body
   </thead>
     <c:forEach items="${myprofile}" var="p" >
   <tr>
-     <td>${p.user_id}</td>
+     <td>${p.userId}</td>
      <td>${p.name}</td>
-     <td>${p.mobileno}</td>
+     <td>${p.mobileNo}</td>
      <td>${p.password}</td>
      <td>${p.email}</td>
      <td>${p.address}</td>    

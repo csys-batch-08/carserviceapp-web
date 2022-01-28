@@ -132,9 +132,9 @@ body
   </thead>
   <c:forEach items="${billlist}" var="p" >
   <tr>
-     <td>${p.bill_num}</td>
-     <td>${p.user_id}</td>
-     <td>${p.serv_date}</td>
+     <td>${p.billNum}</td>
+     <td>${p.userId}</td>
+     <td>${p.servDate}</td>
      <td>${p.amount}</td>
      <td>${p.status}</td>
   </tr>

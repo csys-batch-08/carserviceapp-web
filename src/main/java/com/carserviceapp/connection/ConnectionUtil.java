@@ -5,13 +5,15 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 public class ConnectionUtil 
 {
-	  public static Connection getDBconnection() throws ClassNotFoundException, SQLException
+	  private ConnectionUtil() {
+		super();
+	}
+
+	public static Connection getDBconnection() throws ClassNotFoundException, SQLException
 	  {
 		  Class.forName("oracle.jdbc.OracleDriver");
 		  
-		  Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","oracle");
-		  
-		  return con;
+		  return DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","oracle");
 	  }
 
 	  public static void closePreparedStatement(PreparedStatement stmt,Connection con)

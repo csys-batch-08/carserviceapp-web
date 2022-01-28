@@ -3,34 +3,33 @@ package com.carserviceapp.model;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 public class BillDetails
 {
-private int bill_num;
-private int user_id;
-private LocalDate serv_date;
+private int billNum;
+private int userId;
+private LocalDate servDate;
 private int amount;
 private String status;
 DateTimeFormatter formatter =
 DateTimeFormatter.ofPattern("dd-MM-yyyy");
-public int getBill_num() {
-	return bill_num;
+public int getBillNum() {
+	return billNum;
 }
-public void setBill_num(int bill_num) {
-	this.bill_num = bill_num;
+public void setBillNum(int billNum) {
+	this.billNum = billNum;
 }
-public int getUser_id() {
-	return user_id;
+public int getUserId() {
+	return userId;
 }
-public void setUser_id(int user_id) {
-	this.user_id = user_id;
+public void setUserId(int userId) {
+	this.userId = userId;
 }
-public String getServ_date()
+public String getServDate()
 {
-	return serv_date.format(formatter);
+	return servDate.format(formatter);
 }
-public void setServ_date(LocalDate serv_date) {
-	this.serv_date = serv_date;
+public void setServDate(LocalDate servDate) {
+	this.servDate = servDate;
 }
 public int getAmount() {
 	return amount;
@@ -47,65 +46,56 @@ public String getStatus() {
 public void setStatus(String status) {
 	this.status = status;
 }
-//public billDetails(int user_id) {
-//	super();
-//	this.user_id = user_id;
-//}
 
 //for insert
-public BillDetails(int user_id, LocalDate servdate,int amount) {
+public BillDetails(int userId, LocalDate servDate,int amount) {
 	super();
-	this.bill_num = bill_num;
-	this.user_id = user_id;
-	this.serv_date = servdate;
+	this.userId = userId;
+	this.servDate = servDate;
 	this.amount = amount;
 }
 
 
 //for user bill
-public BillDetails(int bill_num, LocalDate serv_date, int amount, String status) {
+public BillDetails(int billNum, LocalDate servDate, int amount, String status) {
 	super();
-	this.bill_num = bill_num;
-	this.serv_date = serv_date;
+	this.billNum = billNum;
+	this.servDate = servDate;
 	this.amount = amount;
 	this.status = status;
 }
 //for admin
-public BillDetails(int bill_num, int user_id, LocalDate serv_date, int amount, String status) {
+public BillDetails(int billNum, int userId, LocalDate servDate, int amount, String status) {
 	super();
-	this.bill_num = bill_num;
-	this.user_id = user_id;
-	this.serv_date = serv_date;
+	this.billNum = billNum;
+	this.userId = userId;
+	this.servDate = servDate;
 	this.amount = amount;
 	this.status = status;
 }
 
 //for pay
-public BillDetails(int user_id) {
+public BillDetails(int userId) {
 	super();
-	this.user_id = user_id;
+	this.userId = userId;
 }
 
-//public billDetails(int bill_num) {
-//	super();
-//	this.bill_num = bill_num;
-//}
 //for update bill
-public BillDetails(int bill_num, int amount) {
+public BillDetails(int billNum, int amount) {
 	super();
-	this.bill_num = bill_num;
+	this.billNum = billNum;
 	this.amount = amount;
 }
-public BillDetails(int user_id,int bill_num,String dummy)
+public BillDetails(int userId,int billNum,String dummy)
 {
 	super();
-	this.user_id=user_id;
-	this.bill_num=bill_num;	
+	this.userId=userId;
+	this.billNum=billNum;	
 }
 
 @Override
 public String toString() {
-	return "billDetails \n bill_num=" + bill_num + "\n user_id=" + user_id +"\n serv_date=" + serv_date + "\n amount=" + amount+"\n status="+status+"\n\n";
+	return "billDetails \n bill_num=" + billNum + "\n user_id=" + userId +"\n serv_date=" + servDate + "\n amount=" + amount+"\n status="+status+"\n\n";
 }
 
 

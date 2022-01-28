@@ -133,10 +133,10 @@ body
   </thead>
    <c:forEach items="${showservice}" var="p" >
   <tr>
-     <td>${p.service_name}</td>
-     <td>${p.service_cost}</td>
-     <td>${p.service_desc}</td>
-     <td>${p.service_id}</td>
+     <td>${p.serviceName}</td>
+     <td>${p.serviceCost}</td>
+     <td>${p.serviceDesc}</td>
+     <td>${p.serviceId}</td>
   </tr>
   </c:forEach>
 </table>

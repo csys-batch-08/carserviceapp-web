@@ -1,35 +1,32 @@
 package com.carserviceapp.model;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 public class CarCustomer 
 {
   private String name;
-  private long mobileno;
+  private long mobileNo;
   private String password; 
   private String email;
   private String address;
-  private int user_id;
-  private String usertype;
+  private int userId;
+  private String userType;
   
 public String getName() {
 	return name;
 }
-public int getUser_id() {
-	return user_id;
+public int getUserId() {
+	return userId;
 }
-public void setUser_id(int user_id) {
-	this.user_id = user_id;
+public void setUserId(int userId) {
+	this.userId = userId;
 }
 public void setName(String name) {
 	this.name = name;
 }
-public long getMobileno() {
-	return mobileno;
+public long getMobileNo() {
+	return mobileNo;
 }
-public void setMobileno(long mobileno) {
-	this.mobileno = mobileno;
+public void setMobileNo(long mobileNo) {
+	this.mobileNo = mobileNo;
 }
 public String getPassword() {
 	return password;
@@ -49,41 +46,46 @@ public String getAddress() {
 public void setAddress(String address) {
 	this.address = address;
 }
-
-public CarCustomer( int user_id,String name, long mobileno, String password, String email,
+public String getUserType() {
+	return userType;
+}
+public void setUserType(String userType) {
+	this.userType = userType;
+}
+public CarCustomer( int userId,String name, long mobileNo, String password, String email,
 		String address) {
 	super();
-	this.user_id=user_id;
+	this.userId=userId;
 	this.name = name;
-	this.mobileno = mobileno;
+	this.mobileNo = mobileNo;
 	this.password = password;
 	this.email = email;
 	this.address = address;
 }
-public CarCustomer() {
+public CarCustomer() 
+{
 	super();
-	// TODO Auto-generated constructor stub
 }
 
-public CarCustomer(int user_id,String password)
+public CarCustomer(int userId,String password)
 {
 	super();
 	this.password = password;
-	this.user_id = user_id;
+	this.userId = userId;
 }
 
 
-public CarCustomer(long mobileno,String password)
+public CarCustomer(long mobileNo,String password)
 {
 	super();
 	this.password = password;
-	this.mobileno = mobileno;
+	this.mobileNo = mobileNo;
 }
 
-public CarCustomer(long mobileno,String email,String dummy)
+public CarCustomer(long mobileNo,String email,String dummy)
 {
 	super();
-	this.mobileno = mobileno;
+	this.mobileNo = mobileNo;
 	this.email = email;
 }
 
@@ -92,37 +94,37 @@ public CarCustomer(String name, String password) {
 	this.name = name;
 	this.password = password;
 }
-public CarCustomer(String name, long mobileno, String email, String address, int user_id) {
+public CarCustomer(String name, long mobileNo, String email, String address, int userId) {
 	super();
 	this.name = name;
-	this.mobileno = mobileno;
+	this.mobileNo = mobileNo;
 	this.email = email;
 	this.address = address;
-	this.user_id = user_id;
+	this.userId = userId;
 }
 
-public CarCustomer(String name, long mobileno, String password, String email, String address) {
+public CarCustomer(String name, long mobileNo, String password, String email, String address) {
 	super();
 	this.name = name;
-	this.mobileno = mobileno;
+	this.mobileNo = mobileNo;
 	this.password = password;
 	this.email = email;
 	this.address = address;
 }
-public CarCustomer(long mobileno) {
+public CarCustomer(long mobileNo) {
 	super();
-	this.mobileno = mobileno;
+	this.mobileNo = mobileNo;
 }
 
-public CarCustomer(String username)
+public CarCustomer(String name)
 {
 	this.name=name;
 }
 
 @Override
 public String toString() {
-	return "Customer \n name=" + name + "\n mobileno=" + mobileno + "\n email=" + email
-			+ "\n address=" + address + "\n"+user_id+"\n\n";
+	return "Customer \n name=" + name + "\n mobileno=" + mobileNo + "\n email=" + email
+			+ "\n address=" + address + "\n"+userId+"\n\n";
 }
   
 }

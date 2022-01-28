@@ -23,16 +23,12 @@ public class MyOrdersOneServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session=request.getSession();
 		int userid=Integer.parseInt(session.getAttribute("userid").toString());
+		System.out.println(userid);
 		BillDetails payment = new BillDetails(userid);
 		BillDetailsDAOImpl dao1 = new BillDetailsDAOImpl();
 		int billnum=0;
 		List<BillDetails> myordersone=null;
-		try {
-			billnum=dao1.fetchbillnum(payment);
-		} catch (SQLException e) 
-		{
-			e.printStackTrace();
-		}
+		billnum=dao1.fetchbillnum(payment);
 		if(billnum!=0)
 		{
 		session.setAttribute("bill_num",billnum);

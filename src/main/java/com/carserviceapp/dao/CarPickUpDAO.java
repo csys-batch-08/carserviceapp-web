@@ -1,6 +1,5 @@
 package com.carserviceapp.dao;
 
-import java.sql.ResultSet;
 import java.util.List;
 
 import com.carserviceapp.model.CarPickUp;
@@ -12,5 +11,5 @@ public interface CarPickUpDAO
 	 public boolean delete(CarPickUp pickup);
 	 public List<CarPickUp> pickupview();
 	 public List<CarPickUp> admincenterview(CarPickUp admincenter);
-	 
+	 public boolean updatepickupstatus(CarPickUp pick);
 }

@@ -3,7 +3,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,12 +20,12 @@ public class CenterDetailsDAOImpl implements CenterDetailsDAO
 		try {
 			con = ConnectionUtil.getDBconnection();
 			stmt = con.prepareStatement(insertQuery);
-			stmt.setInt(1,center.getUser_id());
-			stmt.setString(2,center.getCenter_name());
-			stmt.setString(3,center.getCenter_location());
-			stmt.setLong(4,center.getCenter_contact());
-			stmt.setString(5,center.getCenter_email());
-			stmt.setString(6,center.getCenter_address());
+			stmt.setInt(1,center.getUserId());
+			stmt.setString(2,center.getCenterName());
+			stmt.setString(3,center.getCenterLocation());
+			stmt.setLong(4,center.getCenterContact());
+			stmt.setString(5,center.getCenterEmail());
+			stmt.setString(6,center.getCenterAddress());
 			i = stmt.executeUpdate();
 		} catch (SQLException | ClassNotFoundException e) 
 		{
@@ -68,10 +67,8 @@ public class CenterDetailsDAOImpl implements CenterDetailsDAO
 				}
 			return centerlist;
 		}  
-	   
 	   public List<CenterDetails> showsview() 
 		{
-			
 			String showQuery="select center_id,center_name,c_location,c_contact,c_email,c_address from service_center where status='active'";
 			ResultSet rs=null;
 			 Connection con = null;
@@ -106,7 +103,7 @@ public class CenterDetailsDAOImpl implements CenterDetailsDAO
 			try {
 				con = ConnectionUtil.getDBconnection();
 			    stmt = con.prepareStatement(query);
-				stmt.setInt(1,center.getCenter_id());
+				stmt.setInt(1,center.getCenterId());
 				 rs = stmt.executeQuery();
 				 while(rs.next())
 				 {
@@ -133,7 +130,7 @@ public class CenterDetailsDAOImpl implements CenterDetailsDAO
 		try {
 			con = ConnectionUtil.getDBconnection();
 			stmt = con.prepareStatement(deleteQuery);
-			stmt.setInt(1,center.getCenter_id());
+			stmt.setInt(1,center.getCenterId());
 		
 			k = stmt.executeUpdate();
 		} catch (SQLException | ClassNotFoundException e) 
@@ -161,8 +158,8 @@ public class CenterDetailsDAOImpl implements CenterDetailsDAO
 		try {
 			con = ConnectionUtil.getDBconnection();
 			stmt = con.prepareStatement(deleteQuery);
-			stmt.setLong(1,center.getCenter_contact());
-			stmt.setInt(2,center.getCenter_id());
+			stmt.setLong(1,center.getCenterContact());
+			stmt.setInt(2,center.getCenterId());
 			l = stmt.executeUpdate();
 		} catch (SQLException | ClassNotFoundException e) 
 		{

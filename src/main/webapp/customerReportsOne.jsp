@@ -133,10 +133,10 @@ body
    <c:forEach items="${custlist}" var="p" >
   <tr>
      <td>${p.name}</td>
-     <td>${p.mobileno}</td>
+     <td>${p.mobileNo}</td>
      <td>${p.email}</td>
      <td>${p.address}</td>
-     <td>${p.user_id}</td>
+     <td>${p.userId}</td>
   </tr>
   </c:forEach>
 </table>

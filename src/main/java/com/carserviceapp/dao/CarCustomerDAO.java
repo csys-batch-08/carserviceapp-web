@@ -1,6 +1,5 @@
 package com.carserviceapp.dao;
 
-import java.sql.ResultSet;
 import java.util.List;
 
 import com.carserviceapp.model.CarCustomer;
@@ -15,4 +14,7 @@ public interface CarCustomerDAO
 	public List<CarCustomer> view();
 	public String getEmail(CarCustomer email);
 	public Long getMobile(CarCustomer mobile);
+	public int fetchid(CarCustomer myaccount);
+	public boolean forgotpassword(CarCustomer user);
+	public int reactivate(CarCustomer user);
 }

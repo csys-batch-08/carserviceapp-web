@@ -113,8 +113,8 @@ body
               <legend><h2>My Orders</h2></legend>
                  <div class="mb-3 mt-3">
                      <label for="billdet"><strong>Is your car under Service...yes/no</strong></label><br><br>
-                     <a href="myOrdersOne"><button type="submit" class="btn btn-dark">Yes</button></a>
-                     <a href="myOrdersTwo"><button type="submit" class="btn btn-dark">No</button></a> 
+                     <a href="MyOrdersOne"><button type="submit" class="btn btn-dark">Yes</button></a>
+                     <a href="MyOrdersTwo"><button type="submit" class="btn btn-dark">No</button></a> 
                      <a href="userPage.jsp"><button type="submit" class="btn btn-dark">Back</button></a>
                  </div>                    
           </fieldset>   

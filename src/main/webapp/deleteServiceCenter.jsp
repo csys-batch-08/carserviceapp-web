@@ -104,7 +104,6 @@ form
       <div class="addservice">
        <h1>Delete ServiceCenter</h1>
           <form action="deletecenter" method="post">
-            <fieldset>
                    <div class="mt-1 mb-1">
                      <label for="center" class="form-label"><strong>CenterId</strong></label><br>
                      <input type="text" class="form-control" placeholder="Enter CenterId" name="centerid" pattern="^[0-9]{3}$" required>
@@ -113,7 +112,6 @@ form
                      <button type="submit" class="btn btn-dark">Delete Center Contact</button>
                      <a href="adminPage.jsp" class="btn btn-dark">Back</a>
                    </div>   
-               </fieldset>
             </form>
           </div>
     </div>

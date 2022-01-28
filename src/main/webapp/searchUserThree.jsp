@@ -151,11 +151,11 @@ td a
   </thead>
   <c:forEach items="${servicelist}" var="p" >
   <tr>
-     <td>${p.service_name}</td>
-     <td>${p.service_cost}</td>
-     <td>${p.service_desc}</td>
-     <td>${p.service_id}</td>
-     <td> <a  href="chooseservices?serviceId=${p.service_id}"><button type="button" class="btn btn-dark">Select service</button></a></td>     
+     <td>${p.serviceName}</td>
+     <td>${p.serviceCost}</td>
+     <td>${p.serviceDesc}</td>
+     <td>${p.serviceId}</td>
+     <td> <a  href="chooseservices?serviceId=${p.serviceId}"><button type="button" class="btn btn-dark">Select service</button></a></td>     
   </tr>
   </c:forEach>
 </table>

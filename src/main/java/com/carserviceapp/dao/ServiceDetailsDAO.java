@@ -1,7 +1,5 @@
 package com.carserviceapp.dao;
 
-import java.util.List;
-
 import com.carserviceapp.model.ServiceDetails;
 
 public interface ServiceDetailsDAO 

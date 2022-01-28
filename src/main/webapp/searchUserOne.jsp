@@ -169,12 +169,12 @@ td a
   </thead>
  <c:forEach items="${centerlist}" var="p" >
      <tr>
-     <td>${p.center_id}</td>
-     <td>${p.center_name}</td>
-     <td>${p.center_location}</td>
-     <td>${p.center_contact}</td>
-     <td>${p.center_address}</td>
-     <td><a  href="SearchUserTwo?centerId=${p.center_id}"><button type="button" class="btn btn-dark">Select</button> </a></td>     
+     <td>${p.centerId}</td>
+     <td>${p.centerName}</td>
+     <td>${p.centerLocation}</td>
+     <td>${p.centerContact}</td>
+     <td>${p.centerAddress}</td>
+     <td><a  href="SearchUserTwo?centerId=${p.centerId}"><button type="button" class="btn btn-dark">Select</button> </a></td>     
      </tr>
     </c:forEach>
 </table>

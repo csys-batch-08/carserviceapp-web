@@ -181,7 +181,7 @@ h5{
                              <a href="searchUserOne.jsp"><button type="button">Explore</button></a>
                      </div>
                      <div class="col1">
-                         <a href="searchUserOne"><div class="card card1">
+                         <a href="SearchUserOne"><div class="card card1">
                              <h5>Search Service Center</h5>
                          </div></a>
                          
@@ -190,7 +190,7 @@ h5{
                         </div></a>
                         
                         
-                        <a href="userAccount"> <div class="card card3">
+                        <a href="UserAccount"> <div class="card card3">
                            <h5>MyAccount</h5>
                         </div></a>
                         

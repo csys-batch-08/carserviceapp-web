@@ -2,116 +2,116 @@ package com.carserviceapp.model;
 
 public class CenterDetails 
 {
-  private int center_id;
-  private String center_name;
-  private String center_location;
-  private long center_contact;
-  private String center_email;
-  private String center_address;
-  private int user_id;
+  private int centerId;
+  private String centerName;
+  private String centerLocation;
+  private long centerContact;
+  private String centerEmail;
+  private String centerAddress;
+  private int userId;
 
-public int getCenter_id() {
-	return center_id;
+
+public int getCenterId() {
+	return centerId;
 }
 
-public void setCenter_id(int center_id) {
-	this.center_id = center_id;
+public void setCenterId(int centerId) {
+	this.centerId = centerId;
 }
 
-public String getCenter_name() {
-	return center_name;
+public String getCenterName() {
+	return centerName;
 }
 
-public void setCenter_name(String center_name) {
-	this.center_name = center_name;
+public void setCenterName(String centerName) {
+	this.centerName = centerName;
 }
 
-public String getCenter_location() {
-	return center_location;
+public String getCenterLocation() {
+	return centerLocation;
 }
 
-public void setCenter_location(String center_location) {
-	this.center_location = center_location;
+public void setCenterLocation(String centerLocation) {
+	this.centerLocation = centerLocation;
 }
 
-public long getCenter_contact() {
-	return center_contact;
+public long getCenterContact() {
+	return centerContact;
 }
 
-public void setCenter_contact(long center_contact) {
-	this.center_contact = center_contact;
+public void setCenterContact(long centerContact) {
+	this.centerContact = centerContact;
 }
 
-public String getCenter_email() {
-	return center_email;
+public String getCenterEmail() {
+	return centerEmail;
 }
 
-public void setCenter_email(String center_email) {
-	this.center_email = center_email;
+public void setCenterEmail(String centerEmail) {
+	this.centerEmail = centerEmail;
 }
 
-public String getCenter_address() {
-	return center_address;
+public String getCenterAddress() {
+	return centerAddress;
 }
 
-public void setCenter_address(String center_address) {
-	this.center_address = center_address;
+public void setCenterAddress(String centerAddress) {
+	this.centerAddress = centerAddress;
 }
 
-public int getUser_id() {
-	return user_id;
+public int getUserId() {
+	return userId;
 }
 
-public void setUser_id(int user_id) {
-	this.user_id = user_id;
+public void setUserId(int userId) {
+	this.userId = userId;
 }
 
 public CenterDetails() {
 	super();
-	// TODO Auto-generated constructor stub
 }
 
 //for insert service center
-public CenterDetails(int user_id, String center_name, String center_location, long center_contact,
-		String center_email, String center_address,String dummy) {
+public CenterDetails(int userId, String centerName, String centerLocation, long centerContact,
+		String centerEmail, String centerAddress,String dummy) {
 	super();
-	this.user_id = user_id;
-	this.center_name = center_name;
-	this.center_location = center_location;
-	this.center_contact = center_contact;
-	this.center_email = center_email;
-	this.center_address = center_address;
+	this.userId = userId;
+	this.centerName = centerName;
+	this.centerLocation = centerLocation;
+	this.centerContact = centerContact;
+	this.centerEmail = centerEmail;
+	this.centerAddress = centerAddress;
 }
 
 //for view service center
-public CenterDetails(int center_id, String center_name, String center_location, long center_contact,
-		String center_email, String center_address) {
+public CenterDetails(int centerId, String centerName, String centerLocation, long centerContact,
+		String centerEmail, String centerAddress) {
 	super();
-	this.center_id = center_id;
-	this.center_name = center_name;
-	this.center_location = center_location;
-	this.center_contact = center_contact;
-	this.center_email = center_email;
-	this.center_address = center_address;
+	this.centerId = centerId;
+	this.centerName = centerName;
+	this.centerLocation = centerLocation;
+	this.centerContact = centerContact;
+	this.centerEmail = centerEmail;
+	this.centerAddress = centerAddress;
 }
 
-public CenterDetails(int center_id) {
+public CenterDetails(int centerId) {
 	super();
-	this.center_id = center_id;
+	this.centerId = centerId;
 }
 
 
-public CenterDetails(int center_id, long center_contact) {
+public CenterDetails(int centerId, long centerContact) {
 	super();
-	this.center_id = center_id;
-	this.center_contact = center_contact;
+	this.centerId = centerId;
+	this.centerContact = centerContact;
 }
 
 @Override
 public String toString() {
-	return "center_id=" + center_id + "\n center_name=" + center_name + "\n center_location="
-			+ center_location + "\n center_contact=" + center_contact + "\n center_email=" + center_email
-			+ "\n center_address=" + center_address+"\n";
+	return "center_id=" + centerId + "\n center_name=" + centerName + "\n center_location="
+			+ centerLocation + "\n center_contact=" + centerContact + "\n center_email=" + centerEmail
+			+ "\n center_address=" + centerAddress+"\n";
 }
   
 }
