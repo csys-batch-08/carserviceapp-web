@@ -15,28 +15,9 @@ import com.carserviceapp.model.CarPickUp;
 public class PickUpForm extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public PickUpForm() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    @Override
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		// TODO Auto-generated method stub
 		doGet(request, response);
 		 HttpSession session =request.getSession();
 		int userid=Integer.parseInt(session.getAttribute("userid").toString());
@@ -51,10 +32,10 @@ public class PickUpForm extends HttpServlet {
 		try {
 			if(x==1)
 			{
-				response.sendRedirect("SearchUserThree.jsp");
+				response.sendRedirect("searchUserThree.jsp");
 			}   
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
+		} catch (IOException e) 
+		{
 			e.printStackTrace();
 		}		
 	}

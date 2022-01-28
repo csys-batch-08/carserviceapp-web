@@ -15,13 +15,11 @@ import com.carserviceapp.daoimpl.CarPickUpDAOImpl;
 import com.carserviceapp.model.CarCustomer;
 import com.carserviceapp.model.CarPickUp;
 
-/**
- * Servlet implementation class PickUpReportsServlet
- */
 @WebServlet("/PickUpReports")
 public class PickUpReportsServlet extends HttpServlet 
 {
 	private static final long serialVersionUID = 1L;
+	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		CarPickUpDAOImpl ccdao = new CarPickUpDAOImpl();
@@ -29,7 +27,7 @@ public class PickUpReportsServlet extends HttpServlet
 		if (!pickuplist.isEmpty())
 		{
 			request.setAttribute("pickuplist",pickuplist);
-			RequestDispatcher rd=request.getRequestDispatcher("PickUpReports.jsp");
+			RequestDispatcher rd=request.getRequestDispatcher("pickUpReports.jsp");
 			rd.forward(request, response);
 		}
 	}

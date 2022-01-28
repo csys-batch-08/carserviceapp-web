@@ -13,7 +13,7 @@ import com.carserviceapp.model.CarCustomer;
 @WebServlet("/deleteaccount")
 public class UserDeleteAccountServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+       @Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		 HttpSession session =request.getSession();
@@ -24,7 +24,7 @@ public class UserDeleteAccountServlet extends HttpServlet {
 		 if(flag)
 		 {
 			   session.setAttribute("userinactive", true);
-		       response.sendRedirect("Index.jsp");
+		       response.sendRedirect("index.jsp");
 		  }
 	}
 }

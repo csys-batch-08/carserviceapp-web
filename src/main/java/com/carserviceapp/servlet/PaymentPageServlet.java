@@ -1,7 +1,6 @@
 package com.carserviceapp.servlet;
 
 import java.io.IOException;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -54,7 +53,7 @@ public class PaymentPageServlet extends HttpServlet {
 					double a=15.55;
 					CarPickUp picker = new CarPickUp(userid,a);
 					cdao.updatepickupstatus(picker);
-					response.sendRedirect("UserThanksPage.jsp");
+					response.sendRedirect("userThanksPage.jsp");
 				} 
 		}
 		catch(Exception e)

@@ -14,9 +14,6 @@ import javax.servlet.http.HttpSession;
 import com.carserviceapp.daoimpl.BillDetailsDAOImpl;
 import com.carserviceapp.model.BillDetails;
 
-/**
- * Servlet implementation class MyOrdersTwoServlet
- */
 @WebServlet("/MyOrdersTwo")
 public class MyOrdersTwoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -24,14 +21,14 @@ public class MyOrdersTwoServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	List<BillDetails> myorderstwo=null;
     	HttpSession session=request.getSession();
-    	int user_id=(int)(session.getAttribute("userid"));
-    	BillDetails obj1 = new BillDetails(user_id);
+    	int userid=(int)(session.getAttribute("userid"));
+    	BillDetails obj1 = new BillDetails(userid);
     	BillDetailsDAOImpl cent = new BillDetailsDAOImpl();
     	myorderstwo= cent.pendingview(obj1);
     	if (!myorderstwo.isEmpty())
 		{
 			request.setAttribute("myorderstwo",myorderstwo);
-			RequestDispatcher rd=request.getRequestDispatcher("MyOrdersTwo.jsp");
+			RequestDispatcher rd=request.getRequestDispatcher("myOrdersTwo.jsp");
 			rd.forward(request, response);
 		}
 	}

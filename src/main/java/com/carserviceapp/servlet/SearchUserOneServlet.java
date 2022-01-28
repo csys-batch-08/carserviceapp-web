@@ -13,9 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.carserviceapp.daoimpl.CenterDetailsDAOImpl;
 import com.carserviceapp.model.CenterDetails;
 
-/**
- * Servlet implementation class SearchUserOneServlet
- */
 @WebServlet("/SearchUserOne")
 public class SearchUserOneServlet extends HttpServlet
 {
@@ -26,7 +23,7 @@ public class SearchUserOneServlet extends HttpServlet
     	CenterDetailsDAOImpl center1 = new CenterDetailsDAOImpl();
     	List<CenterDetails> centerlist = center1.showsview();
     	request.setAttribute("centerlist",centerlist);
-		RequestDispatcher rd=request.getRequestDispatcher("SearchUserOne.jsp");
+		RequestDispatcher rd=request.getRequestDispatcher("searchUserOne.jsp");
 		rd.forward(request, response);
     	
 	}

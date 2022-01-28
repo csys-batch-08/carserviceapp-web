@@ -123,11 +123,11 @@ button:hover{
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
-        <a href="RegisterPage.jsp">Register</a>
-        <a href="LogIn.jsp">Login</a>
-        <a href="ContactUs.jsp">Contact Us</a>
-        <a href="AboutUs.jsp">About Us</a>
-        <a href="Index.jsp" >Home</a>          
+        <a href="registerPage.jsp">Register</a>
+        <a href="logIn.jsp">Login</a>
+        <a href="contactUs.jsp">Contact Us</a>
+        <a href="aboutUs.jsp">About Us</a>
+        <a href="index.jsp" >Home</a>          
        </div>
     </div>
      <%
@@ -143,7 +143,7 @@ button:hover{
                          <h1>MECHcent</h1>
                          <p id="paragh">Stay in the comforts of your home or office and make the most of our complimentary pick-up and drop-in service.
  Count on us to be your personal car care expert, advisor and car mechanic.</p>
-                             <a href="LogIn.jsp"><button type="button">Explore</button></a>
+                             <a href="logIn.jsp"><button type="button">Explore</button></a>
                      </div>
     </div>                 
 </body>

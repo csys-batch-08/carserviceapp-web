@@ -24,6 +24,6 @@ public class SearchUserFourServlet extends HttpServlet {
 		ServiceDetailsDAOImpl userserv = new ServiceDetailsDAOImpl();
 		ServiceDetails serv = new ServiceDetails(userid,serviceid);
 		userserv.insert(serv);
-        response.sendRedirect("SearchUserFour.jsp");
+        response.sendRedirect("searchUserFour.jsp");
 	}
 }

@@ -21,7 +21,7 @@ public class UserPageWarnServlet extends HttpServlet {
           String url=request.getParameter("url");
           request.setAttribute("message", message);
           request.setAttribute("url", url);
-      	  RequestDispatcher rd=request.getRequestDispatcher("UserPageWarn.jsp");
+      	  RequestDispatcher rd=request.getRequestDispatcher("userPageWarn.jsp");
 		  rd.forward(request, response);
 	}
 

@@ -25,7 +25,7 @@ public class UserReactivate extends HttpServlet {
     		 int l =cdao.reactivate(cust);
     		 if(l==1)
     		 {
-    			 response.sendRedirect("LogIn.jsp");
+    			 response.sendRedirect("logIn.jsp");
     		 }
 	}
 

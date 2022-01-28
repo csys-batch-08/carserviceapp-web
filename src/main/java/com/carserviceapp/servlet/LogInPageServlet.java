@@ -46,14 +46,14 @@ public class LogInPageServlet extends HttpServlet {
 			session.setAttribute("admin", val);
 			session.setAttribute("invalid", val);
 			if (val.equals("user")) {
-				response.sendRedirect("UserPage.jsp");
+				response.sendRedirect("userPage.jsp");
 			} else if (val.equals("admin")) {
-				RequestDispatcher rd=request.getRequestDispatcher("AdminPage.jsp");
+				RequestDispatcher rd=request.getRequestDispatcher("adminPage.jsp");
 				rd.forward(request, response);
 			}
 			else if(val.equals("invalid"))
 			{
-				RequestDispatcher rd=request.getRequestDispatcher("UserUnSuscribe.jsp");
+				RequestDispatcher rd=request.getRequestDispatcher("userUnSuscribe.jsp");
 				rd.forward(request, response);
 			}
 			else 
@@ -63,7 +63,7 @@ public class LogInPageServlet extends HttpServlet {
 				   throw new InvalidUserException();	
 				}catch(InvalidUserException e)
 				{
-				   response.sendRedirect("UserPageWarn.jsp?message="+e.getMessage()+"&url=LogIn.jsp");
+				   response.sendRedirect("UserPageWarn?message="+e.getMessage()+"&url=logIn.jsp");
 				}
 			}
 	}

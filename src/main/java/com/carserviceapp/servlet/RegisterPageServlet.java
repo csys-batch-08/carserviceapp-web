@@ -15,15 +15,14 @@ import com.carserviceapp.exception.ExistEmailIdException;
 import com.carserviceapp.exception.ExistMobileNoException;
 import com.carserviceapp.model.CarCustomer;
 
-/**
- * Servlet implementation class carservice
- */
-@WebServlet("/carserviceuser12")
+
+@WebServlet("/carserviceuserone")
 public class RegisterPageServlet extends HttpServlet 
 {
-	
-	
-	 public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	private static final long serialVersionUID = 1L;
+
+	@Override
+	 public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	   {	 
 		   String username=request.getParameter("user");
 		   Long mobileno = Long.parseLong(request.getParameter("mob"));
@@ -34,34 +33,28 @@ public class RegisterPageServlet extends HttpServlet
 		   CarCustomerDAOImpl cust = new CarCustomerDAOImpl();	   
 		   String dummy="";
 		   CarCustomer obj2 = new CarCustomer(mobileno,email,dummy);
-		   ResultSet rs=cust.getEmail(obj2);
-		   ResultSet rs1=cust.getMobile(obj2);
+		   String sameemail=cust.getEmail(obj2);
+		   Long samemobile=cust.getMobile(obj2);
   try { 
-		   if(rs.next())
+		   if(email.equals(sameemail))
 		   {
-			   if(email.equals(rs.getString(5)))
-			   {
-				   throw new ExistEmailIdException();
-			   }
+			   throw new ExistEmailIdException();
 		   }  
-		   if(rs1.next())
+		   if(mobileno.equals(samemobile))
 		   {
-			   if(mobileno.equals(rs1.getLong(3)))
-			   {
-				   throw new ExistMobileNoException();
-			   }
+			    throw new ExistMobileNoException();
 		   }
-		   boolean k=cust.insert(obj1);
-		   if(k==true)
+		   boolean check=cust.insert(obj1);
+		   if(check)
 		   {
-		   response.sendRedirect("LogIn.jsp");
+		   response.sendRedirect("logIn.jsp");
 		   }
        }
   catch (ExistMobileNoException | ExistEmailIdException d)
   {
-	   response.sendRedirect("UserPageWarn.jsp?message="+d.getMessage()+"&url=RegisterPage.jsp");
+	   response.sendRedirect("UserPageWarn?message="+d.getMessage()+"&url=registerPage.jsp");
    } 
-  catch (IOException | SQLException e) 
+  catch (IOException e) 
            {
 			e.printStackTrace();
 		   }

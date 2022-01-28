@@ -13,4 +13,6 @@ public interface CarCustomerDAO
 	public boolean update(CarCustomer user);
 	public boolean delete(CarCustomer user);
 	public List<CarCustomer> view();
+	public String getEmail(CarCustomer email);
+	public Long getMobile(CarCustomer mobile);
 }

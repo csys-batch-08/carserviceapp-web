@@ -17,10 +17,10 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 	   {
 		   String insertQuery="insert into userdetails(u_name,mobileno,u_password,u_email,u_address) values(?,?,?,?,?)";
 		   Connection con = null;
+		   PreparedStatement stmt = null;
 		   int i = 0;
 		   try {
 			con = ConnectionUtil.getDBconnection();
-		    PreparedStatement stmt = null;
 			stmt = con.prepareStatement(insertQuery);
 			stmt.setString(1,user.getName());
 			stmt.setLong(2,user.getMobileno());
@@ -28,16 +28,18 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 			stmt.setString(4,user.getEmail());
 			stmt.setString(5,user.getAddress());
 			i = stmt.executeUpdate();
-			stmt.close();
-			con.close();
-		} catch (SQLException | ClassNotFoundException e) {
-			// TODO Auto-generated catch block
+			if(i>0)
+			   {
+					return true;
+			   }
+		} catch (SQLException | ClassNotFoundException e) 
+		   {
 			e.printStackTrace();
-		}
-   if(i>0)
-   {
-		return true;
-   }
+		    }
+		   finally
+			{
+				ConnectionUtil.closePreparedStatement(stmt,con);
+			}
        return false;
 	   }
 	   
@@ -45,26 +47,32 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 	   {	
 			String query="select u_name,u_password from userdetails where u_name in ? and u_password in ?";
 			Connection con = null;
+			PreparedStatement stmt = null;
+			ResultSet rs = null;
+			PreparedStatement pstmt =null;
 			try {
 				con = ConnectionUtil.getDBconnection();
-			PreparedStatement pstmt = null;
-				pstmt = con.prepareStatement(query);
-				pstmt.setString(1, userpasscheck.getName());
-				pstmt.setString(2, userpasscheck.getPassword());
-			ResultSet rs = null;
-				rs = pstmt.executeQuery();
+				stmt = con.prepareStatement(query);
+				stmt.setString(1, userpasscheck.getName());
+				stmt.setString(2, userpasscheck.getPassword());
+				rs = stmt.executeQuery();
 				if(rs.next()) {
 					String query1="select usertype from userdetails where u_name in ?";
-					PreparedStatement pstmt1 = con.prepareStatement(query1);
-					pstmt1.setString(1, userpasscheck.getName());
-					ResultSet rs1 = pstmt1.executeQuery();
+					pstmt = con.prepareStatement(query1);
+					pstmt.setString(1, userpasscheck.getName());
+					ResultSet rs1 = pstmt.executeQuery();
 					rs1.next();
 					return rs1.getString(1);
 				}
-			} catch (SQLException | ClassNotFoundException e) {
-				// TODO Auto-generated catch block
+			} catch (SQLException | ClassNotFoundException e) 
+			{
 				e.printStackTrace();
 			}
+			 finally
+				{
+					ConnectionUtil.closePreparedStatement(stmt,con);
+					ConnectionUtil.closePreparedStatementOne(pstmt);
+				}
 			return "incorrect";	
 		}
 	   
@@ -73,14 +81,14 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 	   {
 		 String query="select user_id,u_name,mobileno,u_password,u_email,u_address from userdetails where u_name in ?";  
 			Connection con = null;
-			PreparedStatement pstmt = null;
+			PreparedStatement stmt = null;
 			ResultSet rs = null;
-			List<CarCustomer> custdetails=new ArrayList<CarCustomer>();
+			List<CarCustomer> custdetails=new ArrayList<>();
 			try {
 				con = ConnectionUtil.getDBconnection();
-			    pstmt = con.prepareStatement(query);
-				pstmt.setString(1, myaccount.getName());
-				rs = pstmt.executeQuery();
+			    stmt = con.prepareStatement(query);
+				stmt.setString(1, myaccount.getName());
+				rs = stmt.executeQuery();
 				while(rs.next())
 					{
 						CarCustomer customer = new CarCustomer(rs.getInt(1),rs.getString(2),rs.getLong(3),rs.getString(4),rs.getString(5),rs.getString(6));
@@ -89,45 +97,67 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 			} catch (SQLException | ClassNotFoundException e) {
 				e.printStackTrace();
 			}
+			 finally
+				{
+					ConnectionUtil.closePreparedStatement(stmt,con);
+				}
 			return custdetails;
 	   }
 	   
 	   //email check
-	   public ResultSet getEmail(CarCustomer email)
+	   public String getEmail(CarCustomer email)
 	   {
-		   String query="select * from userdetails where u_email in ?";  
+		   String query="select user_id,u_name,mobileno,u_password,u_email,u_address,usertype from userdetails where u_email in ?";  
 			Connection con = null;
-			PreparedStatement pstmt = null;
+			PreparedStatement stmt = null;
 			ResultSet rs = null;
+			String useremail=null;
 			try {
 				con = ConnectionUtil.getDBconnection();
-			    pstmt = con.prepareStatement(query);
-				pstmt.setString(1, email.getEmail());
-				 rs = pstmt.executeQuery();
-			} catch (SQLException | ClassNotFoundException e) {
-				// TODO Auto-generated catch block
+			    stmt = con.prepareStatement(query);
+				stmt.setString(1, email.getEmail());
+				 rs = stmt.executeQuery();
+				 while(rs.next())
+				 {
+				 useremail=rs.getString(5);
+				 }
+			} catch (SQLException | ClassNotFoundException e) 
+			{
 				e.printStackTrace();
 			}
-			return rs;
+			 finally
+				{
+					ConnectionUtil.closePreparedStatement(stmt,con);
+				}
+			return useremail;
 	   }
 	   
 	   //mobile no check
-	   public ResultSet getMobile(CarCustomer email)
+	   public Long getMobile(CarCustomer mobile)
 	   {
-		   String query="select * from userdetails where mobileno in ?";  
+		   String query="select user_id,u_name,mobileno,u_password,u_email,u_address,usertype from userdetails where mobileno in ?";  
 			Connection con = null;
-			PreparedStatement pstmt = null;
+			PreparedStatement stmt = null;
 			ResultSet rs = null;
+			long usermobile=0;
 			try {
 				con = ConnectionUtil.getDBconnection();
-			    pstmt = con.prepareStatement(query);
-				pstmt.setLong(1, email.getMobileno());
-				 rs = pstmt.executeQuery();
-			} catch (SQLException | ClassNotFoundException e) {
-				// TODO Auto-generated catch block
+			    stmt = con.prepareStatement(query);
+				stmt.setLong(1, mobile.getMobileno());
+				 rs = stmt.executeQuery();
+				 while(rs.next())
+				 {
+				 usermobile=rs.getLong(3);
+				 }
+			} catch (SQLException | ClassNotFoundException e) 
+			{
 				e.printStackTrace();
 			}
-			return rs;
+			finally
+			{
+				ConnectionUtil.closePreparedStatement(stmt,con);
+			}
+			return usermobile;
 	   }
 	   
 	   
@@ -136,21 +166,24 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 	   {
 		    String query="select user_id from userdetails where u_name in ?";  
 			Connection con = null;
-			PreparedStatement pstmt = null;
+			PreparedStatement stmt = null;
 			ResultSet rs = null;
-			System.out.println(myaccount.getName());
-			
+			 int userid=0;			
 			try {
 				con = ConnectionUtil.getDBconnection();
-			    pstmt = con.prepareStatement(query);
-				pstmt.setString(1, myaccount.getName());
-				 rs = pstmt.executeQuery();
-			} catch (SQLException | ClassNotFoundException e) {
-				// TODO Auto-generated catch block
+			    stmt = con.prepareStatement(query);
+				stmt.setString(1, myaccount.getName());
+				 rs = stmt.executeQuery();
+				 userid=rs.getInt(1);
+			} catch (SQLException | ClassNotFoundException e) 
+			{
 				e.printStackTrace();
 			}
-			rs.next();
-			return rs.getInt(1);
+			finally
+			{
+				ConnectionUtil.closePreparedStatement(stmt,con);
+			}
+			return userid;
 	   }   
 	   
 	   
@@ -159,18 +192,20 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 		  String updateQuery="update userdetails set u_password=? where user_id=?";
 		  Connection con = null;
 		  int k = 0;
+		  PreparedStatement stmt = null;
 		try {
 			con = ConnectionUtil.getDBconnection();
-     	  PreparedStatement stmt = null;
 			stmt = con.prepareStatement(updateQuery);
 			stmt.setString(1,user.getPassword());
 			stmt.setInt(2,user.getUser_id());	
 			k = stmt.executeUpdate();
-			stmt.close();
-			con.close();
-		} catch (SQLException | ClassNotFoundException e) {
-			// TODO Auto-generated catch block
+		} catch (SQLException | ClassNotFoundException e) 
+		{
 			e.printStackTrace();
+		}
+		finally
+		{
+			ConnectionUtil.closePreparedStatement(stmt,con);
 		}
 		if(k>0)
 		{	
@@ -185,18 +220,21 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 		  String updateQuery="update userdetails set u_password=? where mobileno=?";
 		  Connection con = null;
 		  int k = 0;
+		  PreparedStatement stmt = null;
 		try {
 			con = ConnectionUtil.getDBconnection();
-     	  PreparedStatement stmt = null;
+     	  
 			stmt = con.prepareStatement(updateQuery);
 			stmt.setString(1,user.getPassword());
 			stmt.setLong(2,user.getMobileno()); 
 			k = stmt.executeUpdate();
-			stmt.close();
-			con.close();
-		} catch (SQLException | ClassNotFoundException e) {
-			// TODO Auto-generated catch block
+		} catch (SQLException | ClassNotFoundException e) 
+		{
 			e.printStackTrace();
+		}
+		finally
+		{
+			ConnectionUtil.closePreparedStatement(stmt,con);
 		}
 		if(k>0)
 		{
@@ -211,17 +249,19 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 	   {
 		   String deleteQuery="update userdetails set usertype='invalid' where mobileno=?";
 		   Connection con = null;
+		   PreparedStatement stmt = null;
 		   int l = 0;
 		try {
 			con = ConnectionUtil.getDBconnection();
-		   PreparedStatement stmt = null;
 			stmt = con.prepareStatement(deleteQuery);
 			stmt.setLong(1,user.getMobileno());
 			l = stmt.executeUpdate();
-			stmt.close();
-			con.close();
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
+		}
+		finally
+		{
+			ConnectionUtil.closePreparedStatement(stmt,con);
 		}
 		if(l>0)
 		{
@@ -234,18 +274,20 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 	   {
 		   String deleteQuery="update userdetails set usertype='user' where u_name=? and u_password=?";
 		   Connection con = null;
+		   PreparedStatement stmt = null;
 		   int l = 0;
 		try {
 			con = ConnectionUtil.getDBconnection();
-		   PreparedStatement stmt = null;
 			stmt = con.prepareStatement(deleteQuery);
 			stmt.setString(1,user.getName());
 			stmt.setString(2,user.getPassword());
 			l = stmt.executeUpdate();
-			stmt.close();
-			con.close();
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
+		}
+		finally
+		{
+			ConnectionUtil.closePreparedStatement(stmt,con);
 		}
 		return l;
 	   }
@@ -256,13 +298,13 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 	   {
 		   ResultSet rs=null;
 			String showQuery="select u_name,mobileno,u_email,u_address,user_id from userdetails where usertype='user' or usertype='invalid'";
-			Connection con;
-			List<CarCustomer> custlist=new ArrayList<CarCustomer>();
+			Connection con = null;
+			PreparedStatement stmt=null;
+			List<CarCustomer> custlist=new ArrayList<>();
 			try {
 				con = ConnectionUtil.getDBconnection();
-				PreparedStatement pstmt=con.prepareStatement(showQuery);
-				//pstmt.setInt(1, user_id);
-				rs=pstmt.executeQuery(showQuery);
+                stmt=con.prepareStatement(showQuery);
+				rs=stmt.executeQuery(showQuery);
 				while(rs.next())
 				{
 					CarCustomer customer = new CarCustomer(rs.getString(1),rs.getLong(2),rs.getString(3),rs.getString(4),rs.getInt(5));
@@ -271,6 +313,10 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 				
 			}  catch (SQLException | ClassNotFoundException e1) {
 				e1.printStackTrace();
+			}
+			finally
+			{
+				ConnectionUtil.closePreparedStatement(stmt,con);
 			}
 			return custlist;
 	   }

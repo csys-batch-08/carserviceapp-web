@@ -13,9 +13,6 @@ import javax.servlet.http.HttpSession;
 import com.carserviceapp.daoimpl.BillDetailsDAOImpl;
 import com.carserviceapp.model.BillDetails;
 
-/**
- * Servlet implementation class PaymentServlet
- */
 @WebServlet("/Payment")
 public class PaymentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -32,7 +29,7 @@ public class PaymentServlet extends HttpServlet {
 	      BillDetails billpay = new BillDetails(userid,billnum1,dummy);	 
 	      amount=bDao.view1(billpay);	  
 	      request.setAttribute("amount",amount);
-	      RequestDispatcher rd=request.getRequestDispatcher("PaymentOne.jsp");
+	      RequestDispatcher rd=request.getRequestDispatcher("paymentOne.jsp");
 	      rd.forward(request, response);
 	}
 

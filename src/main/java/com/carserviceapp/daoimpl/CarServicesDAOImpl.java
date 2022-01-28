@@ -15,20 +15,23 @@ public class CarServicesDAOImpl implements CarServicesDAO
 	   {
 		   String insertQuery="insert into services(service_name,service_cost,service_desc) values(?,?,?)";
 		   Connection con = null;
+		   PreparedStatement stmt = null;
 		   int i = 0;
 		try {
 			con = ConnectionUtil.getDBconnection();
-		   PreparedStatement stmt = null;
+		  
 			stmt = con.prepareStatement(insertQuery);
 			stmt.setString(1,service.getService_name());
 			stmt.setInt(2,service.getService_cost());
 			stmt.setString(3,service.getService_desc());
 			i = stmt.executeUpdate();
-			stmt.close();
-			con.close();
-		} catch (SQLException | ClassNotFoundException e) {
-			// TODO Auto-generated catch block
+		} catch (SQLException | ClassNotFoundException e) 
+		{
 			e.printStackTrace();
+		}
+		finally
+		{
+			ConnectionUtil.closePreparedStatement(stmt,con);
 		}
 		if(i>0)
 		{
@@ -40,19 +43,21 @@ public class CarServicesDAOImpl implements CarServicesDAO
 	   {
 		  String updateQuery="update services set service_cost=? where service_id=?";
 		  Connection con = null;
+		  PreparedStatement stmt = null;
 		  int k = 0;
 		try {
 			con = ConnectionUtil.getDBconnection();
-		  PreparedStatement stmt = null;
 			stmt = con.prepareStatement(updateQuery);
 			stmt.setInt(1,service.getService_cost());
 			stmt.setInt(2,service.getService_id());		 
 			k = stmt.executeUpdate();
-			stmt.close();
-			con.close();
-		} catch (SQLException | ClassNotFoundException e) {
-			// TODO Auto-generated catch block
+		} catch (SQLException | ClassNotFoundException e) 
+		{
 			e.printStackTrace();
+		}
+		finally
+		{
+			ConnectionUtil.closePreparedStatement(stmt,con);
 		}
 		if(k>0)
 		{
@@ -65,18 +70,22 @@ public class CarServicesDAOImpl implements CarServicesDAO
 	   public boolean delete(CarServices service)
 	   {
 		   int l = 0;
+		   Connection con=null;
+		   PreparedStatement stmt =null;
 		   try {
 		   String deleteQuery="update services set status='inactive' where service_id=?";
-		   Connection con =ConnectionUtil.getDBconnection();
-		   PreparedStatement stmt =con.prepareStatement(deleteQuery);
+		   con =ConnectionUtil.getDBconnection();
+		   stmt=con.prepareStatement(deleteQuery);
 		   stmt.setInt(1,service.getService_id());
 		   l = stmt.executeUpdate();
-		   stmt.close();
-		   con.close();
 	   } catch (SQLException | ClassNotFoundException e)
 		   {
 			e.printStackTrace();
 		   }
+		   finally
+			{
+				ConnectionUtil.closePreparedStatement(stmt,con);
+			}
 	if(l > 0) 
 	{
 	     return true;
@@ -85,42 +94,56 @@ public class CarServicesDAOImpl implements CarServicesDAO
 	   }
 	   
 	   
-	   public ResultSet checkserviceid(CarServices services)
+	   public int checkserviceid(CarServices services)
 	   {
-		 String query="select * from services where service_id in ?";  
+		 String query="select service_id,service_name,service_cost,service_desc,desc from services where service_id in ?";  
 			Connection con = null;
-			PreparedStatement pstmt = null;
+			PreparedStatement stmt = null;
 			ResultSet rs = null;
+			int serviceid=0;
 			try {
 				con = ConnectionUtil.getDBconnection();
-			    pstmt = con.prepareStatement(query);
-				pstmt.setInt(1,services.getService_id());
-				 rs = pstmt.executeQuery();
-			} catch (SQLException | ClassNotFoundException e) {
-				// TODO Auto-generated catch block
+			    stmt = con.prepareStatement(query);
+				stmt.setInt(1,services.getService_id());
+				 rs = stmt.executeQuery();
+				 while(rs.next())
+				 {
+					 serviceid=rs.getInt(1);
+				 }
+			} catch (SQLException | ClassNotFoundException e) 
+			{
 				e.printStackTrace();
 			}
-			return rs;
+			finally
+			{
+				ConnectionUtil.closePreparedStatement(stmt,con);
+			}
+			return serviceid;
 	   }
 	   
 	   public List<CarServices> view() 
 		{
 			ResultSet rs=null;
 			String showQuery="select service_name,service_cost,service_desc,service_id from services where status='active'";
-			Connection con;
-			List<CarServices> servicelist=new ArrayList<CarServices>();
+			Connection con=null;
+			PreparedStatement stmt=null;
+			List<CarServices> servicelist=new ArrayList<>();
 			try {
 				con = ConnectionUtil.getDBconnection();
-				PreparedStatement stmt=con.prepareStatement(showQuery);
+				stmt=con.prepareStatement(showQuery);
 				rs=stmt.executeQuery(showQuery);
 				while(rs.next())
 				{
 					CarServices pickup = new CarServices(rs.getString(1),rs.getInt(2),rs.getString(3),rs.getInt(4));
 					servicelist.add(pickup);
 				}
-			}  catch (SQLException | ClassNotFoundException e1) {
-				// TODO Auto-generated catch block
+			}  catch (SQLException | ClassNotFoundException e1) 
+			{
 				e1.printStackTrace();
+			}
+			finally
+			{
+				ConnectionUtil.closePreparedStatement(stmt,con);
 			}
 			return servicelist;
 		}
@@ -128,20 +151,25 @@ public class CarServicesDAOImpl implements CarServicesDAO
 	 		{
 	 			ResultSet rs=null;
 	 			String showQuery="select service_name,service_cost,service_desc,service_id from services where status='active'";
-	 			Connection con;
-	 			List<CarServices> servicelist=new ArrayList<CarServices>();
+	 			Connection con = null;
+	 			PreparedStatement stmt = null;
+	 			List<CarServices> servicelist=new ArrayList<>();
 	 			try {
 	 				con = ConnectionUtil.getDBconnection();
-	 				PreparedStatement stmt=con.prepareStatement(showQuery);
+	 				stmt=con.prepareStatement(showQuery);
 	 				rs=stmt.executeQuery(showQuery);
 	 				while(rs.next())
 					{
 						CarServices services = new CarServices(rs.getString(1),rs.getInt(2),rs.getString(3),rs.getInt(4));
 						servicelist.add(services);
 					}
-	 			}  catch (SQLException | ClassNotFoundException e1) {
-	 				// TODO Auto-generated catch block
+	 			}  catch (SQLException | ClassNotFoundException e1) 
+	 			{
 	 				e1.printStackTrace();
+	 			}
+	 			finally
+	 			{
+	 				ConnectionUtil.closePreparedStatement(stmt,con);
 	 			}
 	 			return servicelist;
 	 		}

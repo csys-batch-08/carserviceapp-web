@@ -16,10 +16,10 @@ public class CenterDetailsDAOImpl implements CenterDetailsDAO
 	   {
 		   String insertQuery="insert into service_center(user_id,center_name,c_location,c_contact,c_email,c_address) values(?,?,?,?,?,?)";
 		   Connection con = null;
+		   PreparedStatement stmt = null;
 		   int i = 0;
 		try {
 			con = ConnectionUtil.getDBconnection();
-		   PreparedStatement stmt = null;
 			stmt = con.prepareStatement(insertQuery);
 			stmt.setInt(1,center.getUser_id());
 			stmt.setString(2,center.getCenter_name());
@@ -28,12 +28,14 @@ public class CenterDetailsDAOImpl implements CenterDetailsDAO
 			stmt.setString(5,center.getCenter_email());
 			stmt.setString(6,center.getCenter_address());
 			i = stmt.executeUpdate();
-			stmt.close();
-			con.close();
-		} catch (SQLException | ClassNotFoundException e) {
-			// TODO Auto-generated catch block
+		} catch (SQLException | ClassNotFoundException e) 
+		{
 			e.printStackTrace();
 		}
+		 finally
+			{
+				ConnectionUtil.closePreparedStatement(stmt,con);
+			}
 		if(i>0)
 		{
 		return true;
@@ -44,12 +46,13 @@ public class CenterDetailsDAOImpl implements CenterDetailsDAO
 		{
 			
 			String showQuery="select center_id,center_name,c_location,c_contact,c_email,c_address from service_center where status='active'";
-			Connection con;
+			Connection con=null;
 			ResultSet rs=null;
-			List<CenterDetails> centerlist=new ArrayList<CenterDetails>();
+			PreparedStatement stmt=null;
+			List<CenterDetails> centerlist=new ArrayList<>();
 			try {
 				con = ConnectionUtil.getDBconnection();
-				PreparedStatement stmt=con.prepareStatement(showQuery);
+				stmt=con.prepareStatement(showQuery);
 				rs=stmt.executeQuery(showQuery);	
 				while(rs.next())
 				{
@@ -59,6 +62,10 @@ public class CenterDetailsDAOImpl implements CenterDetailsDAO
 			}  catch (SQLException | ClassNotFoundException e1) {
 				e1.printStackTrace();
 			}
+			 finally
+				{
+					ConnectionUtil.closePreparedStatement(stmt,con);
+				}
 			return centerlist;
 		}  
 	   
@@ -66,12 +73,13 @@ public class CenterDetailsDAOImpl implements CenterDetailsDAO
 		{
 			
 			String showQuery="select center_id,center_name,c_location,c_contact,c_email,c_address from service_center where status='active'";
-			Connection con;
 			ResultSet rs=null;
-			List<CenterDetails> centerlist=new ArrayList<CenterDetails>();
+			 Connection con = null;
+			   PreparedStatement stmt = null;
+			List<CenterDetails> centerlist=new ArrayList<>();
 			try {
 				con = ConnectionUtil.getDBconnection();
-				PreparedStatement stmt=con.prepareStatement(showQuery);
+				 stmt=con.prepareStatement(showQuery);
 				rs=stmt.executeQuery(showQuery);	
 				while(rs.next())
 				{
@@ -79,28 +87,40 @@ public class CenterDetailsDAOImpl implements CenterDetailsDAO
 					centerlist.add(customer);
 				}
 			}  catch (SQLException | ClassNotFoundException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
+			 finally
+				{
+					ConnectionUtil.closePreparedStatement(stmt,con);
+				}
 			return centerlist;
 		}  
 	   
-	   public ResultSet checkservicecenterid(CenterDetails center)
+	   public int checkservicecenterid(CenterDetails center)
 	   {
-		 String query="select * from service_center where center_id in ?";  
+		 String query="select center_id,user_id,center_name,c_location,c_contact,c_email,c_address,status from service_center where center_id in ?";  
 			Connection con = null;
-			PreparedStatement pstmt = null;
+			PreparedStatement stmt = null;
 			ResultSet rs = null;
+			int centerid=0;
 			try {
 				con = ConnectionUtil.getDBconnection();
-			    pstmt = con.prepareStatement(query);
-				pstmt.setInt(1,center.getCenter_id());
-				 rs = pstmt.executeQuery();
-			} catch (SQLException | ClassNotFoundException e) {
-				// TODO Auto-generated catch block
+			    stmt = con.prepareStatement(query);
+				stmt.setInt(1,center.getCenter_id());
+				 rs = stmt.executeQuery();
+				 while(rs.next())
+				 {
+					 centerid=rs.getInt(1);
+				 }
+			} catch (SQLException | ClassNotFoundException e) 
+			{
 				e.printStackTrace();
 			}
-			return rs;
+			 finally
+				{
+					ConnectionUtil.closePreparedStatement(stmt,con);
+				}
+			return centerid;
 	   }
 	   
 	   
@@ -108,20 +128,22 @@ public class CenterDetailsDAOImpl implements CenterDetailsDAO
 	   {
 		  String deleteQuery="update service_center set status='inactive' where center_id=?";
 		  Connection con = null;
+		    PreparedStatement stmt = null;
 		  int k = 0;
 		try {
 			con = ConnectionUtil.getDBconnection();
-	      PreparedStatement stmt = null;
 			stmt = con.prepareStatement(deleteQuery);
 			stmt.setInt(1,center.getCenter_id());
 		
 			k = stmt.executeUpdate();
-			stmt.close();
-			con.close();
-		} catch (SQLException | ClassNotFoundException e) {
-			// TODO Auto-generated catch block
+		} catch (SQLException | ClassNotFoundException e) 
+		{
 			e.printStackTrace();
 		}
+		 finally
+			{
+				ConnectionUtil.closePreparedStatement(stmt,con);
+			}
 		if(k>0)
 		{
 		return true;
@@ -134,20 +156,22 @@ public class CenterDetailsDAOImpl implements CenterDetailsDAO
 	   {
 		   String deleteQuery="update service_center set c_contact=? where center_id=?";
 		   Connection con = null;
+		   PreparedStatement stmt = null;
 		   int l = 0;
 		try {
 			con = ConnectionUtil.getDBconnection();
-		   PreparedStatement stmt = null;
 			stmt = con.prepareStatement(deleteQuery);
 			stmt.setLong(1,center.getCenter_contact());
 			stmt.setInt(2,center.getCenter_id());
 			l = stmt.executeUpdate();
-			stmt.close();
-			con.close();
-		} catch (SQLException | ClassNotFoundException e) {
-			// TODO Auto-generated catch block
+		} catch (SQLException | ClassNotFoundException e) 
+		{
 			e.printStackTrace();
 		}
+		 finally
+			{
+				ConnectionUtil.closePreparedStatement(stmt,con);
+			}
 		if(l>0)
 		{
 		return true;

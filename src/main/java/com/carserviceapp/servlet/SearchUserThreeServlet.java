@@ -14,9 +14,6 @@ import com.carserviceapp.daoimpl.CarServicesDAOImpl;
 import com.carserviceapp.model.CarServices;
 import com.carserviceapp.model.CenterDetails;
 
-/**
- * Servlet implementation class SearchUserThreeServlet
- */
 @WebServlet("/SearchUserThreeServlet")
 public class SearchUserThreeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -26,7 +23,7 @@ public class SearchUserThreeServlet extends HttpServlet {
         CarServicesDAOImpl service = new CarServicesDAOImpl();
         List<CarServices> servicelist = service.views();
         request.setAttribute("servicelist",servicelist);
-		RequestDispatcher rd=request.getRequestDispatcher("SearchUserThree.jsp");
+		RequestDispatcher rd=request.getRequestDispatcher("searchUserThree.jsp");
 		rd.forward(request, response);
 	}
 

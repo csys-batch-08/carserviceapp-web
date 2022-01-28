@@ -12,9 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.carserviceapp.daoimpl.CenterDetailsDAOImpl;
 import com.carserviceapp.model.CenterDetails;
 
-/**
- * Servlet implementation class ShowServiceCenterServlet
- */
 @WebServlet("/ShowServiceCenter")
 public class ShowServiceCenterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -26,7 +23,7 @@ public class ShowServiceCenterServlet extends HttpServlet {
 					if (!showcenter.isEmpty())
 					{
 						request.setAttribute("showcenter",showcenter);
-						RequestDispatcher rd=request.getRequestDispatcher("ServiceCenterShow.jsp");
+						RequestDispatcher rd=request.getRequestDispatcher("serviceCenterShow.jsp");
 						rd.forward(request, response);
 					}
 	}

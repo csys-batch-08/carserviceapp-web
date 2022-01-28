@@ -12,70 +12,46 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.carserviceapp.daoimpl.CarServicesDAOImpl;
-import com.carserviceapp.daoimpl.CenterDetailsDAOImpl;
 import com.carserviceapp.exception.ServiceNotFoundException;
 import com.carserviceapp.model.CarServices;
-import com.carserviceapp.model.CenterDetails;
 
-/**
- * Servlet implementation class DeleteService
- */
+
 @WebServlet("/deleteservice")
 public class DeleteService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public DeleteService() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+	@Override
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	{
 		 HttpSession session =request.getSession();
 		int serviceid = Integer.parseInt(request.getParameter("serviceid"));
 		CarServices obj1 = new CarServices(serviceid);
 		CarServicesDAOImpl cent = new CarServicesDAOImpl();
-		ResultSet rs = cent.checkserviceid(obj1);
+		int checkserviceid = cent.checkserviceid(obj1);
 		 try {
-			if(rs.next())
+			if(checkserviceid!=0)
 			 {
 				CarServices obj2 = new CarServices(serviceid);
 				CarServicesDAOImpl cent2 = new CarServicesDAOImpl();
 				  boolean flag = cent2.delete(obj2);
 				  session.setAttribute("deleteservice", true);
-			      response.sendRedirect("AdminPage.jsp");
+				  if(flag)
+				  {
+			      response.sendRedirect("adminPage.jsp");
+				  }
 			 }
 			 else
 			 {
-				 try
-				 {
 					 throw new ServiceNotFoundException();
-				 }
-				 catch(ServiceNotFoundException e)
-				 {
-					String invalidservice =e.getMessage();
-					response.sendRedirect("UserPageWarn.jsp?message="+e.getMessage()+"&url=DeleteService.jsp");
-				 }			 
 			 }
-		} catch (SQLException | IOException e) {
-			// TODO Auto-generated catch block
+		} catch (IOException e)
+		 {
 			e.printStackTrace();
-		}
+		 }
+		 catch(ServiceNotFoundException e)
+		 {
+			response.sendRedirect("UserPageWarn?message="+e.getMessage()+"&url=deleteService.jsp");
+		 }	
 	}
 
 }
