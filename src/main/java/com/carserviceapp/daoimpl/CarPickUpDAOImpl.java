@@ -29,7 +29,7 @@ public class CarPickUpDAOImpl implements CarPickUpDAO
 		    i = 0;
 			i = stmt.executeUpdate();
 		} catch (SQLException | ClassNotFoundException e) {
-			e.printStackTrace();
+			e.getCause();
 		}
 		finally
 		{
@@ -51,18 +51,18 @@ public class CarPickUpDAOImpl implements CarPickUpDAO
 		  stmt.setString(1,pickup.getPickAddress());
 		  stmt.setInt(2,pickup.getUserId());
 		  k =stmt.executeUpdate();
+		  if(k>0)
+			 {
+				return true;
+			 }
 		  } catch (SQLException | ClassNotFoundException e)
 	           {
-				e.printStackTrace();
+				e.getCause();
 			   }
 	 finally
 		{
 			ConnectionUtil.closePreparedStatement(stmt,con);
 		}
-	 if(k>0)
-	 {
-		return true;
-	 }
 	    return false;
 	   }
 	   
@@ -78,18 +78,18 @@ public class CarPickUpDAOImpl implements CarPickUpDAO
 		   stmt=con.prepareStatement(deleteQuery);
 		   stmt.setInt(1,pickup.getPickupId());
 		   l = stmt.executeUpdate();
+		    if(l>0)
+		      {
+				return true;
+		      }
 	   } catch (SQLException | ClassNotFoundException e) 
 		   {
-			e.printStackTrace();
+			e.getCause();
 		   }
 		   finally
 			{
 				ConnectionUtil.closePreparedStatement(stmt,con);
 			}
-    if(l>0)
-      {
-		return true;
-      }
          return false;
 	   }
 	   
@@ -112,7 +112,7 @@ public class CarPickUpDAOImpl implements CarPickUpDAO
 				}
 			}  catch (SQLException | ClassNotFoundException e1) 
 			{
-				e1.printStackTrace();
+				e1.getCause();
 			}
 			finally
 			{
@@ -140,7 +140,7 @@ public class CarPickUpDAOImpl implements CarPickUpDAO
 			} 
 			catch (SQLException | ClassNotFoundException e1) 
 			{
-				e1.printStackTrace();
+				e1.getCause();
 			}
 			finally
 			{
@@ -160,18 +160,18 @@ public class CarPickUpDAOImpl implements CarPickUpDAO
 			stmt = con.prepareStatement(updateQuery);
 			stmt.setInt(1,pick.getUserId());
 			k =stmt.executeUpdate();
+			if(k>0)
+			{
+				return true;
+			}
 		} catch (SQLException | ClassNotFoundException e) 
 		{
-			e.printStackTrace();
+			e.getCause();
 		}
 		finally
 		{
 			ConnectionUtil.closePreparedStatement(stmt,con);
 		}
-	if(k>0)
-	{
-		return true;
-	}
 	   return false;
 	   } 
 	   

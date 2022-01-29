@@ -24,17 +24,17 @@ public class CarServicesDAOImpl implements CarServicesDAO
 			stmt.setInt(2,service.getServiceCost());
 			stmt.setString(3,service.getServiceDesc());
 			i = stmt.executeUpdate();
+			if(i>0)
+			{
+			return true;
+			}
 		} catch (SQLException | ClassNotFoundException e) 
 		{
-			e.printStackTrace();
+			e.getCause();
 		}
 		finally
 		{
 			ConnectionUtil.closePreparedStatement(stmt,con);
-		}
-		if(i>0)
-		{
-		return true;
 		}
 		return false;
 	   }
@@ -50,17 +50,17 @@ public class CarServicesDAOImpl implements CarServicesDAO
 			stmt.setInt(1,service.getServiceCost());
 			stmt.setInt(2,service.getServiceId());		 
 			k = stmt.executeUpdate();
+			if(k>0)
+			{
+			return true;
+			}
 		} catch (SQLException | ClassNotFoundException e) 
 		{
-			e.printStackTrace();
+			e.getCause();
 		}
 		finally
 		{
 			ConnectionUtil.closePreparedStatement(stmt,con);
-		}
-		if(k>0)
-		{
-		return true;
 		}
 		return false;
 	   }
@@ -77,18 +77,18 @@ public class CarServicesDAOImpl implements CarServicesDAO
 		   stmt=con.prepareStatement(deleteQuery);
 		   stmt.setInt(1,service.getServiceId());
 		   l = stmt.executeUpdate();
+		   if(l > 0) 
+			{
+			     return true;
+			}
 	   } catch (SQLException | ClassNotFoundException e)
 		   {
-			e.printStackTrace();
+			e.getCause();
 		   }
 		   finally
 			{
 				ConnectionUtil.closePreparedStatement(stmt,con);
 			}
-	if(l > 0) 
-	{
-	     return true;
-	}
 		return false;
 	   }
 	   
@@ -111,7 +111,7 @@ public class CarServicesDAOImpl implements CarServicesDAO
 				 }
 			} catch (SQLException | ClassNotFoundException e) 
 			{
-				e.printStackTrace();
+				e.getCause();
 			}
 			finally
 			{
@@ -138,7 +138,7 @@ public class CarServicesDAOImpl implements CarServicesDAO
 				}
 			}  catch (SQLException | ClassNotFoundException e1) 
 			{
-				e1.printStackTrace();
+				e1.getCause();
 			}
 			finally
 			{
@@ -164,7 +164,7 @@ public class CarServicesDAOImpl implements CarServicesDAO
 					}
 	 			}  catch (SQLException | ClassNotFoundException e1) 
 	 			{
-	 				e1.printStackTrace();
+	 				e1.getCause();
 	 			}
 	 			finally
 	 			{

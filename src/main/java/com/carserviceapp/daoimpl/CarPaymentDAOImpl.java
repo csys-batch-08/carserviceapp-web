@@ -25,7 +25,7 @@ public class CarPaymentDAOImpl implements CarPaymentDAO
 			i = stmt.executeUpdate();
 		} catch (SQLException | ClassNotFoundException e) 
 		{
-			e.printStackTrace();
+			e.getCause();
 		}
 		finally
 		{

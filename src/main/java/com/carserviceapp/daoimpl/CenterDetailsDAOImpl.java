@@ -27,18 +27,18 @@ public class CenterDetailsDAOImpl implements CenterDetailsDAO
 			stmt.setString(5,center.getCenterEmail());
 			stmt.setString(6,center.getCenterAddress());
 			i = stmt.executeUpdate();
+			if(i>0)
+			{
+			return true;
+			}
 		} catch (SQLException | ClassNotFoundException e) 
 		{
-			e.printStackTrace();
+			e.getCause();
 		}
 		 finally
 			{
 				ConnectionUtil.closePreparedStatement(stmt,con);
 			}
-		if(i>0)
-		{
-		return true;
-		}
 		return false;
 	   }
 	   public List<CenterDetails> showview() 
@@ -59,7 +59,7 @@ public class CenterDetailsDAOImpl implements CenterDetailsDAO
 					centerlist.add(pickup);
 				}
 			}  catch (SQLException | ClassNotFoundException e1) {
-				e1.printStackTrace();
+				e1.getCause();
 			}
 			 finally
 				{
@@ -84,7 +84,7 @@ public class CenterDetailsDAOImpl implements CenterDetailsDAO
 					centerlist.add(customer);
 				}
 			}  catch (SQLException | ClassNotFoundException e1) {
-				e1.printStackTrace();
+				e1.getCause();
 			}
 			 finally
 				{
@@ -111,7 +111,7 @@ public class CenterDetailsDAOImpl implements CenterDetailsDAO
 				 }
 			} catch (SQLException | ClassNotFoundException e) 
 			{
-				e.printStackTrace();
+				e.getCause();
 			}
 			 finally
 				{
@@ -131,20 +131,19 @@ public class CenterDetailsDAOImpl implements CenterDetailsDAO
 			con = ConnectionUtil.getDBconnection();
 			stmt = con.prepareStatement(deleteQuery);
 			stmt.setInt(1,center.getCenterId());
-		
 			k = stmt.executeUpdate();
+			if(k>0)
+			{
+			return true;
+		   }
 		} catch (SQLException | ClassNotFoundException e) 
 		{
-			e.printStackTrace();
+			e.getCause();
 		}
 		 finally
 			{
 				ConnectionUtil.closePreparedStatement(stmt,con);
 			}
-		if(k>0)
-		{
-		return true;
-	   }
 		return false;
 	   }
 	   
@@ -161,18 +160,18 @@ public class CenterDetailsDAOImpl implements CenterDetailsDAO
 			stmt.setLong(1,center.getCenterContact());
 			stmt.setInt(2,center.getCenterId());
 			l = stmt.executeUpdate();
+			if(l>0)
+			{
+			return true;
+			}
 		} catch (SQLException | ClassNotFoundException e) 
 		{
-			e.printStackTrace();
+			e.getCause();
 		}
 		 finally
 			{
 				ConnectionUtil.closePreparedStatement(stmt,con);
 			}
-		if(l>0)
-		{
-		return true;
-		}
 		 return false;
 	   }
 }

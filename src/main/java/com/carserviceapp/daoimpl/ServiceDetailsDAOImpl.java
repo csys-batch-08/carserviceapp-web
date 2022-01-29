@@ -21,18 +21,18 @@ public class ServiceDetailsDAOImpl implements ServiceDetailsDAO
 			stmt.setInt(1,details.getUserId());
 			stmt.setInt(2,details.getServiceId());
 			i = stmt.executeUpdate();
+			if(i>0)
+			{
+				return true;
+			}
 		} catch (SQLException | ClassNotFoundException e) 
 		{
-			e.printStackTrace();
+			e.getCause();
 		}
 		 finally
 			{
 				ConnectionUtil.closePreparedStatement(stmt,con);
 			}
-		if(i>0)
-		{
-			return true;
-		}
 		return false;
 	   }
 
@@ -47,18 +47,18 @@ public class ServiceDetailsDAOImpl implements ServiceDetailsDAO
 		   stmt =con.prepareStatement(deleteQuery);
 		   stmt.setInt(1,service.getServiceId());
 		    l= stmt.executeUpdate();
+		    if(l>0)
+			{
+				return true;
+			}
 	   } catch (SQLException | ClassNotFoundException e) 
 		   {
-			e.printStackTrace();
+			e.getCause();
 		   }
 		   finally
 			{
 				ConnectionUtil.closePreparedStatement(stmt,con);
 			}
-	if(l>0)
-	{
-		return true;
-	}
 	    return false;
 	   }
 }

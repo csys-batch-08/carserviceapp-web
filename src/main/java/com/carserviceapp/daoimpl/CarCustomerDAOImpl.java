@@ -33,7 +33,7 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 			   }
 		} catch (SQLException | ClassNotFoundException e) 
 		   {
-			e.printStackTrace();
+			e.getCause();
 		    }
 		   finally
 			{
@@ -65,7 +65,7 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 				}
 			} catch (SQLException | ClassNotFoundException e) 
 			{
-				e.printStackTrace();
+				e.getCause();
 			}
 			 finally
 				{
@@ -94,7 +94,7 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 						custdetails.add(customer);
 					}
 			} catch (SQLException | ClassNotFoundException e) {
-				e.printStackTrace();
+				e.getCause();
 			}
 			 finally
 				{
@@ -122,7 +122,7 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 				 }
 			} catch (SQLException | ClassNotFoundException e) 
 			{
-				e.printStackTrace();
+				e.getCause();
 			}
 			 finally
 				{
@@ -150,7 +150,7 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 				 }
 			} catch (SQLException | ClassNotFoundException e) 
 			{
-				e.printStackTrace();
+				e.getCause();
 			}
 			finally
 			{
@@ -179,7 +179,7 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 				 }
 			} catch (SQLException | ClassNotFoundException e) 
 			{
-				e.printStackTrace();
+				e.getCause();
 			}
 			finally
 			{
@@ -201,17 +201,17 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 			stmt.setString(1,user.getPassword());
 			stmt.setInt(2,user.getUserId());	
 			k = stmt.executeUpdate();
+			if(k>0)
+			{	
+			return true;
+			}
 		} catch (SQLException | ClassNotFoundException e) 
 		{
-			e.printStackTrace();
+			e.getCause();
 		}
 		finally
 		{
 			ConnectionUtil.closePreparedStatement(stmt,con);
-		}
-		if(k>0)
-		{	
-		return true;
 		}
 		return false;
 	   }
@@ -230,17 +230,17 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 			stmt.setString(1,user.getPassword());
 			stmt.setLong(2,user.getMobileNo()); 
 			k = stmt.executeUpdate();
+			if(k>0)
+			{
+			return true;
+			}
 		} catch (SQLException | ClassNotFoundException e) 
 		{
-			e.printStackTrace();
+			e.getCause();
 		}
 		finally
 		{
 			ConnectionUtil.closePreparedStatement(stmt,con);
-		}
-		if(k>0)
-		{
-		return true;
 		}
 		return false;
 	   }
@@ -258,16 +258,16 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 			stmt = con.prepareStatement(deleteQuery);
 			stmt.setLong(1,user.getMobileNo());
 			l = stmt.executeUpdate();
+			if(l>0)
+			{
+			return true;
+			}
 		} catch (SQLException | ClassNotFoundException e) {
-			e.printStackTrace();
+			e.getCause();
 		}
 		finally
 		{
 			ConnectionUtil.closePreparedStatement(stmt,con);
-		}
-		if(l>0)
-		{
-		return true;
 		}
 		return false;
 	   }
@@ -285,7 +285,7 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 			stmt.setString(2,user.getPassword());
 			l = stmt.executeUpdate();
 		} catch (SQLException | ClassNotFoundException e) {
-			e.printStackTrace();
+			e.getCause();
 		}
 		finally
 		{
@@ -314,7 +314,7 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 				}
 				
 			}  catch (SQLException | ClassNotFoundException e1) {
-				e1.printStackTrace();
+				e1.getCause();
 			}
 			finally
 			{

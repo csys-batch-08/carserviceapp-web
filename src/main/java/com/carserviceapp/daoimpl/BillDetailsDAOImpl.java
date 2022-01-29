@@ -27,7 +27,7 @@ public class BillDetailsDAOImpl implements BillDetailsDAO
 		    }
 		catch(SQLException | ClassNotFoundException e)
 		{
-			e.printStackTrace();
+			e.getCause();
 		}
 		finally
 		{
@@ -49,23 +49,20 @@ public class BillDetailsDAOImpl implements BillDetailsDAO
 			stmt.setInt(1,bill.getAmount());
 			stmt.setInt(2,bill.getBillNum());
 			k =stmt.executeUpdate();
+			   if(k>0)
+			     {
+					return true;
+			     }
 		} catch (SQLException | ClassNotFoundException e) 
 		{
-			e.printStackTrace();
+			e.getCause();
 		}
 		finally
 		{
 			ConnectionUtil.closePreparedStatement(stmt,con);
 		}
-     if(k>0)
-     {
-		return true;
-     }
-     else
-     {
         return false;
      }
-   }
 	   
 	   //user myorders option yes
 	   public List<BillDetails> view(BillDetails billPojo) 
@@ -87,7 +84,7 @@ public class BillDetailsDAOImpl implements BillDetailsDAO
 				}
 			}catch (SQLException | ClassNotFoundException e1) 
 			{
-				e1.printStackTrace();
+				e1.getCause();
 			}
 			finally
 			{
@@ -118,7 +115,7 @@ public class BillDetailsDAOImpl implements BillDetailsDAO
 				}
 			}catch (SQLException | ClassNotFoundException e1) 
 			{
-				e1.printStackTrace();
+				e1.getCause();
 			}
 			finally
 			{
@@ -145,7 +142,7 @@ public class BillDetailsDAOImpl implements BillDetailsDAO
 				}
 			}catch (SQLException | ClassNotFoundException e1) 
 			{
-				e1.printStackTrace();
+				e1.getCause();
 			}
 			finally
 			{
@@ -173,7 +170,7 @@ public class BillDetailsDAOImpl implements BillDetailsDAO
 				}
 			} catch (SQLException | ClassNotFoundException e) 
 			{
-				e.printStackTrace();
+				e.getCause();
 			}
 			finally
 			{
@@ -202,7 +199,7 @@ public class BillDetailsDAOImpl implements BillDetailsDAO
 				 }
 			} catch (SQLException | ClassNotFoundException e) 
 			{
-				e.printStackTrace();
+				e.getCause();
 			}
 			finally
 			{
@@ -229,7 +226,7 @@ public class BillDetailsDAOImpl implements BillDetailsDAO
 				}
 			} catch (SQLException | ClassNotFoundException e1) 
 			{
-				e1.printStackTrace();
+				e1.getCause();
 			}
 			finally
 			{
@@ -248,18 +245,18 @@ public class BillDetailsDAOImpl implements BillDetailsDAO
 			stmt = con.prepareStatement(updateQuery);
 			stmt.setInt(1,bill.getUserId());
 			k =stmt.executeUpdate();
+			if(k>0)
+			{
+				return true;
+			}
 		} catch (SQLException | ClassNotFoundException e) 
 		{
-			e.printStackTrace();
+			e.getCause();
 		}
 		finally
 		{
 			ConnectionUtil.closePreparedStatement(stmt,con);
 		}
-	if(k>0)
-	{
-		return true;
-	}
 	   return false;
 	   }  
 }

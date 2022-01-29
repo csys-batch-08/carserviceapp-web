@@ -12,7 +12,6 @@ public class ConnectionUtil
 	public static Connection getDBconnection() throws ClassNotFoundException, SQLException
 	  {
 		  Class.forName("oracle.jdbc.OracleDriver");
-		  
 		  return DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","oracle");
 	  }
 
@@ -30,7 +29,7 @@ public class ConnectionUtil
 			}  
 		  }catch(SQLException e)
 		  {
-			e.printStackTrace();  
+			  e.getCause();
 		  }
 	  }
 	  
@@ -44,7 +43,7 @@ public class ConnectionUtil
 			}
 		  }catch(SQLException e)
 		  {
-			e.printStackTrace();  
+			e.getCause();  
 		  }
 	  }
 	  
