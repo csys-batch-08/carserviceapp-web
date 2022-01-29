@@ -53,7 +53,7 @@ public class RegisterPageServlet extends HttpServlet
    } 
   catch (IOException e) 
            {
-			e.printStackTrace();
+			e.getCause();
 		   }
 	   }
 }

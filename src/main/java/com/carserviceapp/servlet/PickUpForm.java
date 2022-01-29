@@ -36,7 +36,7 @@ public class PickUpForm extends HttpServlet {
 			}   
 		} catch (IOException e) 
 		{
-			e.printStackTrace();
+			e.getCause();
 		}		
 	}
 

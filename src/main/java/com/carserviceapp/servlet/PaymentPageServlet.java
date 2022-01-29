@@ -58,7 +58,7 @@ public class PaymentPageServlet extends HttpServlet {
 		}
 		catch(Exception e)
 		{
-			e.printStackTrace();
+			e.getCause();
 		}
 		 } 
 }

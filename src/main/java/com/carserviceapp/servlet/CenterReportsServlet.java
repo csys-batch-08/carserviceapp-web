@@ -42,7 +42,7 @@ public class CenterReportsServlet extends HttpServlet {
 			} 
 			catch (IOException e) 
 			{
-				e.printStackTrace();
+				e.getCause();
 			} 
 		 catch(CenterNotFoundException e)
 		{
