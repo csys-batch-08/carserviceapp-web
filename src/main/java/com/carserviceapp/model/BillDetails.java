@@ -10,6 +10,7 @@ private int userId;
 private LocalDate servDate;
 private int amount;
 private String status;
+private String dummy;
 DateTimeFormatter formatter =
 DateTimeFormatter.ofPattern("dd-MM-yyyy");
 public int getBillNum() {
@@ -46,6 +47,13 @@ public String getStatus() {
 public void setStatus(String status) {
 	this.status = status;
 }
+public String getDummy() {
+	return dummy;
+}
+public void setDummy(String dummy) {
+	this.dummy = dummy;
+}
+
 
 //for insert
 public BillDetails(int userId, LocalDate servDate,int amount) {
@@ -91,6 +99,7 @@ public BillDetails(int userId,int billNum,String dummy)
 	super();
 	this.userId=userId;
 	this.billNum=billNum;	
+	this.dummy=dummy;
 }
 
 @Override

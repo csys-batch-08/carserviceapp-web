@@ -9,7 +9,7 @@ public class CenterDetails
   private String centerEmail;
   private String centerAddress;
   private int userId;
-
+  private String dummy;
 
 public int getCenterId() {
 	return centerId;
@@ -66,6 +66,13 @@ public int getUserId() {
 public void setUserId(int userId) {
 	this.userId = userId;
 }
+public String getDummy() {
+	return dummy;
+}
+
+public void setDummy(String dummy) {
+	this.dummy = dummy;
+}
 
 public CenterDetails() {
 	super();
@@ -81,6 +88,7 @@ public CenterDetails(int userId, String centerName, String centerLocation, long 
 	this.centerContact = centerContact;
 	this.centerEmail = centerEmail;
 	this.centerAddress = centerAddress;
+	this.dummy=dummy;
 }
 
 //for view service center

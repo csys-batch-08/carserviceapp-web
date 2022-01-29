@@ -10,8 +10,8 @@ private String pickAddress;
 private int centerId;
 private int pickupId;
 private String status;
-
-
+private double dummy;
+private int norm;
 
 public int getUserId() {
 	return userId;
@@ -92,6 +92,22 @@ public void setStatus(String status) {
 	this.status = status;
 }
 
+public int getNorm() {
+	return norm;
+}
+
+
+public void setNorm(int norm) {
+	this.norm = norm;
+}
+public double getDummy() {
+	return dummy;
+}
+
+
+public void setDummy(double dummy) {
+	this.dummy = dummy;
+}
 
 public CarPickUp()
 {
@@ -130,15 +146,17 @@ public CarPickUp(int userId, String pickAddress) {
 public CarPickUp(int userId,double dummy) {
 	super();
 	this.userId = userId;
+	this.dummy=dummy;
 }
 
 public CarPickUp(int centerId) {
 	super();
 	this.centerId = centerId;
 }
-public CarPickUp(int pickId, int dummy) 
+public CarPickUp(int pickId, int norm) 
 {
 	this.pickupId=pickId;
+	this.norm=norm;
 }
 public CarPickUp(int pickupId,int userId,String cName, String cEmail, long cMobile, String pickAddress, int centerId) {
 	super();
@@ -167,7 +185,4 @@ public String toString() {
 	return "carPickup \nuser_id=" + userId + "\n c_name=" + cName + "\n c_email=" + cEmail + "\n c_mobile=" + cMobile
 			+ "\n pick_address=" + pickAddress + "\n center_id=" + centerId + "\n";
 }
-
-
-
 }

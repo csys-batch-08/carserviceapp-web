@@ -9,6 +9,7 @@ public class CarCustomer
   private String address;
   private int userId;
   private String userType;
+  private String dummy;
   
 public String getName() {
 	return name;
@@ -52,6 +53,12 @@ public String getUserType() {
 public void setUserType(String userType) {
 	this.userType = userType;
 }
+public String getDummy() {
+	return dummy;
+}
+public void setDummy(String dummy) {
+	this.dummy = dummy;
+}
 public CarCustomer( int userId,String name, long mobileNo, String password, String email,
 		String address) {
 	super();
@@ -87,6 +94,7 @@ public CarCustomer(long mobileNo,String email,String dummy)
 	super();
 	this.mobileNo = mobileNo;
 	this.email = email;
+	this.dummy=dummy;
 }
 
 public CarCustomer(String name, String password) {
@@ -125,6 +133,5 @@ public CarCustomer(String name)
 public String toString() {
 	return "Customer \n name=" + name + "\n mobileno=" + mobileNo + "\n email=" + email
 			+ "\n address=" + address + "\n"+userId+"\n\n";
-}
-  
+} 
 }
