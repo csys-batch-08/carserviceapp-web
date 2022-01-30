@@ -1,6 +1,7 @@
 package com.carserviceapp.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.time.LocalDate;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,6 +21,7 @@ public class AddBill extends HttpServlet {
     @Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		 HttpSession session =request.getSession();
+		 PrintWriter writer=response.getWriter();
 		int userid = Integer.parseInt(request.getParameter("userid"));
 		String date =request.getParameter("servdate");
 		LocalDate servdate = null;
@@ -28,9 +30,8 @@ public class AddBill extends HttpServlet {
         BillDetailsDAOImpl cDao = new BillDetailsDAOImpl();
         int l=cDao.insert(c1);  
         if(l==1)
-		 {
-			  session.setAttribute("addbill",true);
-		       response.sendRedirect("adminPage.jsp");
+		 {   
+			      writer.print("<script type=\"text/javascript\"> alert('Bill is Generated'); window.location = 'adminPage.jsp';</script>");
 		  }
         else {
 			 try

@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
 @WebServlet("/UserPageWarn")
@@ -17,10 +18,11 @@ public class UserPageWarnServlet extends HttpServlet {
     @Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
     {
+    	  HttpSession session =request.getSession();
     	  String message=request.getParameter("message");
           String url=request.getParameter("url");
-          request.setAttribute("message", message);
-          request.setAttribute("url", url);
+          session.setAttribute("message", message);
+          session.setAttribute("url", url);
       	  RequestDispatcher rd=request.getRequestDispatcher("userPageWarn.jsp");
 		  rd.forward(request, response);
 	}

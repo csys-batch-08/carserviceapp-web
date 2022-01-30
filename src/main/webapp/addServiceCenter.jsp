@@ -127,7 +127,6 @@ form
                      <button type="submit" class="btn btn-dark" onclick="addcenter()">Add Center</button>
                      <a href="adminPage.jsp" class="btn btn-dark">Back</a>
                      </div>
-                    
             </form>
              </div>
     </div>          

@@ -1,6 +1,8 @@
 package com.carserviceapp.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,13 +30,14 @@ public class DeleteService extends HttpServlet {
 		 try {
 			if(checkserviceid!=0)
 			 {
+				PrintWriter writer=response.getWriter();
 				CarServices obj2 = new CarServices(serviceid);
 				CarServicesDAOImpl cent2 = new CarServicesDAOImpl();
 				  boolean flag = cent2.delete(obj2);
 				  session.setAttribute("deleteservice", true);
 				  if(flag)
 				  {
-			      response.sendRedirect("adminPage.jsp");
+					  writer.print("<script type=\"text/javascript\"> alert('Service is Deleted'); window.location = 'adminPage.jsp';</script>");
 				  }
 			 }
 			 else

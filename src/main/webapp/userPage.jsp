@@ -155,7 +155,7 @@ h5{
 <body>
      <%
 	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
-	if ((session.getAttribute("user") == null)&&(session.getAttribute("admin")==null)&&(session.getAttribute("supplier")==null)) {
+	if ((session.getAttribute("user") == null)&&(session.getAttribute("admin")==null)) {
 		response.sendRedirect("index.jsp");
 	}
 	%>

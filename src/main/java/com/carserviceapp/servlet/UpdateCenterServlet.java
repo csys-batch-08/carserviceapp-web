@@ -1,6 +1,8 @@
 package com.carserviceapp.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,7 +21,7 @@ public class UpdateCenterServlet extends HttpServlet {
     @Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
     {
-		 HttpSession session =request.getSession();
+		 PrintWriter writer=response.getWriter();
 		  int centerid=Integer.parseInt(request.getParameter("centerid"));
 		  long centercontact = Long.parseLong(request.getParameter("updatecentercontact"));
 		  CenterDetails obj1 = new CenterDetails(centerid);
@@ -33,8 +35,7 @@ public class UpdateCenterServlet extends HttpServlet {
 						 boolean flag = cents.update(obj2);
 						 if(flag)
 						 {
-							  session.setAttribute("updatecenter", true);
-						       response.sendRedirect("adminPage.jsp");
+							 writer.print("<script type=\"text/javascript\"> alert('Service Center Detail is Updated'); window.location = 'adminPage.jsp';</script>");
 						 }
 				 }		 
 			 else {

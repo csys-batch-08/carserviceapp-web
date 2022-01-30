@@ -1,6 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"   import="com.carserviceapp.connection.*" import ="java.sql.*" import="com.carserviceapp.model.*"
-    import="javax.servlet.http.HttpSession"  import="com.carserviceapp.daoimpl.*"  import="com.carserviceapp.dao.*"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -325,40 +322,6 @@ body
 </style>
 </head>
 <body>
-	 <%
-   if(session.getAttribute("addbill") != null){%>
-	   <h1 style="position:absolute; top:80px; right:500px;">Bill is generated!!</h1>
-	   
-   <%session.removeAttribute("addbill"); }
-   %>
-   
-    <%
-   if(session.getAttribute("updateprice") != null){%>
-	   <h1 style="position:absolute; top:80px; right:500px;">Service Price is Updated..!!</h1>
-	   
-   <%session.removeAttribute("updateprice"); }
-   %>
-   
-    <%
-   if(session.getAttribute("deleteservice") != null){%>
-	   <h1 style="position:absolute; top:80px; right:500px;">Service is Deleted...!!</h1>
-	   
-   <%session.removeAttribute("deleteservice"); }
-   %>
-   
-     <%
-   if(session.getAttribute("deletecenter") != null){%>
-	   <h1 style="position:absolute; top:80px; right:500px;">ServiceCenter is Deleted...!!</h1>
-	   
-   <%session.removeAttribute("deletecenter"); }
-   %>
-   
-       <%
-   if(session.getAttribute("updatecenter") != null){%>
-	   <h1 style="position:absolute; top:80px; right:550px;">ServiceCenter Contact is Updated...!!</h1>
-	   
-   <%session.removeAttribute("updatecenter"); }
-   %>
     <div class="container">
         <div class="heading">
        <a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br>
