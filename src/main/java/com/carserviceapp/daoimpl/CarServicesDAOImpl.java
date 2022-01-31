@@ -149,14 +149,14 @@ public class CarServicesDAOImpl implements CarServicesDAO
 	   public List<CarServices> views() 
 	 		{
 	 			ResultSet rs=null;
-	 			String showQuery="select service_name,service_cost,service_desc,service_id from services where status='active'";
+	 			String showQueryOne="select service_name,service_cost,service_desc,service_id from services where status='active'";
 	 			Connection con = null;
 	 			PreparedStatement stmt = null;
 	 			List<CarServices> servicelist=new ArrayList<>();
 	 			try {
 	 				con = ConnectionUtil.getDBconnection();
-	 				stmt=con.prepareStatement(showQuery);
-	 				rs=stmt.executeQuery(showQuery);
+	 				stmt=con.prepareStatement(showQueryOne);
+	 				rs=stmt.executeQuery(showQueryOne);
 	 				while(rs.next())
 					{
 						CarServices services = new CarServices(rs.getString(1),rs.getInt(2),rs.getString(3),rs.getInt(4));

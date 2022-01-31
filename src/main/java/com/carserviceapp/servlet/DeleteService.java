@@ -50,7 +50,7 @@ public class DeleteService extends HttpServlet {
 		 }
 		 catch(ServiceNotFoundException e)
 		 {
-			response.sendRedirect("UserPageWarn?message="+e.getMessage()+"&url=deleteService.jsp");
+			response.sendRedirect("serviceNotFound.jsp");
 		 }	
 	}
 

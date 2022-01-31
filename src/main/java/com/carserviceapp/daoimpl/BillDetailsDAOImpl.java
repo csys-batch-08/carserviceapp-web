@@ -21,8 +21,8 @@ public class BillDetailsDAOImpl implements BillDetailsDAO
 			con = ConnectionUtil.getDBconnection();
 			stmt = con.prepareStatement(insertQuery);
 			stmt.setInt(1,bill.getUserId());
-			stmt.setDate(2,java.sql.Date.valueOf(bill.getServDate()));
-			stmt.setInt(3,bill.getAmount()); 
+			stmt.setString(2,(bill.getServDate()));
+			stmt.setInt(3,bill.getUserId()); 
 			i = stmt.executeUpdate();
 		    }
 		catch(SQLException | ClassNotFoundException e)
@@ -69,17 +69,17 @@ public class BillDetailsDAOImpl implements BillDetailsDAO
 		{
 			String showQuery="select bill_num,serv_date,amount,status from bill where user_id in ? and status like 'processing'";
 			Connection con = null;
-			ResultSet rs=null;
+			ResultSet rsone=null;
 			 PreparedStatement stmt = null;
 			List<BillDetails> orderslist=new ArrayList<>();
 			try {
 				con = ConnectionUtil.getDBconnection();
 				stmt=con.prepareStatement(showQuery);
 				stmt.setInt(1, billPojo.getUserId());
-				rs=stmt.executeQuery();
-				while(rs.next())
+				rsone=stmt.executeQuery();
+				while(rsone.next())
 				{
-					BillDetails customer = new BillDetails(rs.getInt(1),rs.getDate(2).toLocalDate(),rs.getInt(3),rs.getString(4));
+					BillDetails customer = new BillDetails(rsone.getInt(1),rsone.getDate(2).toLocalDate(),rsone.getInt(3),rsone.getString(4));
 					orderslist.add(customer);
 				}
 			}catch (SQLException | ClassNotFoundException e1) 
@@ -97,20 +97,20 @@ public class BillDetailsDAOImpl implements BillDetailsDAO
 	   //user myorders option no
 	   public List<BillDetails> pendingview(BillDetails billPojo) 
 		{
-			String showQuery="select bill_num,serv_date,amount,status from bill where user_id in ? and status like 'paid'";
+			String showQueryOne="select bill_num,serv_date,amount,status from bill where user_id in ? and status like 'paid'";
 			
 			Connection con=null;
-			ResultSet rs=null;
+			ResultSet rstwo=null;
 			PreparedStatement stmt=null;
 			List<BillDetails> orderslist=new ArrayList<>();
 			try {
 				con = ConnectionUtil.getDBconnection();
-				stmt=con.prepareStatement(showQuery);
+				stmt=con.prepareStatement(showQueryOne);
 				stmt.setInt(1, billPojo.getUserId());
-				rs=stmt.executeQuery();
-				while(rs.next())
+				rstwo=stmt.executeQuery();
+				while(rstwo.next())
 				{
-					BillDetails customer = new BillDetails(rs.getInt(1),rs.getDate(2).toLocalDate(),rs.getInt(3),rs.getString(4));
+					BillDetails customer = new BillDetails(rstwo.getInt(1),rstwo.getDate(2).toLocalDate(),rstwo.getInt(3),rstwo.getString(4));
 					orderslist.add(customer);
 				}
 			}catch (SQLException | ClassNotFoundException e1) 
@@ -127,18 +127,18 @@ public class BillDetailsDAOImpl implements BillDetailsDAO
 	   //after payment option
 	   public int view1(BillDetails billpojo1) 
 		{
-			String showQuery="select amount from bill where user_id in ? and bill_num in ?";
+			String showQueryTwo="select amount from bill where user_id in ? and bill_num in ?";
 			Connection con=null;
-			ResultSet rs=null;
+			ResultSet rsthree=null;
 			PreparedStatement stmt=null;
 			try {
 				con = ConnectionUtil.getDBconnection();
-		        stmt=con.prepareStatement(showQuery);
+		        stmt=con.prepareStatement(showQueryTwo);
 				stmt.setInt(1, billpojo1.getUserId());
 				stmt.setInt(2, billpojo1.getBillNum());
-				rs=stmt.executeQuery();
-				while(rs.next()) {
-					return rs.getInt(1);
+				rsthree=stmt.executeQuery();
+				while(rsthree.next()) {
+					return rsthree.getInt(1);
 				}
 			}catch (SQLException | ClassNotFoundException e1) 
 			{
@@ -183,19 +183,19 @@ public class BillDetailsDAOImpl implements BillDetailsDAO
 	   //for payment to get bill num
 	   public int fetchbillnum(BillDetails payment)
 	   {
-		    String query="select bill_num from bill where user_id  in ?";  
+		    String queryOne="select bill_num from bill where user_id  in ?";  
 			Connection con = null;
 			PreparedStatement stmt = null;
-			ResultSet rs = null;
+			ResultSet rsred = null;
 			int i=0;
 			try {
 				con = ConnectionUtil.getDBconnection();
-			    stmt = con.prepareStatement(query);
+			    stmt = con.prepareStatement(queryOne);
 				stmt.setInt(1,payment.getUserId());
-				 rs = stmt.executeQuery();
-				 if(rs.next())
+				 rsred = stmt.executeQuery();
+				 if(rsred.next())
 				 {
-					 i=rs.getInt(1);
+					 i=rsred.getInt(1);
 				 }
 			} catch (SQLException | ClassNotFoundException e) 
 			{
@@ -210,18 +210,18 @@ public class BillDetailsDAOImpl implements BillDetailsDAO
 	   
 	   public  List<BillDetails> adminview() 
 		{
-			String showQuery="select bill_num,user_id,serv_date,amount,status from bill";
+			String showQueryThree="select bill_num,user_id,serv_date,amount,status from bill";
 			Connection con=null;
-			ResultSet rs=null;
+			ResultSet rsblue=null;
 			PreparedStatement stmt=null;
 			List<BillDetails> billlist=new ArrayList<>();
 			try {
 				con = ConnectionUtil.getDBconnection();
-				stmt=con.prepareStatement(showQuery);
-				rs=stmt.executeQuery();	
-				while(rs.next())
+				stmt=con.prepareStatement(showQueryThree);
+				rsblue=stmt.executeQuery();	
+				while(rsblue.next())
 				{
-					BillDetails bills = new BillDetails(rs.getInt(1),rs.getInt(2),rs.getDate(3).toLocalDate(),rs.getInt(4),rs.getString(5));
+					BillDetails bills = new BillDetails(rsblue.getInt(1),rsblue.getInt(2),rsblue.getDate(3).toLocalDate(),rsblue.getInt(4),rsblue.getString(5));
 					billlist.add(bills);
 				}
 			} catch (SQLException | ClassNotFoundException e1) 
@@ -236,13 +236,13 @@ public class BillDetailsDAOImpl implements BillDetailsDAO
 		}
 	   public boolean updatestatus(BillDetails bill)
 	   {
-		  String updateQuery="update bill set status='paid' where user_id=?";
+		  String updateQueryOne="update bill set status='paid' where user_id=?";
 		  Connection con = null;
 		  PreparedStatement stmt = null;
 		  int k=0;
 		try {
 			con = ConnectionUtil.getDBconnection();
-			stmt = con.prepareStatement(updateQuery);
+			stmt = con.prepareStatement(updateQueryOne);
 			stmt.setInt(1,bill.getUserId());
 			k =stmt.executeUpdate();
 			if(k>0)

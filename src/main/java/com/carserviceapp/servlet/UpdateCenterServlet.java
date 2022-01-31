@@ -8,7 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.carserviceapp.daoimpl.CenterDetailsDAOImpl;
 import com.carserviceapp.exception.CenterNotFoundException;
@@ -44,7 +43,7 @@ public class UpdateCenterServlet extends HttpServlet {
 		       }
 				 catch(CenterNotFoundException e)
 					{
-						response.sendRedirect("UserPageWarn?message="+e.getMessage()+"&url=updateServiceCenter.jsp");
+						response.sendRedirect("centerNotFound.jsp");
 					}	
 			 }	  	   
 	}

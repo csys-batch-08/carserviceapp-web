@@ -20,7 +20,6 @@ public class AddBill extends HttpServlet {
        
     @Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 HttpSession session =request.getSession();
 		 PrintWriter writer=response.getWriter();
 		int userid = Integer.parseInt(request.getParameter("userid"));
 		String date =request.getParameter("servdate");
@@ -40,7 +39,7 @@ public class AddBill extends HttpServlet {
 			 }
 			 catch(UserIdNotFoundException e)
 			 {
-				response.sendRedirect("UserPageWarn?message="+e.getMessage()+"&url=addBill.jsp");
+				response.sendRedirect("userIdNotFound.jsp");
 			 }	
 		 }
 	}

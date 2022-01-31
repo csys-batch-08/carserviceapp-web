@@ -47,10 +47,14 @@ public class RegisterPageServlet extends HttpServlet
 		   response.sendRedirect("logIn.jsp");
 		   }
        }
-  catch (ExistMobileNoException | ExistEmailIdException d)
+  catch (ExistMobileNoException e)
   {
-	   response.sendRedirect("UserPageWarn?message="+d.getMessage()+"&url=registerPage.jsp");
+	   response.sendRedirect("existMobile.jsp");
    } 
+ catch( ExistEmailIdException d)
+  {
+	 response.sendRedirect("existEmail.jsp");
+  }
   catch (IOException e) 
            {
 			e.getCause();

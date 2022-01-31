@@ -49,7 +49,7 @@ public class DeleteServiceCenter extends HttpServlet {
 	     }
 		 catch(CenterNotFoundException e)
 		 {
-			response.sendRedirect("UserPageWarn?message="+e.getMessage()+"&url=deleteServiceCenter.jsp");
+			response.sendRedirect("centerNotFound.jsp");
 		 }	
 		 }
 }

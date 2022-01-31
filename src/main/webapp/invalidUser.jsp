@@ -100,7 +100,7 @@ body
         <a href="userPage.jsp" >Home</a>          
        </div>
      
-       <h1 class="finish">${sessionScope.message}</h1>
-    <a href="${sessionScope.url}"><button class="btn btn-dark">Retry</button></a>
+       <h1 class="finish">Username and Password does not match try again</h1>
+    <a href="logIn.jsp"><button class="btn btn-dark">Retry</button></a>
 </body>
 </html>

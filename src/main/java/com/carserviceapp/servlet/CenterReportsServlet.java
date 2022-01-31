@@ -46,7 +46,7 @@ public class CenterReportsServlet extends HttpServlet {
 			} 
 		 catch(CenterNotFoundException e)
 		{
-		   response.sendRedirect("UserPageWarn?message="+e.getMessage()+"&url=centerReportsOne.jsp");
+		   response.sendRedirect("centerNotFound.jsp");
 		}
 	}	  
 	}
