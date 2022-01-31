@@ -91,7 +91,7 @@
           <fieldset>
           <legend></legend>
               <div class="imgcontainer">
-                   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCs3DfTlcAjErJF0nM01eT5yYj9O-EonAMkQ&usqp=CAU" alt="avatar" class="avatar">
+                   <img src="assets/logo.jpg" alt="avatar" class="avatar">
               </div>
 
             <div class="container">
