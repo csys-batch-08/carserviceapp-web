@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"  isELIgnored="false" import="com.carserviceapp.connection.*" import ="java.sql.*" import="com.carserviceapp.daoimpl.*"  import="com.carserviceapp.dao.*"%>
+    pageEncoding="ISO-8859-1"  isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -118,7 +118,7 @@ body
        </div>
     </div>
 <div class="container mt-1">	
-<h1><strong>PickUp Reports</strong></h1>
+<h1><strong>Bill Reports</strong></h1>
 <table  class="table table-bordered table-sm">
  <caption style="visibility:hidden;">bill reports details</caption>
 <thead class="table-dark">

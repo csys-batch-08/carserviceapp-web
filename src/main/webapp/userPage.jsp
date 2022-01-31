@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -153,13 +151,6 @@ h5{
 </style>
 </head>
 <body>
-     <%
-	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
-	if ((session.getAttribute("user") == null)&&(session.getAttribute("admin")==null)) {
-		response.sendRedirect("index.jsp");
-	}
-	%>
-	
     <div class="container">
         <div class="heading">
        <a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br>

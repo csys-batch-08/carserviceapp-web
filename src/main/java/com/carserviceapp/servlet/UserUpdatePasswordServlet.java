@@ -1,6 +1,8 @@
 package com.carserviceapp.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,7 +19,7 @@ public class UserUpdatePasswordServlet extends HttpServlet {
     @Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
     {
-		doGet(request, response);
+		PrintWriter writer=response.getWriter();
 		 HttpSession session =request.getSession();
 	      int userid=Integer.parseInt(session.getAttribute("userid").toString());
 		 String password=request.getParameter("updatepassword");
@@ -26,8 +28,7 @@ public class UserUpdatePasswordServlet extends HttpServlet {
 		 boolean flag = cent.update(obj1);
 		 if(flag)
 		 {
-			  session.setAttribute("passchange", true);
-		       response.sendRedirect("logIn.jsp");
+		       writer.print("<script type=\"text/javascript\"> alert('Password Changed Successfully'); window.location = 'logIn.jsp';</script>");
 		  }
 	}
 

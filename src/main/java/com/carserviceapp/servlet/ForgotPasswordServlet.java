@@ -1,6 +1,8 @@
 package com.carserviceapp.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,6 +19,7 @@ public class ForgotPasswordServlet extends HttpServlet {
        @Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
+    	 PrintWriter writer=response.getWriter();
 		 HttpSession session =request.getSession();
 		 Long mobileno=Long.parseLong(request.getParameter("forgotpassword"));
 		 String password=request.getParameter("updatepassword");
@@ -25,8 +28,7 @@ public class ForgotPasswordServlet extends HttpServlet {
 		 boolean flag = cent.forgotpassword(obj1);
 		 if(flag)
 		 {
-			  session.setAttribute("forgotpass1",true);
-			  response.sendRedirect("logIn.jsp");
+			  writer.print("<script type=\"text/javascript\"> alert('Password Updated Successfully'); window.location = 'logIn.jsp';</script>");
 		  }
 		 
 	}

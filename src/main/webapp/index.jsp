@@ -131,14 +131,6 @@ button:hover{
         <a href="index.jsp" >Home</a>          
        </div>
     </div>
-     <%
-   if(session.getAttribute("userinactive") != null){%>
-	   <h1 style="position:absolute; top:80px; right:50px; font-size:30px; color:black;">Your Account is Successfully Removed!!</h1>   
-   <%session.removeAttribute("userinactive"); 
-   session =request.getSession();
-   request.getSession().invalidate();
-   }
-   %>
   <div class="row"> 
     <div class="col">
                          <h1>MECHcent</h1>

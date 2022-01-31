@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" isELIgnored="false"   import="com.carserviceapp.connection.*" import ="java.sql.*" import="com.carserviceapp.model.*"
-    import="javax.servlet.http.HttpSession"  import="com.carserviceapp.daoimpl.*"  import="com.carserviceapp.dao.*"%>
+    pageEncoding="ISO-8859-1" isELIgnored="false"  %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -88,20 +87,6 @@
     </style>
 </head>
 <body>
-   <%
-   if(session.getAttribute("passchange") != null){%>
-	   <h1>Password Changed Successfully!!</h1>
-	   
-   <%session.removeAttribute("passchange"); }
-   %>
-   
-   <%
-   if(session.getAttribute("forgotpass1") != null){%>
-	   <h1>Password Updated Successfully!!</h1>
-	   
-   <%session.removeAttribute("forgotpass1"); }
-   %>
-   
       <form action="loginpage" method="post" class="was-validated">
           <fieldset>
           <legend></legend>
