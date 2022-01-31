@@ -130,7 +130,7 @@ td a
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
-        <a href="logout.jsp">Logout</a>
+        <a href="LogoutPage">Logout</a>
         <a href="contactUs.jsp">Contact Us</a>
         <a href="aboutUs.jsp">About Us</a>
         <a href="userPage.jsp" >Home</a>          
