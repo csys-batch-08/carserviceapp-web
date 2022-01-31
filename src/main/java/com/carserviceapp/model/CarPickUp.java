@@ -168,11 +168,10 @@ public CarPickUp(int pickupId,int userId,String cName, String cEmail, long cMobi
 	this.pickAddress = pickAddress;
 	this.centerId = centerId;
 }
-public CarPickUp(int pickupId,int userId, String cName, String cEmail, long cMobile, String pickAddress, int centerId,String status) {
+public CarPickUp(int pickupId,int userId, String cName, long cMobile, String pickAddress, int centerId,String status) {
 	super();
 	this.userId = userId;
 	this.cName = cName;
-	this.cEmail = cEmail;
 	this.cMobile = cMobile;
 	this.pickAddress = pickAddress;
 	this.centerId = centerId;

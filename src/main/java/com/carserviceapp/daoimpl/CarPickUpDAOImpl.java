@@ -96,7 +96,7 @@ public class CarPickUpDAOImpl implements CarPickUpDAO
 	   
 	   public List<CarPickUp> pickupview() 
 		{	
-			String showQuery="select pickup_id,user_id,cus_name,cus_email,cus_contact,pick_address,center_id,status from pickup order by pickup_id desc";
+			String showQuery="select pickup_id,user_id,cus_name,cus_contact,pick_address,center_id,status from pickup order by pickup_id desc";
 			ResultSet rs=null;
 			Connection con = null;
 			PreparedStatement stmt = null;
@@ -107,7 +107,7 @@ public class CarPickUpDAOImpl implements CarPickUpDAO
 				rs=stmt.executeQuery();
 				while(rs.next())
 				{
-					CarPickUp pickup = new CarPickUp(rs.getInt(1),rs.getInt(2),rs.getString(3),rs.getString(4),rs.getLong(5),rs.getString(6),rs.getInt(7),rs.getString(8));
+					CarPickUp pickup = new CarPickUp(rs.getInt(1),rs.getInt(2),rs.getString(3),rs.getLong(4),rs.getString(5),rs.getInt(6),rs.getString(7));
 					pickuplist.add(pickup);
 				}
 			}  catch (SQLException | ClassNotFoundException e1) 

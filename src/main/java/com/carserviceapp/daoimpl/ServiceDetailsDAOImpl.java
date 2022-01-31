@@ -40,13 +40,13 @@ public class ServiceDetailsDAOImpl implements ServiceDetailsDAO
 	   {
 		 int l =0;
 		 Connection con = null;
-		   PreparedStatement stmt = null;
+		   PreparedStatement stmts= null;
 		   try {
 		   String deleteQuery="delete from service_details where service_id=?";
 		   con =ConnectionUtil.getDBconnection();
-		   stmt =con.prepareStatement(deleteQuery);
-		   stmt.setInt(1,service.getServiceId());
-		    l= stmt.executeUpdate();
+		   stmts =con.prepareStatement(deleteQuery);
+		   stmts.setInt(1,service.getServiceId());
+		    l= stmts.executeUpdate();
 		    if(l>0)
 			{
 				return true;
@@ -57,7 +57,7 @@ public class ServiceDetailsDAOImpl implements ServiceDetailsDAO
 		   }
 		   finally
 			{
-				ConnectionUtil.closePreparedStatement(stmt,con);
+				ConnectionUtil.closePreparedStatement(stmts,con);
 			}
 	    return false;
 	   }

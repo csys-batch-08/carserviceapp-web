@@ -127,7 +127,6 @@ body
        <th scope="col">PickUp ID</th>
        <th scope="col">Customer UserID</th>
        <th scope="col">Customer Name</th>
-       <th scope="col">Customer Email</th>
        <th scope="col">Customer Mobile</th>
        <th scope="col">Customer Address</th>
        <th scope="col">Center ID</th>  
@@ -139,7 +138,6 @@ body
      <td>${p.pickupId}</td>
      <td>${p.userId}</td>
      <td>${p.cName}</td>
-     <td>${p.cEmail}</td>
      <td>${p.cMobile}</td>
      <td>${p.pickAddress}</td>
      <td>${p.centerId}</td>
