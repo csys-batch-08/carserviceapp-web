@@ -2,13 +2,11 @@
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.carserviceapp.connection.*;
 import com.carserviceapp.dao.CenterDetailsDAO;
 import com.carserviceapp.model.*;
+import com.carserviceapp.util.*;
 public class CenterDetailsDAOImpl implements CenterDetailsDAO
 {
 	   public boolean insert(CenterDetails center)
@@ -31,7 +29,7 @@ public class CenterDetailsDAOImpl implements CenterDetailsDAO
 			{
 			return true;
 			}
-		} catch (SQLException | ClassNotFoundException e) 
+		} catch (Exception e) 
 		{
 			e.getCause();
 		}
@@ -55,10 +53,10 @@ public class CenterDetailsDAOImpl implements CenterDetailsDAO
 				rs=stmt.executeQuery(showQuery);	
 				while(rs.next())
 				{
-					CenterDetails pickup = new CenterDetails(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getLong(4),rs.getString(5),rs.getString(6));
+					CenterDetails pickup = new CenterDetails(rs.getInt("center_id"),rs.getString("center_name"),rs.getString("c_location"),rs.getLong("c_contact"),rs.getString("c_email"),rs.getString("c_address"));
 					centerlist.add(pickup);
 				}
-			}  catch (SQLException | ClassNotFoundException e1) {
+			}  catch (Exception e1) {
 				e1.getCause();
 			}
 			 finally
@@ -80,10 +78,10 @@ public class CenterDetailsDAOImpl implements CenterDetailsDAO
 				rs=stmt.executeQuery(showQuery);	
 				while(rs.next())
 				{
-					CenterDetails customer = new CenterDetails(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getLong(4),rs.getString(5),rs.getString(6));
+					CenterDetails customer = new CenterDetails(rs.getInt("center_id"),rs.getString("center_name"),rs.getString("c_location"),rs.getLong("c_contact"),rs.getString("c_email"),rs.getString("c_address"));
 					centerlist.add(customer);
 				}
-			}  catch (SQLException | ClassNotFoundException e1) {
+			}  catch (Exception e1) {
 				e1.getCause();
 			}
 			 finally
@@ -107,9 +105,9 @@ public class CenterDetailsDAOImpl implements CenterDetailsDAO
 				 rs = stmt.executeQuery();
 				 while(rs.next())
 				 {
-					 centerid=rs.getInt(1);
+					 centerid=rs.getInt("center_id");
 				 }
-			} catch (SQLException | ClassNotFoundException e) 
+			} catch (Exception e) 
 			{
 				e.getCause();
 			}
@@ -136,7 +134,7 @@ public class CenterDetailsDAOImpl implements CenterDetailsDAO
 			{
 			return true;
 		   }
-		} catch (SQLException | ClassNotFoundException e) 
+		} catch (Exception e) 
 		{
 			e.getCause();
 		}
@@ -164,7 +162,7 @@ public class CenterDetailsDAOImpl implements CenterDetailsDAO
 			{
 			return true;
 			}
-		} catch (SQLException | ClassNotFoundException e) 
+		} catch (Exception e) 
 		{
 			e.getCause();
 		}

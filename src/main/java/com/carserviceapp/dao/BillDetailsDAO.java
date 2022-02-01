@@ -1,12 +1,13 @@
 package com.carserviceapp.dao;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import com.carserviceapp.model.BillDetails;
 
 public interface BillDetailsDAO
 {
-	public int insert(BillDetails bill);
+	public int insert(BillDetails bill) throws SQLException;
 	public boolean update(BillDetails bill);
 	public List<BillDetails> view(BillDetails billPojo);
 	public List<BillDetails> pendingview(BillDetails billPojo);

@@ -2,16 +2,14 @@ package com.carserviceapp.daoimpl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.carserviceapp.connection.*;
 import com.carserviceapp.dao.BillDetailsDAO;
 import com.carserviceapp.model.*;
+import com.carserviceapp.util.ConnectionUtil;
 public class BillDetailsDAOImpl implements BillDetailsDAO
 {		
-	   public int insert(BillDetails bill) 
+	   public int insert(BillDetails bill)  
 	   {
 		   String insertQuery="insert into bill(user_id,serv_date,amount) values (?,?,(SELECT sum(service_cost) from services where service_id in (select service_id from service_details where user_id in ?)))";
 		   Connection con = null;
@@ -25,7 +23,7 @@ public class BillDetailsDAOImpl implements BillDetailsDAO
 			stmt.setInt(3,bill.getUserId()); 
 			i = stmt.executeUpdate();
 		    }
-		catch(SQLException | ClassNotFoundException e)
+		catch(Exception e)
 		{
 			e.getCause();
 		}
@@ -53,7 +51,7 @@ public class BillDetailsDAOImpl implements BillDetailsDAO
 			     {
 					return true;
 			     }
-		} catch (SQLException | ClassNotFoundException e) 
+		} catch (Exception e) 
 		{
 			e.getCause();
 		}
@@ -79,10 +77,10 @@ public class BillDetailsDAOImpl implements BillDetailsDAO
 				rsone=stmt.executeQuery();
 				while(rsone.next())
 				{
-					BillDetails customer = new BillDetails(rsone.getInt(1),rsone.getDate(2).toLocalDate(),rsone.getInt(3),rsone.getString(4));
+					BillDetails customer = new BillDetails(rsone.getInt("bill_num"),rsone.getDate("serv_date").toLocalDate(),rsone.getInt("amount"),rsone.getString("status"));
 					orderslist.add(customer);
 				}
-			}catch (SQLException | ClassNotFoundException e1) 
+			}catch (Exception e1) 
 			{
 				e1.getCause();
 			}
@@ -110,10 +108,10 @@ public class BillDetailsDAOImpl implements BillDetailsDAO
 				rstwo=stmt.executeQuery();
 				while(rstwo.next())
 				{
-					BillDetails customer = new BillDetails(rstwo.getInt(1),rstwo.getDate(2).toLocalDate(),rstwo.getInt(3),rstwo.getString(4));
+					BillDetails customer = new BillDetails(rstwo.getInt("bill_num"),rstwo.getDate("serv_date").toLocalDate(),rstwo.getInt("amount"),rstwo.getString("status"));
 					orderslist.add(customer);
 				}
-			}catch (SQLException | ClassNotFoundException e1) 
+			}catch (Exception e1) 
 			{
 				e1.getCause();
 			}
@@ -138,9 +136,9 @@ public class BillDetailsDAOImpl implements BillDetailsDAO
 				stmt.setInt(2, billpojo1.getBillNum());
 				rs=stmt.executeQuery();
 				while(rs.next()) {
-					return rs.getInt(1);
+					return rs.getInt("amount");
 				}
-			}catch (SQLException | ClassNotFoundException e1) 
+			}catch (Exception e1) 
 			{
 				e1.getCause();
 			}
@@ -168,7 +166,7 @@ public class BillDetailsDAOImpl implements BillDetailsDAO
 				while(rs.next()) {			
 				return true;
 				}
-			} catch (SQLException | ClassNotFoundException e) 
+			} catch (Exception e) 
 			{
 				e.getCause();
 			}
@@ -195,9 +193,9 @@ public class BillDetailsDAOImpl implements BillDetailsDAO
 				 rs = stmt.executeQuery();
 				 if(rs.next())
 				 {
-					 i=rs.getInt(1);
+					 i=rs.getInt("bill_num");
 				 }
-			} catch (SQLException | ClassNotFoundException e) 
+			} catch (Exception e) 
 			{
 				e.getCause();
 			}
@@ -221,10 +219,10 @@ public class BillDetailsDAOImpl implements BillDetailsDAO
 				rs=stmt.executeQuery();	
 				while(rs.next())
 				{
-					BillDetails bills = new BillDetails(rs.getInt(1),rs.getInt(2),rs.getDate(3).toLocalDate(),rs.getInt(4),rs.getString(5));
+					BillDetails bills = new BillDetails(rs.getInt("bill_num"),rs.getInt("user_id"),rs.getDate("serv_date").toLocalDate(),rs.getInt("amount"),rs.getString("status"));
 					billlist.add(bills);
 				}
-			} catch (SQLException | ClassNotFoundException e1) 
+			} catch (Exception e1) 
 			{
 				e1.getCause();
 			}
@@ -249,7 +247,7 @@ public class BillDetailsDAOImpl implements BillDetailsDAO
 			{
 				return true;
 			}
-		} catch (SQLException | ClassNotFoundException e) 
+		} catch (Exception e) 
 		{
 			e.getCause();
 		}

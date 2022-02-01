@@ -1,10 +1,9 @@
 package com.carserviceapp.daoimpl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import com.carserviceapp.connection.*;
 import com.carserviceapp.dao.CarPaymentDAO;
 import com.carserviceapp.model.*;
+import com.carserviceapp.util.*;
 public class CarPaymentDAOImpl implements CarPaymentDAO
 {
 	   public int insert(CarPayment payment) 
@@ -23,7 +22,7 @@ public class CarPaymentDAOImpl implements CarPaymentDAO
 			stmt.setInt(5,payment.getCvvNo());
 			stmt.setInt(6,payment.getAmtPaid());
 			i = stmt.executeUpdate();
-		} catch (SQLException | ClassNotFoundException e) 
+		} catch (Exception e) 
 		{
 			e.getCause();
 		}

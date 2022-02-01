@@ -2,13 +2,11 @@ package com.carserviceapp.daoimpl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.carserviceapp.connection.*;
 import com.carserviceapp.dao.CarPickUpDAO;
 import com.carserviceapp.model.*;
+import com.carserviceapp.util.*;
 public class CarPickUpDAOImpl implements CarPickUpDAO
 	{
 	   public int insert(CarPickUp pickup) 
@@ -28,7 +26,7 @@ public class CarPickUpDAOImpl implements CarPickUpDAO
 			stmt.setInt(6,pickup.getCenterId());
 		    i = 0;
 			i = stmt.executeUpdate();
-		} catch (SQLException | ClassNotFoundException e) {
+		} catch (Exception e) {
 			e.getCause();
 		}
 		finally
@@ -55,7 +53,7 @@ public class CarPickUpDAOImpl implements CarPickUpDAO
 			 {
 				return true;
 			 }
-		  } catch (SQLException | ClassNotFoundException e)
+		  } catch (Exception e)
 	           {
 				e.getCause();
 			   }
@@ -82,7 +80,7 @@ public class CarPickUpDAOImpl implements CarPickUpDAO
 		      {
 				return true;
 		      }
-	   } catch (SQLException | ClassNotFoundException e) 
+	   } catch (Exception e) 
 		   {
 			e.getCause();
 		   }
@@ -107,10 +105,10 @@ public class CarPickUpDAOImpl implements CarPickUpDAO
 				rs=stmt.executeQuery();
 				while(rs.next())
 				{
-					CarPickUp pickup = new CarPickUp(rs.getInt(1),rs.getInt(2),rs.getString(3),rs.getLong(4),rs.getString(5),rs.getInt(6),rs.getString(7));
+					CarPickUp pickup = new CarPickUp(rs.getInt("pickup_id"),rs.getInt("user_id"),rs.getString("cus_name"),rs.getLong("cus_contact"),rs.getString("pick_address"),rs.getInt("center_id"),rs.getString("status"));
 					pickuplist.add(pickup);
 				}
-			}  catch (SQLException | ClassNotFoundException e1) 
+			}  catch (Exception e1) 
 			{
 				e1.getCause();
 			}
@@ -123,7 +121,7 @@ public class CarPickUpDAOImpl implements CarPickUpDAO
 	   public List<CarPickUp> admincenterview(CarPickUp admincenter) 
 		{
 		   ResultSet rs=null;
-			String showQuery="select pickup_id,user_id,cus_name,cus_email,cus_contact,pick_address,center_id,status from pickup where center_id in ?";
+			String showQuery="select pickup_id,user_id,cus_name,cus_contact,pick_address,center_id,status from pickup where center_id in ?";
 			Connection con = null;
 			PreparedStatement stmt = null;
 			List<CarPickUp> centerlist=new ArrayList<>();
@@ -134,11 +132,11 @@ public class CarPickUpDAOImpl implements CarPickUpDAO
 				rs=stmt.executeQuery();	
 				while(rs.next())
 				{
-					CarPickUp pickup = new CarPickUp(rs.getInt(1),rs.getInt(2),rs.getString(3),rs.getString(4),rs.getLong(5),rs.getString(6),rs.getInt(7));
+					CarPickUp pickup = new CarPickUp(rs.getInt("pickup_id"),rs.getInt("user_id"),rs.getString("cus_name"),rs.getLong("cus_contact"),rs.getString("pick_address"),rs.getInt("center_id"),rs.getString("status"));
 					centerlist.add(pickup);
 				}
 			} 
-			catch (SQLException | ClassNotFoundException e1) 
+			catch (Exception e1) 
 			{
 				e1.getCause();
 			}
@@ -164,7 +162,7 @@ public class CarPickUpDAOImpl implements CarPickUpDAO
 			{
 				return true;
 			}
-		} catch (SQLException | ClassNotFoundException e) 
+		} catch (Exception e) 
 		{
 			e.getCause();
 		}

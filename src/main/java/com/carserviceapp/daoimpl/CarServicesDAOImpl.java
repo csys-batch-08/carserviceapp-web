@@ -2,12 +2,12 @@ package com.carserviceapp.daoimpl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import com.carserviceapp.connection.*;
+
 import com.carserviceapp.dao.CarServicesDAO;
 import com.carserviceapp.model.*;
+import com.carserviceapp.util.*;
 public class CarServicesDAOImpl implements CarServicesDAO
 {
 	   public boolean insert(CarServices service)
@@ -28,7 +28,7 @@ public class CarServicesDAOImpl implements CarServicesDAO
 			{
 			return true;
 			}
-		} catch (SQLException | ClassNotFoundException e) 
+		} catch (Exception e) 
 		{
 			e.getCause();
 		}
@@ -54,7 +54,7 @@ public class CarServicesDAOImpl implements CarServicesDAO
 			{
 			return true;
 			}
-		} catch (SQLException | ClassNotFoundException e) 
+		} catch (Exception e) 
 		{
 			e.getCause();
 		}
@@ -81,7 +81,7 @@ public class CarServicesDAOImpl implements CarServicesDAO
 			{
 			     return true;
 			}
-	   } catch (SQLException | ClassNotFoundException e)
+	   } catch (Exception e)
 		   {
 			e.getCause();
 		   }
@@ -107,9 +107,9 @@ public class CarServicesDAOImpl implements CarServicesDAO
 				 rsone= stmt.executeQuery();
 				 while(rsone.next())
 				 {
-					 serviceid=rsone.getInt(1);
+					 serviceid=rsone.getInt("service_id");
 				 }
-			} catch (SQLException | ClassNotFoundException e) 
+			} catch (Exception e) 
 			{
 				e.getCause();
 			}
@@ -133,10 +133,10 @@ public class CarServicesDAOImpl implements CarServicesDAO
 				rstwo=stmt.executeQuery(showQuery);
 				while(rstwo.next())
 				{
-					CarServices pickup = new CarServices(rstwo.getString(1),rstwo.getInt(2),rstwo.getString(3),rstwo.getInt(4));
+					CarServices pickup = new CarServices(rstwo.getString("service_name"),rstwo.getInt("service_cost"),rstwo.getString("service_desc"),rstwo.getInt("service_id"));
 					servicelist.add(pickup);
 				}
-			}  catch (SQLException | ClassNotFoundException e1) 
+			}  catch (Exception e1) 
 			{
 				e1.getCause();
 			}
@@ -159,10 +159,10 @@ public class CarServicesDAOImpl implements CarServicesDAO
 	 				rsthree=stmt.executeQuery(showQueryOne);
 	 				while(rsthree.next())
 					{
-						CarServices services = new CarServices(rsthree.getString(1),rsthree.getInt(2),rsthree.getString(3),rsthree.getInt(4));
+						CarServices services = new CarServices(rsthree.getString("service_name"),rsthree.getInt("service_cost"),rsthree.getString("service_desc"),rsthree.getInt("service_id"));
 						servicelist.add(services);
 					}
-	 			}  catch (SQLException | ClassNotFoundException e1) 
+	 			}  catch (Exception e1) 
 	 			{
 	 				e1.getCause();
 	 			}

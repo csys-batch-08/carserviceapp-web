@@ -1,11 +1,9 @@
 package com.carserviceapp.daoimpl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import com.carserviceapp.connection.*;
 import com.carserviceapp.dao.ServiceDetailsDAO;
 import com.carserviceapp.model.*;
-
+import com.carserviceapp.util.*;
 public class ServiceDetailsDAOImpl implements ServiceDetailsDAO
 {
 	 public boolean insert(ServiceDetails details)
@@ -25,7 +23,7 @@ public class ServiceDetailsDAOImpl implements ServiceDetailsDAO
 			{
 				return true;
 			}
-		} catch (SQLException | ClassNotFoundException e) 
+		} catch (Exception e) 
 		{
 			e.getCause();
 		}
@@ -51,7 +49,7 @@ public class ServiceDetailsDAOImpl implements ServiceDetailsDAO
 			{
 				return true;
 			}
-	   } catch (SQLException | ClassNotFoundException e) 
+	   } catch (Exception e) 
 		   {
 			e.getCause();
 		   }

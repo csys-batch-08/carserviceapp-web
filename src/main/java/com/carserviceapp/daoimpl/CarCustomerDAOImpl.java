@@ -2,13 +2,12 @@ package com.carserviceapp.daoimpl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.carserviceapp.connection.*;
 import com.carserviceapp.dao.CarCustomerDAO;
 import com.carserviceapp.model.*;
+import com.carserviceapp.util.*;
 
 public class CarCustomerDAOImpl implements CarCustomerDAO
 	{
@@ -31,7 +30,7 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 			   {
 					return true;
 			   }
-		} catch (SQLException | ClassNotFoundException e) 
+		} catch (Exception e) 
 		   {
 			e.getCause();
 		    }
@@ -61,9 +60,9 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 					pstmt.setString(1, userpasscheck.getName());
 					ResultSet rs1 = pstmt.executeQuery();
 					rs1.next();
-					return rs1.getString(1);
+					return rs1.getString("usertype");
 				}
-			} catch (SQLException | ClassNotFoundException e) 
+			} catch (Exception e) 
 			{
 				e.getCause();
 			}
@@ -90,10 +89,10 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 				rs = stmt.executeQuery();
 				while(rs.next())
 					{
-						CarCustomer customer = new CarCustomer(rs.getInt(1),rs.getString(2),rs.getLong(3),rs.getString(4),rs.getString(5),rs.getString(6));
+						CarCustomer customer = new CarCustomer(rs.getInt("user_id"),rs.getString("u_name"),rs.getLong("mobileno"),rs.getString("u_password"),rs.getString("u_email"),rs.getString("u_address"));
 						custdetails.add(customer);
 					}
-			} catch (SQLException | ClassNotFoundException e) {
+			} catch (Exception e) {
 				e.getCause();
 			}
 			 finally
@@ -118,9 +117,9 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 				 rs = stmt.executeQuery();
 				 while(rs.next())
 				 {
-				 useremail=rs.getString(5);
+				 useremail=rs.getString("u_email");
 				 }
-			} catch (SQLException | ClassNotFoundException e) 
+			} catch (Exception e) 
 			{
 				e.getCause();
 			}
@@ -146,9 +145,9 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 				 rs = stmt.executeQuery();
 				 while(rs.next())
 				 {
-				 usermobile=rs.getLong(3);
+				 usermobile=rs.getLong("mobileno");
 				 }
-			} catch (SQLException | ClassNotFoundException e) 
+			} catch (Exception e) 
 			{
 				e.getCause();
 			}
@@ -175,9 +174,9 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 				 rs = stmt.executeQuery();
 				 while(rs.next())
 				 {
-				 userid=rs.getInt(1);
+				 userid=rs.getInt("user_id");
 				 }
-			} catch (SQLException | ClassNotFoundException e) 
+			} catch (Exception e) 
 			{
 				e.getCause();
 			}
@@ -205,7 +204,7 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 			{	
 			return true;
 			}
-		} catch (SQLException | ClassNotFoundException e) 
+		} catch (Exception e) 
 		{
 			e.getCause();
 		}
@@ -234,7 +233,7 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 			{
 			return true;
 			}
-		} catch (SQLException | ClassNotFoundException e) 
+		} catch (Exception e) 
 		{
 			e.getCause();
 		}
@@ -262,7 +261,7 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 			{
 			return true;
 			}
-		} catch (SQLException | ClassNotFoundException e) {
+		} catch (Exception e) {
 			e.getCause();
 		}
 		finally
@@ -284,7 +283,7 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 			stmt.setString(1,user.getName());
 			stmt.setString(2,user.getPassword());
 			l = stmt.executeUpdate();
-		} catch (SQLException | ClassNotFoundException e) {
+		} catch (Exception e) {
 			e.getCause();
 		}
 		finally
@@ -309,11 +308,11 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 				rs=stmt.executeQuery(showQuery);
 				while(rs.next())
 				{
-					CarCustomer customer = new CarCustomer(rs.getString(1),rs.getLong(2),rs.getString(3),rs.getString(4),rs.getInt(5));
+					CarCustomer customer = new CarCustomer(rs.getString("u_name"),rs.getLong("mobileno"),rs.getString("u_email"),rs.getString("u_address"),rs.getInt("user_id"));
 					custlist.add(customer);
 				}
 				
-			}  catch (SQLException | ClassNotFoundException e1) {
+			}  catch (Exception e1) {
 				e1.getCause();
 			}
 			finally
