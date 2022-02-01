@@ -17,7 +17,7 @@ public class ConnectionUtil
 		  try {
 			return DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system",EncryptPassword.decrypt());
 		} catch (Exception e) {
-			e.printStackTrace();
+			e.getCause();
 		}
 		return null;
 	  }
