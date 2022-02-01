@@ -3,6 +3,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+
+import com.carserviceapp.encrypt.EncryptPassword;
 public class ConnectionUtil 
 {
 	  private ConnectionUtil() {
@@ -12,7 +14,12 @@ public class ConnectionUtil
 	public static Connection getDBconnection() throws ClassNotFoundException, SQLException
 	  {
 		  Class.forName("oracle.jdbc.OracleDriver");
-		  return DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","oracle");
+		  try {
+			return DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system",EncryptPassword.decrypt());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	  }
 
 	  public static void closePreparedStatement(PreparedStatement stmt,Connection con)

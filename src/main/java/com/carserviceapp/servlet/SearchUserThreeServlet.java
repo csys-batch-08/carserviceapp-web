@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.carserviceapp.daoimpl.CarServicesDAOImpl;
 import com.carserviceapp.model.CarServices;
 
-@WebServlet("/SearchUserThreeServlet")
+@WebServlet("/pickupform")
 public class SearchUserThreeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     @Override   

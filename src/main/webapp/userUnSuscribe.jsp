@@ -117,7 +117,7 @@ function activatealrt()
     
     <h1 class="finish">Your Account is OutOfService....</h1>
     <h1 class="finish1">Please activate your account..</h1>
-    <a href="userReactivate"><button class="btn btn-dark" onclick="activatealrt()">Activate</button></a>
+    <a href="UserReactivate"><button class="btn btn-dark" onclick="activatealrt()">Activate</button></a>
     
 </body>
 </html>

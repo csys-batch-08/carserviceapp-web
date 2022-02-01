@@ -129,16 +129,16 @@ public class BillDetailsDAOImpl implements BillDetailsDAO
 		{
 			String showQueryTwo="select amount from bill where user_id in ? and bill_num in ?";
 			Connection con=null;
-			ResultSet rsthree=null;
+			ResultSet rs=null;
 			PreparedStatement stmt=null;
 			try {
 				con = ConnectionUtil.getDBconnection();
 		        stmt=con.prepareStatement(showQueryTwo);
 				stmt.setInt(1, billpojo1.getUserId());
 				stmt.setInt(2, billpojo1.getBillNum());
-				rsthree=stmt.executeQuery();
-				while(rsthree.next()) {
-					return rsthree.getInt(1);
+				rs=stmt.executeQuery();
+				while(rs.next()) {
+					return rs.getInt(1);
 				}
 			}catch (SQLException | ClassNotFoundException e1) 
 			{
@@ -186,16 +186,16 @@ public class BillDetailsDAOImpl implements BillDetailsDAO
 		    String queryOne="select bill_num from bill where user_id  in ?";  
 			Connection con = null;
 			PreparedStatement stmt = null;
-			ResultSet rsred = null;
+			ResultSet rs = null;
 			int i=0;
 			try {
 				con = ConnectionUtil.getDBconnection();
 			    stmt = con.prepareStatement(queryOne);
 				stmt.setInt(1,payment.getUserId());
-				 rsred = stmt.executeQuery();
-				 if(rsred.next())
+				 rs = stmt.executeQuery();
+				 if(rs.next())
 				 {
-					 i=rsred.getInt(1);
+					 i=rs.getInt(1);
 				 }
 			} catch (SQLException | ClassNotFoundException e) 
 			{
@@ -212,16 +212,16 @@ public class BillDetailsDAOImpl implements BillDetailsDAO
 		{
 			String showQueryThree="select bill_num,user_id,serv_date,amount,status from bill";
 			Connection con=null;
-			ResultSet rsblue=null;
+			ResultSet rs=null;
 			PreparedStatement stmt=null;
 			List<BillDetails> billlist=new ArrayList<>();
 			try {
 				con = ConnectionUtil.getDBconnection();
 				stmt=con.prepareStatement(showQueryThree);
-				rsblue=stmt.executeQuery();	
-				while(rsblue.next())
+				rs=stmt.executeQuery();	
+				while(rs.next())
 				{
-					BillDetails bills = new BillDetails(rsblue.getInt(1),rsblue.getInt(2),rsblue.getDate(3).toLocalDate(),rsblue.getInt(4),rsblue.getString(5));
+					BillDetails bills = new BillDetails(rs.getInt(1),rs.getInt(2),rs.getDate(3).toLocalDate(),rs.getInt(4),rs.getString(5));
 					billlist.add(bills);
 				}
 			} catch (SQLException | ClassNotFoundException e1) 

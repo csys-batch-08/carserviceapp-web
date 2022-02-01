@@ -157,7 +157,7 @@ p
                      <p>your bill is ..<c:out value="${amount}" />	</p> 	
                     <div class="mb-0 mt-0 cash">		 
                      <label for="amountpaid" class="form-label"><strong>Amount Paid</strong></label><br>
-                     <input type="number" placeholder="Enter Amount" class="form-control" name="amountpaid" <c:out value="${amount}" />	 readonly="readonly" required><br>
+                     <input type="number" placeholder="Enter Amount" class="form-control" name="amountpaid" value="<c:out value="${amount}" />"	 readonly="readonly" required><br>
                     </div>
                      <p id="terms">By accepting you agree to our <a href="termsAndPrivacy.jsp" style="color:red">Terms & Privacy</a>.</p>
                      <div class="clearfix">

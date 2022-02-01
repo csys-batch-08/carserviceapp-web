@@ -123,7 +123,7 @@ form{
     </div>
     
  <div class="container mt-1"> 
-    <form action="pickuprequest" method="post" class="was-validated">
+    <form action="pickupform" method="post" class="was-validated">
                <div class="register">
                      <h1>PickUp Request Form</h1>
                      <p>Please fill in this form for pickup purposes</p>
