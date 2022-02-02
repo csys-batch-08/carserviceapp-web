@@ -1,0 +1,32 @@
+@charset "ISO-8859-1";
+form{
+            border: 3px solid #f1f1f1;
+            margin-left:0px;
+            margin-right:800px;
+            padding:10px;
+            height:650px;
+            width:420px;
+            position:absolute;
+            left:10px;
+            top:20px;
+     margin-left:100px;
+     margin-right:800px;
+     margin-top:80px;
+  }
+
+.btn
+{
+  position:relative;
+  top:10px;
+}
+.btn:hover
+{
+ background-color:white;
+ color:black;
+}
+.mb-0
+{
+ position:relative;
+ top:-10px;
+ bottom:2px;
+}

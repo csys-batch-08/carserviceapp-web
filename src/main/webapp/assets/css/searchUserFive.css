@@ -1,0 +1,15 @@
+@charset "ISO-8859-1";
+  .finish
+  {
+    position:absolute;
+    left:100px;
+    top:250px;
+    font-size:40px;
+  }
+   .finish1
+  {
+    position:absolute;
+    left:100px;
+    top:300px;
+    font-size:40px;
+  }

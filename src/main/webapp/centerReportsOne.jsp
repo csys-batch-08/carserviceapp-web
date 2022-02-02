@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css"
 	href="assets/css/inner.css"></link>
 	 <link rel="stylesheet" type="text/css"
-	href="assets/css/centerreportsone.css"></link>
+	href="assets/css/centerReportsOne.css"></link>
 </head>
 <body>
     <div class="topnavbar">

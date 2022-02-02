@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css"
 	href="assets/css/inner.css"></link>
 	 <link rel="stylesheet" type="text/css"
-	href="assets/css/adminpage.css"></link>
+	href="assets/css/adminPage.css"></link>
 </head>
 <body>
     <div class="container">

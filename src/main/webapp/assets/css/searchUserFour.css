@@ -1,0 +1,39 @@
+@charset "ISO-8859-1";
+  .addmorebtns
+      {
+          position:absolute;
+        left:-800px;
+        top:100px;
+      }
+   table,th,td
+      {
+          border:1px solid black;
+          border-collapse: collapse;
+          border-bottom: 1px solid black;
+      }
+      tr:hover {background-color: black;}
+      table
+      {
+        width:80%;
+        height:100px;
+        margin-left:100px;
+        margin-right:100px;
+        margin-top:100px;
+      }
+      h1
+      {
+        position:relative;
+        left:100px;
+        top:100px;
+      }
+      .btn
+      {
+        position:relative;
+        left:950px;
+        top:150px;
+      }    
+.btn:hover
+{
+ background-color:white;
+ color:black;
+}

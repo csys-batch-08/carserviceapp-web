@@ -1,0 +1,32 @@
+@charset "ISO-8859-1";
+   table,th,td
+      {
+          border:1px solid black;
+          border-collapse: collapse;
+          border-bottom: 1px solid black;
+          color:white;
+      }
+      tr:hover {background-color: black;color:white;}
+      table
+      {
+        width:80%;
+        height:100px;
+        margin-top:45px;
+      }
+      h1
+      {
+        position:relative;
+        left:10px;
+        top:40px;
+      }
+.btn
+{
+ position:relative;
+ top:10px;
+ left:120px;
+}
+ .btn:hover
+      {
+         background-color:white;
+         color:black;
+      }

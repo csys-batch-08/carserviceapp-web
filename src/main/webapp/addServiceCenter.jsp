@@ -10,7 +10,7 @@
   <link rel="stylesheet" type="text/css"
 	href="assets/css/inner.css"></link>
 <link rel="stylesheet" type="text/css"
-	href="assets/css/addservicecent.css"></link>
+	href="assets/css/addServiceCent.css"></link>
 </head>
 <body>
     <div class="topnavbar">
