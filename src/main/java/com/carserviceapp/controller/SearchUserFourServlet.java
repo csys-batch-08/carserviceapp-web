@@ -19,7 +19,7 @@ public class SearchUserFourServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		HttpSession session = request.getSession(); 
-		int userid =(int) session.getAttribute("userid");
+		int userid =(int)session.getAttribute("userid");
 		int serviceid=Integer.parseInt(request.getParameter("serviceId"));
 		ServiceDetailsDAOImpl userserv = new ServiceDetailsDAOImpl();
 		ServiceDetails serv = new ServiceDetails(userid,serviceid);

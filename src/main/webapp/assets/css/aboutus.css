@@ -1,0 +1,47 @@
+@charset "ISO-8859-1";
+.aboutus {
+	width: 850px;
+	height: 400px;
+	position: absolute;
+	left: 250px;
+	top: 170px;
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.4);
+	border: 1px solid black;
+	border-radius: 1px;
+	box-shadow: 10px 25px 30px rgba(0, 0, 0, 0.3);
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#aboutus1 {
+	position: absolute;
+	top: 30px;
+	left: 30px;
+}
+
+#aboutus2 {
+	position: absolute;
+	top: 70px;
+	left: 20px;
+	text-align: justify;
+	line-height: 1.5;
+	padding: 20px;
+}
+
+#aboutus3 {
+	position: absolute;
+	top: 150px;
+	left: 20px;
+	text-align: justify;
+	line-height: 1.5;
+	padding: 20px;
+}
+
+#aboutus4 {
+	position: absolute;
+	top: 280px;
+	left: 20px;
+	text-align: justify;
+	line-height: 1.5;
+	padding: 20px;
+}

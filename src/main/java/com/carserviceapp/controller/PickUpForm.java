@@ -1,6 +1,8 @@
 package com.carserviceapp.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +20,6 @@ public class PickUpForm extends HttpServlet {
     @Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		doGet(request, response);
 		 HttpSession session =request.getSession();
 		int userid=Integer.parseInt(session.getAttribute("userid").toString());
 		String name=request.getParameter("custname");
@@ -32,7 +33,8 @@ public class PickUpForm extends HttpServlet {
 		try {
 			if(x==1)
 			{
-				response.sendRedirect("searchUserThree.jsp");
+				RequestDispatcher rd=request.getRequestDispatcher("pickupform");
+				rd.forward(request, response);
 			}   
 		} catch (IOException e) 
 		{

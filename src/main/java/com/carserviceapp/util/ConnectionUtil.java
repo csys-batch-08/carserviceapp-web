@@ -14,10 +14,14 @@ import javax.crypto.NoSuchPaddingException;
 import com.carserviceapp.encrypt.EncryptPassword;
 public class ConnectionUtil 
 {
+	private ConnectionUtil()
+	{
+		super();
+	}
 	public static Connection getDBconnection() throws ClassNotFoundException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException, SQLException
 	  {
 		  Class.forName("oracle.jdbc.OracleDriver");
-			return DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system",EncryptPassword.decrypt());
+		  return DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system",EncryptPassword.decrypt());
 	  }
 
 	  public static void closePreparedStatement(PreparedStatement stmt,Connection con)
