@@ -45,7 +45,7 @@
 							Name</strong>></label><br> <input type="text" placeholder="Enter Name"
 						class="form-control"
 						title="username should be more than 3 characters" name="custname"
-						pattern="[a-zA-Z\\s]{3,}" required>
+						pattern="[a-zA-Z\\s]{3,}" required autofocus>
 				</div>
 				<div class="mb-0 mt-1">
 					<label for="email" class="form-label"><strong>Customer

@@ -31,11 +31,11 @@
                <hr>
                     <div class="mt-1 mb-1">
                      <label for="services" class="form-label"><strong>Service Name</strong></label><br>
-                     <input type="text" class="form-control" placeholder="Enter Service Name" name="servname" id="servname" pattern="[a-zA-Z\s-]{3,}" required>
+                     <input type="text" class="form-control" placeholder="Enter Service Name" name="servname" id="servname" pattern="[a-zA-Z\s-]{3,}" required autofocus>
                      </div>
                      <div class="mt-1 mb-1">
                      <label for="servicecost" class="form-label"><strong>Service Cost</strong></label><br>
-                     <input type="number" class="form-control" placeholder="Enter Service Cost" name="servcost" id="servcost" pattern="^[0-9]{3,}$"required>
+                     <input type="number" class="form-control" placeholder="Enter Service Cost" name="servcost" id="servcost" pattern="^[0-9]{3,}$" min="100" max="999"required>
                      </div>
                      <div class="mt-1 mb-1">
                       <label for="servicedesc" class="form-label"><strong>Service Description</strong></label><br>
@@ -44,25 +44,6 @@
                      <div class="mt-2">
                      <button type="submit" class="btn btn-dark" onclick="addservice()">Add Services</button>
                      <a href="adminPage.jsp" class="btn btn-dark">Back</a>
-                     
-                     <script type="text/javascript">
-                      function addservice()
-                       {
-                    	   const sername = document.getElementById("servname");
-                    	   const sercost = document.getElementById("servcost");
-                    	   const serdesc = document.getElementById("servdesc");
-                    	 
-                    	  if((sername.value=="")||(sercost.value=="")||(serdesc.value==""))
-                    		  {
-                    		    sername.focus();
-                    		    return;
-                    		  }
-                     else
-                        {
-            	          alert("Service is Added Sucessfully...");
-                    	}
-                       } 
-                      </script>
                      </div>                  
             </form>
            </div>

@@ -61,10 +61,4 @@
 			</table>
 		</div>
 </body>
-<script language="JavaScript">
-	function showInput(val) {
-		document.getElementById('services').value = val;
-
-	}
-</script>
 </html>

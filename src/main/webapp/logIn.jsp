@@ -17,15 +17,14 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 	crossorigin="anonymous"></script>
-	<link rel="stylesheet" type="text/css"
-	href="assets/css/login.css"></link>
+<link rel="stylesheet" type="text/css" href="assets/css/login.css"></link>
 </head>
 <body>
 	<form action="loginpage" method="post" class="was-validated">
 		<fieldset>
 			<legend></legend>
 			<div class="imgcontainer">
-				<img src="assets/logo.jpg" alt="avatar" class="avatar">
+				<img src="assets/images/logo.jpg" alt="avatar" class="avatar">
 			</div>
 
 			<div class="container">
@@ -56,15 +55,6 @@
 			</div>
 		</fieldset>
 	</form>
-	<script>
-		function showpassword() {
-			var x = document.getElementById("userpass");
-			if (x.type === "password") {
-				x.type = "text";
-			} else {
-				x.type = "password";
-			}
-		}
-	</script>
+	<script src="assets/js/logIn.js"></script>
 </body>
 </html>

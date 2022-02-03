@@ -37,9 +37,9 @@
 			<form action="deletecenter" method="post">
 				<div class="mt-1 mb-1">
 					<label for="center" class="form-label"><strong>CenterId</strong></label><br>
-					<input type="text" class="form-control"
+					<input type="number" class="form-control"
 						placeholder="Enter CenterId" name="centerid" pattern="^[0-9]{3}$"
-						required>
+						min="100" max="999" required autofocus>
 				</div>
 				<div class="mt-3 mb-1">
 					<button type="submit" class="btn btn-dark">Delete Center

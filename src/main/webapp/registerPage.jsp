@@ -16,8 +16,7 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 	crossorigin="anonymous"></script>
-	<link rel="stylesheet" type="text/css"
-	href="assets/css/register.css"></link>
+<link rel="stylesheet" type="text/css" href="assets/css/register.css"></link>
 </head>
 <body>
 	<div class="container mt-1">
@@ -32,7 +31,7 @@
 						class="form-control" pattern="[a-zA-Z\s]{3,}"
 						oninvalid="this.setCustomValidity('Enter username more than 3 charcters')"
 						onchange="try{setCustomValidity('')}catch(e){}"
-						oninput="setCustomValidity('')" name="user" required>
+						oninput="setCustomValidity('')" name="user" required autofocus>
 				</div>
 
 				<div class="mb-1 mt-1">

@@ -42,7 +42,7 @@
 							MobileNumber</strong></label><br> <input type="tel" id="updatepassword"
 						class="form-control" name="forgotpassword"
 						placeholder="Enter Registered Mobilenumber"
-						pattern="[6-9][0-9]{9}" required>
+						pattern="[6-9][0-9]{9}" required autofocus>
 				</div>
 				<div class="m-1 mt-1">
 					<label for="servnewprice"><strong>New Password</strong></label><br>

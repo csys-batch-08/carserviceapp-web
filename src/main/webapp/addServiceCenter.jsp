@@ -31,7 +31,7 @@
                       <hr>
                       <div class="mt-1 mb-1">
                      <label for="centername" class="form-label"><strong>Service Center Name</strong></label>
-                     <input type="text" class="form-control" placeholder="Enter CenterName" name="centername" id="centername" pattern="^[#.0-9a-zA-Z\s,-]+$" required>
+                     <input type="text" class="form-control" placeholder="Enter CenterName" name="centername" id="centername" pattern="^[#.0-9a-zA-Z\s,-]+$" required autofocus>
                      </div>
                      <div class="mt-1 mb-1">
                       <label for="centerlocation" class="form-label"><strong>Service Center Location</strong></label>
@@ -54,26 +54,5 @@
             </form>
              </div>
     </div>          
-            <script type="text/javascript">
-            function addcenter()
-             {
-          	   const cenname = document.getElementById("centername");
-          	   const cenloc = document.getElementById("centerlocation");
-          	   const cencont = document.getElementById("centercontact");
-          	 const cenemail = document.getElementById("centeremail");
-          	const cenaddr = document.getElementById("centeraddress");
-          	 
-          	  if((cenname.value=="")||(cenloc.value=="")||(cencont.value=="")||(cenemail.value=="")||(cenaddr.value==""))
-          		  {
-          		    
-          		    sername.focus();
-          		    return;
-          		  }
-           else
-              {
-        	   alert("Service Center is Added Successfully..");
-          	  }
-             } 
-      </script>
 </body>
 </html>
