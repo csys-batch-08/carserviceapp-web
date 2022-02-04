@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,14 +30,14 @@
 		<div class="navnames">
 			<a href="LogoutPage">Logout</a> <a href="contactUs.jsp">Contact
 				Us</a> <a href="aboutUs.jsp">About Us</a> <a href="adminPage.jsp">Home</a>
-		</div>
+		</div><hr>
 		<div class="addservice">
 			<h2>Update ServiceCenter</h2>
 			<form action="updatecontact" method="post">
 				<div class="mt-1 mb-1">
 					<label for="center" class="form-label"><strong>CenterId</strong></label>
-					<input type="text" class="form-control"
-						placeholder="Enter CenterId" name="centerid" pattern="^[0-9]{3}$"
+					<input type="text" class="form-control" value="${centerId}"
+						placeholder="Enter CenterId" name="centerid" pattern="^[0-9]{3}$" readonly
 						required autofocus>
 				</div>
 				<div class="mt-1 mb-1">
@@ -48,7 +49,7 @@
 				<div class="mt-3 mb-1">
 					<button type="submit" class="btn btn-dark">Update Center
 						Contact</button>
-					<a href="adminPage.jsp" class="btn btn-dark" id="addcen">Back</a>
+					<a href="ShowServiceCenter" class="btn btn-dark" id="addcen">Back</a>
 				</div>
 			</form>
 		</div>

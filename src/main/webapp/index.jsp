@@ -22,7 +22,7 @@
 			<a href="registerPage.jsp">Register</a> <a href="logIn.jsp">Login</a>
 			<a href="contactUs.jsp">Contact Us</a> <a href="aboutUs.jsp">About
 				Us</a> <a href="index.jsp">Home</a>
-		</div>
+		</div><hr>
 	</div>
 	<div class="row">
 		<div class="col">

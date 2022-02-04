@@ -6,6 +6,10 @@ table,th,td
           border-bottom: 1px solid black;
           color:white;
       }
+      th
+      {
+      text-align:center;
+      }
       tr:hover {background-color: black;}
       table
       {
@@ -20,6 +24,12 @@ table,th,td
         left:10px;
         top:60px;
       }
+td a
+{
+  position:relative;
+  top:-20px;
+  left:-115px;
+}
       .btn
       {
          position:relative;

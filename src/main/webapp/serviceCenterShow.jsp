@@ -31,7 +31,7 @@
 		<div class="navnames">
 			<a href="LogoutPage">Logout</a> <a href="contactUs.jsp">Contact
 				Us</a> <a href="aboutUs.jsp">About Us</a> <a href="adminPage.jsp">Home</a>
-		</div>
+		</div><hr>
 	</div>
 	<div class="container mt-1">
 		<h1>
@@ -47,6 +47,8 @@
 					<th scope="col">Center Contact</th>
 					<th scope="col">Center Email</th>
 					<th scope="col">Center Address</th>
+					<th scope="col">Update</th>
+					<th scope="col">delete</th>
 				</tr>
 			</thead>
 			<c:forEach items="${showcenter}" var="p">
@@ -57,6 +59,10 @@
 					<td>${p.centerContact}</td>
 					<td>${p.centerEmail}</td>
 					<td>${p.centerAddress}</td>
+					<td><a href="updateCenterOne?centerId=${p.centerId}"><button
+								type="button" class="btn btn-dark">update</button> </a></td>
+					<td><a href="deleteCenterOne?centerId=${p.centerId}"><button
+								type="button" class="btn btn-dark">delete</button> </a></td>
 				</tr>
 			</c:forEach>
 		</table>

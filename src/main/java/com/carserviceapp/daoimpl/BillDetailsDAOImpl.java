@@ -159,7 +159,7 @@ public class BillDetailsDAOImpl implements BillDetailsDAO {
 	// for payment to get bill num
 	@Override
 	public int fetchbillnum(BillDetails payment) {
-		String queryOne = "select bill_num from bill where user_id  in ?";
+		String queryOne = "select bill_num from bill where user_id  in ? and status='processing'";
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;

@@ -30,7 +30,7 @@
 		<div class="navnames">
 			<a href="LogoutPage">Logout</a> <a href="contactUs.jsp">Contact
 				Us</a> <a href="aboutUs.jsp">About Us</a> <a href="userPage.jsp">Home</a>
-		</div>
+		</div><hr>
 	</div>
 
 	<div class="container mt-1">
@@ -45,6 +45,7 @@
 					<th scope="col">Service Date</th>
 					<th scope="col">Amount</th>
 					<th scope="col">Status</th>
+					<th scope="col">Payment</th>
 				</tr>
 			</thead>
 			<c:forEach items="${myordersone}" var="p">
@@ -53,13 +54,20 @@
 					<td>${p.servDate}</td>
 					<td>${p.amount}</td>
 					<td>${p.status}</td>
+					<c:choose>
+					<c:when test="${p.status=='processing'}">
+					<td><a href="Payment"><button
+							type="submit" class="btn btn-dark active" >Payment</button> </a></td>
+						</c:when>
+						<c:otherwise>
+							<td><a href="Payment"><button
+							type="submit" class="btn btn-dark disabled" >Payment</button> </a></td>
+						</c:otherwise>
+					</c:choose>	
 				</tr>
 			</c:forEach>
-
-			<a href="Payment"><button type="submit" class="btn btn-dark">Payment</button></a>
-			<a href="myOrders.jsp"><button type="submit" class="btn btn-dark">Back</button></a>
-
 		</table>
+			<a href="myOrders.jsp"><button type="submit" class="btn btn-dark">Back</button></a>
 	</div>
 </body>
 </html>

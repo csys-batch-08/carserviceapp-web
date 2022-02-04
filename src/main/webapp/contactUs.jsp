@@ -20,20 +20,20 @@
 		<div class="navnames">
 			<a href="registerPage.jsp">Register</a> <a href="logIn.jsp">Login</a>
 			<a href="aboutUs.jsp">About Us</a> <a href="index.jsp">Home</a>
-		</div>
+		</div><hr>
 	</div>
 	<div class="posi">
 		<div class="aboutus">
 			<h2 id="contactus1">Contact Us</h2>
 			<h3 id="contactus2">Helpline Numbers</h3>
-			<img src='assets/call.png' alt="telephone" class="tel-img">
+			<img src='assets/images/call.png' alt="telephone" class="tel-img">
 			<p id="contactus3">+91-9384 79 4114,+91-8056 31 1564,+91-8428 89
 				1847</p>
 			<h3 id="contactus4">Email</h3>
-			<img src='assets/email.png' alt="email" class="email-img">
+			<img src='assets/images/email.png' alt="email" class="email-img">
 			<p id="contactus5">Customer Support:info@mechcent.in</p>
 			<h3 id="contactus6">Corporate Office Address</h3>
-			<img src="assets/office1.png" alt="office" class="office-img">
+			<img src="assets/images/office1.png" alt="office" class="office-img">
 			<p id="contactus7">Marketone innovations pvt ltd 3rd Floor,
 				Landmark Tower, Moti VIhar, Ashok Marg, South City I, Sector 41,
 				Ambattur, Chennai 122001</p>

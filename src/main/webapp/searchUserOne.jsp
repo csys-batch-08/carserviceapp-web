@@ -31,7 +31,7 @@
 		<div class="navnames">
 			<a href="LogoutPage">Logout</a> <a href="contactUs.jsp">Contact
 				Us</a> <a href="aboutUs.jsp">About Us</a> <a href="userPage.jsp">Home</a>
-		</div>
+		</div><hr>
 	</div>
 
 	<div class="container mt-1">

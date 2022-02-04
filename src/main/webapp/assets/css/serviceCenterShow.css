@@ -13,6 +13,10 @@
          align:center;
         margin-top:100px;
       }
+      th
+      {
+        text-align:center;
+      }
       h1
       {
         position:absolute;

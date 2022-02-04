@@ -31,7 +31,7 @@
 		<div class="navnames">
 			<a href="LogoutPage">Logout</a> <a href="contactUs.jsp">Contact
 				Us</a> <a href="aboutUs.jsp">About Us</a> <a href="adminPage.jsp">Home</a>
-		</div>
+		</div><hr>
 	</div>
 
 	<div class="container mt-1">
@@ -40,18 +40,24 @@
 			<caption style="visibility: hidden;">show center details</caption>
 			<thead class="table-dark">
 				<tr>
+				    <th scope="col">Service ID</th>
 					<th scope="col">Service Name</th>
 					<th scope="col">Service Cost</th>
 					<th scope="col">Service Desc</th>
-					<th scope="col">Service ID</th>
+					<th scope="col">Update</th>
+					<th scope="col">delete</th>
 				</tr>
 			</thead>
-			<c:forEach items="${showservice}" var="p">
+			<c:forEach items="${showservice}" var="p">	
 				<tr>
+				    <td>${p.serviceId}</td>
 					<td>${p.serviceName}</td>
 					<td>${p.serviceCost}</td>
 					<td>${p.serviceDesc}</td>
-					<td>${p.serviceId}</td>
+					<td><a href="updateService?serviceId=${p.serviceId}"><button
+								type="button" class="btn btn-dark">update</button> </a></td>
+					<td><a href="admindeleteService?serviceId=${p.serviceId}"><button
+								type="button" class="btn btn-dark">delete</button> </a></td>			
 				</tr>
 			</c:forEach>
 		</table>

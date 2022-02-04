@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	pageEncoding="ISO-8859-1" isELIgnored="false"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,13 +31,13 @@
 		<div class="navnames">
 			<a href="LogoutPage">Logout</a> <a href="contactUs.jsp">Contact
 				Us</a> <a href="aboutUs.jsp">About Us</a> <a href="adminPage.jsp">Home</a>
-		</div>
+		</div><hr>
 		<div class="addservice">
 			<h2>Delete Services</h2>
 			<form action="deleteservice" method="post">
 				<label for="service"><strong>ServiceId</strong></label><br> <input
-					type="number" placeholder="Enter ServiceId" class="form-control"
-					name="serviceid" pattern="^[0-9]{3}$" min="100" max="999" required autofocus><br>
+					type="number" placeholder="Enter ServiceId" class="form-control" value="${serviceId}"
+					name="serviceid" pattern="^[0-9]{3}$" min="100" max="999" required autofocus readonly><br>
 				<button type="submit" class="btn btn-dark">Delete Service</button>
 				<a href="adminPage.jsp" class="btn btn-dark">Back</a>
 			</form>

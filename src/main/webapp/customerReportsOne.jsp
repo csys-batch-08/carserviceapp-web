@@ -20,6 +20,12 @@
 <link rel="stylesheet" type="text/css" href="assets/css/inner.css"></link>
 <link rel="stylesheet" type="text/css"
 	href="assets/css/customerReports.css"></link>
+<link rel="style"
+	href="//cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript"
+	src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
 </head>
 <body>
 	<div class="uppernav">
@@ -31,13 +37,13 @@
 		<div class="navnames">
 			<a href="LogoutPage">Logout</a> <a href="contactUs.jsp">Contact
 				Us</a> <a href="aboutUs.jsp">About Us</a> <a href="adminPage.jsp">Home</a>
-		</div>
+		</div><hr>
 	</div>
 	<div class="container mt-1">
 		<h1>
 			<strong>Customers</strong>
 		</h1>
-		<table class="table table-bordered table-sm">
+		<table class="table table-bordered table-sm" id="example">
 			<caption style="visibility: hidden;">customer details</caption>
 			<thead class="table-dark">
 				<tr>
@@ -48,6 +54,7 @@
 					<th scope="col">Customer ID</th>
 				</tr>
 			</thead>
+			<tbody>
 			<c:forEach items="${custlist}" var="p">
 				<tr>
 					<td>${p.name}</td>
@@ -57,8 +64,14 @@
 					<td>${p.userId}</td>
 				</tr>
 			</c:forEach>
+			</tbody>
 		</table>
 	</div>
 	<a href="adminPage.jsp"><button type="button" class="btn btn-dark">Back</button></a>
+<!-- 	<script>
+	$(document).ready( function () {
+	    $('#example').DataTable();
+	} );
+	</script>   -->
 </body>
 </html>

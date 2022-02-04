@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,12 +29,12 @@
 	<div class="navnames">
 		<a href="LogoutPage">Logout</a> <a href="contactUs.jsp">Contact Us</a>
 		<a href="aboutUs.jsp">About Us</a> <a href="adminPage.jsp">Home</a>
-	</div>
+	</div><hr style="color:#fff;">
 	<div class="addservice">
 		<h1>Generate Bill</h1>
 		<form action="addbill" method="post" class="was-validated">
 			<label for="userid" class="form-label"><strong>UserId</strong></label><br>
-			<input type="number" class="form-control" placeholder="Enter UserId"
+			<input type="number" class="form-control" placeholder="Enter UserId" value="${userId}" readonly
 				name="userid" id="userid" pattern="^[0-9]{3}$" min="100" max="999" required autofocus><br>
 			<label for="servdate" class="form-label"><strong>Service
 					Date</strong></label><br> <input type="date" class="form-control"

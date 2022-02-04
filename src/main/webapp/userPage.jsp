@@ -17,7 +17,7 @@
 		<div class="navnames">
 			<a href="LogoutPage">LogOut</a> <a href="contactUs.jsp">Contact
 				Us</a> <a href="aboutUs.jsp">About Us</a> <a href="userPage.jsp">Home</a>
-		</div>
+		</div><hr>
 	</div>
 
 	<div class="row">

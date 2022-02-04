@@ -30,7 +30,7 @@
 			<a href="LogoutPage">Logout</a> <a href="contactUs.jsp">Contact
 				Us</a> <a href="aboutUs.jsp">About Us</a> <a href="userPage.jsp">Home</a>
 		</div>
-
+        <hr>
 		<div class="container mt-3">
 			<div class="yesnoform">
 				<fieldset>

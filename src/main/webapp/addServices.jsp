@@ -23,7 +23,7 @@
        <a href="contactUs.jsp">Contact Us</a>
         <a href="aboutUs.jsp">About Us</a>
         <a href="adminPage.jsp" >Home</a>          
-       </div>
+       </div><hr>
         <div class="addservice">
        <h1>Services Entry Form</h1>
           <form action="servicedetail" method="post" class="was-validated">

@@ -19,6 +19,16 @@
         left:10px;
         top:40px;
       }
+      th
+      {
+         text-align:center;
+      }
+td a
+{
+  position:relative;
+  top:-10px;
+  left:-120px;
+}
 .btn
 {
  position:relative;

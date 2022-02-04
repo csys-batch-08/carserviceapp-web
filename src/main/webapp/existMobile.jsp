@@ -29,8 +29,7 @@
 	<div class="navnames">
 		<a href="LogoutPage">Logout</a> <a href="contactUs.jsp">Contact Us</a>
 		<a href="aboutUs.jsp">About Us</a> <a href="userPage.jsp">Home</a>
-	</div>
-
+	</div><hr>
 	<h1 class="finish">Entered mobileno is already registered...</h1>
 	<a href="logIn.jsp"><button class="btn btn-dark">Retry</button></a>
 </body>

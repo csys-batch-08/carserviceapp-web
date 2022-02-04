@@ -31,20 +31,20 @@
 		<div class="navnames">
 			<a href="LogoutPage">Logout</a> <a href="contactUs.jsp">Contact
 				Us</a> <a href="aboutUs.jsp">About Us</a> <a href="adminPage.jsp">Home</a>
-		</div>
+		</div><hr>
 		<div class="addservice">
 			<h1>Delete ServiceCenter</h1>
 			<form action="deletecenter" method="post">
 				<div class="mt-1 mb-1">
 					<label for="center" class="form-label"><strong>CenterId</strong></label><br>
-					<input type="number" class="form-control"
+					<input type="number" class="form-control" value="${centerId}"
 						placeholder="Enter CenterId" name="centerid" pattern="^[0-9]{3}$"
-						min="100" max="999" required autofocus>
+						min="100" max="999" required autofocus readonly>
 				</div>
 				<div class="mt-3 mb-1">
 					<button type="submit" class="btn btn-dark">Delete Center
 						Contact</button>
-					<a href="adminPage.jsp" class="btn btn-dark">Back</a>
+					<a href="ShowServiceCenter" class="btn btn-dark">Back</a>
 				</div>
 			</form>
 		</div>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1" isELIgnored="false"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,15 +31,15 @@
 		<div class="navnames">
 			<a href="LogoutPage">Logout</a> <a href="contactUs.jsp">Contact
 				Us</a> <a href="aboutUs.jsp">About Us</a> <a href="adminPage.jsp">Home</a>
-		</div>
+		</div><hr>
 		<div class="addservice">
 			<h2>Update Service Price</h2>
 			<form action="updateservice" method="post">
 				<div class="mb-1 mt-1">
 					<label for="service" class="form-label"><strong>ServiceId</strong></label><br>
 					<input type="number" class="form-control"
-						placeholder="Enter ServiceId" name="serviceid"
-						pattern="^[0-9]{3}$" required autofocus>
+						placeholder="Enter ServiceId" name="serviceid" value="${serviceId}"
+						pattern="^[0-9]{3}$" required autofocus readonly>
 				</div>
 				<div class="mb-2 mt-2">
 					<label for="servnewprice" class="form-label"><strong>New

@@ -29,7 +29,7 @@
 	<div class="navnames">
 		<a href="LogoutPage">Logout</a> <a href="contactUs.jsp">Contact Us</a>
 		<a href="aboutUs.jsp">About Us</a> <a href="userPage.jsp">Home</a>
-	</div>
+	</div><hr>
 
 	<h1 class="finish">Entered UserID not found in data's</h1>
 	<a href="addBill.jsp"><button class="btn btn-dark">Retry</button></a>

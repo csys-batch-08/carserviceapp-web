@@ -19,19 +19,14 @@
 			<a href="LogoutPage">Logout</a> <a href="contactUs.jsp">Contact
 				Us</a> <a href="aboutUs.jsp">About Us</a> <a href="adminPage.jsp">Home</a>
 		</div>
+		<hr>
 		<form action="adminaccess" method="post">
 			<div class="cruds">
-				<a href="addBill.jsp"><h2 class="btn button1">Add Bill</h2></a> <a
-					href="addServiceCenter.jsp"><h2 class="btn button2">Add
+			<a	href="addServiceCenter.jsp"><h2 class="btn button2">Add
 						Service Center</h2></a> <a href="ShowServiceCenter"><h2
-						class="btn button3">View Service Center</h2></a> <a
-					href="updateServiceCenter.jsp"><h2 class="btn button4">Update
-						Service Center</h2></a> <a href="deleteServiceCenter.jsp"><h2
-						class="btn button5">Delete Service Center</h2></a> <a
+						class="btn button3">View Service Center</h2></a>  <a
 					href="addServices.jsp"><h2 class="btn button6">Add
 						Services</h2></a> <a href="serviceshow"><h2 class="btn button7">View
-						Services</h2></a> <a href="updateService.jsp"><h2 class="btn button8">Update
-						Services</h2></a> <a href="deleteService.jsp"><h2 class="btn button9">Delete
 						Services</h2></a> <a href="userUpdatePassword.jsp"><h2
 						class="btn button14">Change Password</h2></a>
 			</div>

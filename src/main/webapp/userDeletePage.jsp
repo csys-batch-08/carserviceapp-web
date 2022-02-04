@@ -22,7 +22,7 @@
 			<a href="registerPage.jsp">Register</a> <a href="logIn.jsp">Login</a>
 			<a href="contactUs.jsp">Contact Us</a> <a href="aboutUs.jsp">About
 				Us</a> <a href="userPage.jsp">Home</a>
-		</div>
+		</div><hr>
 	</div>
 	<h1 class="finish">Thanks For Using MechCent....</h1>
 	<h1 class="finish1">Your Account is Deleted Successfully....</h1>

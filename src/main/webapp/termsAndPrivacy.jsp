@@ -20,7 +20,7 @@
 		<div class="navnames">
 			<a href="registerPage.jsp">Register</a> <a href="logIn.jsp">Login</a>
 			<a href="contactUs.jsp">Contact Us</a> <a href="index.jsp">Home</a>
-		</div>
+		</div><hr>
 	</div>
 	<h2 id="aboutus1">Terms of Use</h2>
 	<div class="aboutus">

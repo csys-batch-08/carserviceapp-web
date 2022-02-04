@@ -31,7 +31,7 @@
 		<div class="navnames">
 			<a href="LogoutPage">Logout</a> <a href="contactUs.jsp">Contact
 				Us</a> <a href="aboutUs.jsp">About Us</a> <a href="adminPage.jsp">Home</a>
-		</div>
+		</div><hr>
 	</div>
 
 	<div class="container mt-1">
@@ -49,6 +49,7 @@
 					<th scope="col">Customer Address</th>
 					<th scope="col">Center ID</th>
 					<th scope="col">Status</th>
+					<th scope="col">Payment</th>
 				</tr>
 			</thead>
 			<c:forEach items="${pickuplist}" var="p">
@@ -60,6 +61,16 @@
 					<td>${p.pickAddress}</td>
 					<td>${p.centerId}</td>
 					<td>${p.status}</td>
+					<c:choose>
+					   <c:when test="${p.status=='requested'}">
+					<td><a href="billreportsone?userId=${p.userId}"><button
+							type="button" class="btn btn-dark active" >Generate Bill</button> </a></td>
+						</c:when>
+						<c:otherwise>
+							<td><a href="billreportsone?userId=${p.userId}"><button
+							type="button" class="btn btn-dark disabled" >Generate Bill</button> </a></td>
+						</c:otherwise>
+					</c:choose>	
 				</tr>
 			</c:forEach>
 		</table>
