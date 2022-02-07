@@ -36,10 +36,9 @@
 			<label for="userid" class="form-label"><strong>UserId</strong></label><br>
 			<input type="number" class="form-control" placeholder="Enter UserId" value="${userId}" readonly
 				name="userid" id="userid" pattern="^[0-9]{3}$" min="100" max="999" required autofocus><br>
-			<label for="servdate" class="form-label"><strong>Service
-					Date</strong></label><br><input type="date" class="form-control"
-				placeholder="Enter Service Date" id="datefield" name="servdate"
-				required/><br> <br>
+			<label for="servdate" class="form-label"><strong>ServiceDate</strong></label><br>
+			<input type="date" class="form-control" placeholder="Enter Service Date" id="servdate" name="servdate"
+				required/><br><br>
 			<button type="submit" class="btn btn-dark" onclick="generatebill()">Generate
 				Bill</button>
 			<a href="adminPage.jsp" class="btn btn-dark" id="addbill1">Back</a>

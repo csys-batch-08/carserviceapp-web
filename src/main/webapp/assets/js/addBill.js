@@ -10,7 +10,7 @@
 			}
 
 			today = yyyy + '-' + mm + '-' + dd;
-			document.getElementById("datefield").setAttribute("max", today);
+			document.getElementById("servdate").setAttribute("max", today);
 			
 			var today = new Date();
 			var dd = today.getDate();
@@ -24,4 +24,4 @@
 			}
 
 			today = yyyy + '-' + mm + '-' + dd;
-			document.getElementById("datefield").setAttribute("max", today);
+			document.getElementById("servdate").setAttribute("max", today);
