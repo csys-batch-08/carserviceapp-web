@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -6,9 +7,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.10/dist/sweetalert2.all.min.js"></script>
 <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'> 
-<script>
-    history.forward();
-</script> 
 <title>AdminPage</title>
 <link rel="stylesheet" type="text/css" href="assets/css/inner.css"></link>
 <link rel="stylesheet" type="text/css" href="assets/css/adminPage.css"></link>
@@ -45,7 +43,7 @@
 		</form>
 	</div>
 		<script src="assets/js/popupMessages.js"></script>	
-	<c:if test="${param.status!=null}">
+	<c:if test="${param.result!=null}">
 	<script type="text/javascript">showMessage('productUpdated')</script>
 	</c:if>
 </body>

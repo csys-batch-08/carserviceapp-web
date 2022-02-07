@@ -35,7 +35,7 @@ public class UpdateService extends HttpServlet {
 				if (flag) {
 					// writer.print("<script type=\"text/javascript\"> alert('Service price
 					// Updated'); window.location = 'adminPage.jsp';</script>");
-					RequestDispatcher rd = request.getRequestDispatcher("adminPage.jsp?status=addedSuccessfully");
+					RequestDispatcher rd = request.getRequestDispatcher("adminPage.jsp?result=addedSuccessfully");
 					try {
 						rd.forward(request, response);
 					} catch (ServletException | IOException e1) {

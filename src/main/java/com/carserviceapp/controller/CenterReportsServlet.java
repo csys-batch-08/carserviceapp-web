@@ -35,13 +35,12 @@ public class CenterReportsServlet extends HttpServlet {
 				rd.forward(request, response);
 			} else {
 				throw new CenterNotFoundException();
-
 			}
 		} catch (IOException e) {
-			e.getCause();
+			e.printStackTrace();
 		} catch (CenterNotFoundException e) {
-			response.sendRedirect("centerNotFound.jsp");
 			request.setAttribute("centernotfound", e.getMessage());
+			System.out.println(e.getMessage());
 			RequestDispatcher rd = request.getRequestDispatcher("centerReportsOne.jsp");
 			try {
 				rd.forward(request, response);

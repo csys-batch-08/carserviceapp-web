@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,7 +52,13 @@
 	<c:set var="centerNotFound" scope="request" value="${centernotfound}"></c:set>
 	<c:if test="${centerNotFound!=null}">
 	<script type="text/javascript"> showMessage('${centerNotFound}')</script>
-	<c:remove var="productExists"  scope="request" />
+	<c:remove var="centerNotFound"  scope="request" />
 	</c:if>
+	
+	<script src="assets/js/popupMessages.js"></script>	
+	<c:if test="${param.errormsg!=null}">
+	<script type="text/javascript">showMessage('${centerNotFound}'')</script>
+	</c:if>
+	
 </body>
 </html>

@@ -4,7 +4,6 @@ var status = check;
 switch(status) {
 	
   case "loginSucess":
-	console.log("admin login");
    var toastMixin = Swal.mixin({
         toast: true,
         icon: 'success',
@@ -19,8 +18,7 @@ switch(status) {
         toast.addEventListener('mouseleave', Swal.resumeTimer)
         }
         });
-    
-       
+     
         toastMixin.fire({
         animation: true,
         title: 'Login Successfull'
@@ -104,14 +102,13 @@ switch(status) {
 			});
 	break;
 	
-	case "Entered Center not found in data's":
-	
+	case "Entered Center not found in data":
 		Swal.fire({
 			  icon: 'error',
 			  title:status,
 			  showConfirmButton: false,
 			  timer: 2000})
-	
+	          
 			
 		break;
 		
