@@ -6,6 +6,9 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.10/dist/sweetalert2.all.min.js"></script>
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'> 
+
 <title>Center Reports</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -16,7 +19,7 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 	crossorigin="anonymous"></script>
-<link rel="stylesheet" type="text/css" href="assets/css/inner.css"></link>
+<link rel="stylesheet" type="text/css" href="assets/css/navBar.css"></link>
 <link rel="stylesheet" type="text/css"
 	href="assets/css/centerReportsOne.css"></link>
 </head>
@@ -42,8 +45,13 @@
 				<button type="submit" class="btn btn-dark">Search</button>
 				<a href="adminPage.jsp" class="btn btn-dark">Back</a>
 			</fieldset>
-
 		</form>
 	</div>
+	<script src="assets/js/popupMessages.js"></script>
+	<c:set var="centerNotFound" scope="request" value="${centernotfound}"></c:set>
+	<c:if test="${centerNotFound!=null}">
+	<script type="text/javascript"> showMessage('${centerNotFound}')</script>
+	<c:remove var="productExists"  scope="request" />
+	</c:if>
 </body>
 </html>

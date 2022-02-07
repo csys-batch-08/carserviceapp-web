@@ -10,7 +10,7 @@
       {
         width:80%;
         height:100px;
-         align:center;
+        align:center;
         margin-top:100px;
       }
       th
@@ -21,12 +21,12 @@
       {
         position:absolute;
         left:120px;
-        top:120px;
+        top:140px;
       }
       .btn
       {
         position:relative;
-        top:5px;
+        top:0px;
       }
       .btn:hover
       {

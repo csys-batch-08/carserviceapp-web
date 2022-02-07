@@ -1,4 +1,3 @@
-
 		function showpassword() {
 			var x = document.getElementById("userpass");
 			if (x.type === "password") {

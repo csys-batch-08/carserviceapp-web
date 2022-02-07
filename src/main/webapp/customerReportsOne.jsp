@@ -12,20 +12,13 @@
 	rel="stylesheet"
 	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
 	crossorigin="anonymous">
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-	crossorigin="anonymous"></script>
 <title>Customer Reports</title>
-<link rel="stylesheet" type="text/css" href="assets/css/inner.css"></link>
+<link rel="stylesheet" type="text/css" href="assets/css/navBar.css"></link>
 <link rel="stylesheet" type="text/css"
 	href="assets/css/customerReports.css"></link>
-<link rel="style"
-	href="//cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
-<script type="text/javascript"
-	src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script type="text/javascript"
-	src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.js"></script>	
 </head>
 <body>
 	<div class="uppernav">
@@ -37,8 +30,8 @@
 		<div class="navnames">
 			<a href="LogoutPage">Logout</a> <a href="contactUs.jsp">Contact
 				Us</a> <a href="aboutUs.jsp">About Us</a> <a href="adminPage.jsp">Home</a>
-		</div><hr>
-	</div>
+		</div>
+	</div><hr>
 	<div class="container mt-1">
 		<h1>
 			<strong>Customers</strong>
@@ -68,10 +61,10 @@
 		</table>
 	</div>
 	<a href="adminPage.jsp"><button type="button" class="btn btn-dark">Back</button></a>
-<!-- 	<script>
+ 	<script>
 	$(document).ready( function () {
 	    $('#example').DataTable();
 	} );
-	</script>   -->
+	</script>
 </body>
 </html>

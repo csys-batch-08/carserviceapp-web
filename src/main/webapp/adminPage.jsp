@@ -4,6 +4,11 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.10/dist/sweetalert2.all.min.js"></script>
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'> 
+<script>
+    history.forward();
+</script> 
 <title>AdminPage</title>
 <link rel="stylesheet" type="text/css" href="assets/css/inner.css"></link>
 <link rel="stylesheet" type="text/css" href="assets/css/adminPage.css"></link>
@@ -37,8 +42,11 @@
 						Report</h2></a> <a href="BillReports"><h2 class="btns button13">Bill
 						Report</h2></a>
 			</div>
-
 		</form>
 	</div>
+		<script src="assets/js/popupMessages.js"></script>	
+	<c:if test="${param.status!=null}">
+	<script type="text/javascript">showMessage('productUpdated')</script>
+	</c:if>
 </body>
 </html>

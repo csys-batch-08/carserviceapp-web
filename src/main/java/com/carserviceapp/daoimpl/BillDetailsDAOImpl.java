@@ -182,7 +182,7 @@ public class BillDetailsDAOImpl implements BillDetailsDAO {
 
 	@Override
 	public List<BillDetails> adminview() {
-		String showQueryThree = "select bill_num,user_id,serv_date,amount,status from bill";
+		String showQueryThree = "select bill_num,user_id,serv_date,amount,status from bill order by serv_date desc";
 		Connection con = null;
 		ResultSet rs = null;
 		PreparedStatement stmt = null;

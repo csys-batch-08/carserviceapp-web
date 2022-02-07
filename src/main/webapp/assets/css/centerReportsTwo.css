@@ -1,32 +1,23 @@
 @charset "ISO-8859-1";
- table,th,td
-      {
-          border:1px solid black;
-          border-collapse: collapse;
-          border-bottom: 1px solid black;
-          color:white;
-      }
-      tr:hover {background-color: black;color:white;}
-      table
-      {
-        width:80%;
-        height:100px;
-        margin-top:90px;
-      }
-      h1
-      {
-        position:absolute;
-        left:130px;
-        top:100px;
-      }
-      .btn
-      {
-         position:relative;
-         left:130px;
-         top:30px;
-      }
-       .btn:hover
-      {
-         background-color:white;
-         color:black;
-      }
+h1
+{
+   position:absolute;
+   left:120px;
+   top:105px;
+}
+.btn
+{
+   position:relative;
+   left:130px;
+   top:30px;
+}
+.btn:hover
+{
+   background-color:white;
+   color:black;
+}
+#example_wrapper
+{
+    margin-top:70px;
+    background-color:#f1f1f1;
+}
