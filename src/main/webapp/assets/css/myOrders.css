@@ -14,17 +14,15 @@ body
 }
 .yesnoform{
             border: 3px solid #f1f1f1;
-            margin-left:0px;
-            margin-right:800px;
             padding:10px;
             height:170px;
             width:350px;
             position:absolute;
             left:10px;
             top:-40px;
-             margin-left:100px;
-    margin-right:900px;
-    margin-top:200px;
+            margin-left:100px;
+            margin-right:900px;
+            margin-top:200px;
         }
 .heading
 {
@@ -70,6 +68,10 @@ body
 
   .navnames a:hover {
     background-color: #000;
+  }
+  .yesnoform
+  {
+ 
   }
 .btn:hover
 {
