@@ -1,12 +1,13 @@
+<!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
 <html lang="en">
-<head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
 <title>Update Password..</title>
+<link rel="icon" type="image/x-icon" href="assets/images/searchservice.jpg">
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -22,8 +23,8 @@
 <body>
 	<div class="topnavbar">
 		<div class="heading">
-			<a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br>
-			<a href="#" id="secondhead">A one stop solution for all brand car
+			<a id="firsthead"> <strong>Car Service Center</strong></a><br>
+			<a id="secondhead">A one stop solution for all brand car
 				service</a>
 		</div>
 		<div class="navnames">
@@ -33,12 +34,12 @@
 	</div>
 	<div class="updation">
 		<div class="container mt-3">
-			<h2>Change Password</h2>
+			<h1>Change Password</h1>
 			<form action="updatepassword" method="post">
 				<fieldset>
 					<legend></legend>
 					<div class="mb-3 mt-3">
-						<label for="servnewprice"><strong>New Password</strong></label><br>
+						<label for="updatepassword"><strong>New Password</strong></label><br>
 						<input type="password" id="updatepassword" class="form-control"
 							name="updatepassword" placeholder="Enter New Password"
 							pattern="(?=.*[0-9])(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,}"

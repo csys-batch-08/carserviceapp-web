@@ -1,12 +1,13 @@
+<!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
 <html lang="en">
-<head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
 <title>User Delete Account</title>
+<link rel="icon" type="image/x-icon" href="assets/images/searchservice.jpg">
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -22,8 +23,8 @@
 <body>
 	<div class="topnavbar">
 		<div class="heading">
-			<a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br>
-			<a href="#" id="secondhead">A one stop solution for all brand car
+			<a id="firsthead"> <strong>Car Service Center</strong></a><br>
+			<a id="secondhead">A one stop solution for all brand car
 				service</a>
 		</div>
 		<div class="navnames">
@@ -35,9 +36,9 @@
 			<form action="deleteaccount" method="post">
 				<h2>Delete Account</h2>
 
-				<label for="mobno"><strong>MobileNumber</strong></label><br> <input
+				<label for="mobileno"><strong>MobileNumber</strong></label><br> <input
 					type="tel" placeholder="Enter Registered MobileNumber"
-					class="form-control" name="mobileno" pattern="[6-9][0-9]{9}"
+					class="form-control" name="mobileno" id="mobileno" pattern="[6-9][0-9]{9}"
 					required autofocus><br> <br>
 				<button type="submit" class="btn btn-dark">Unsuscribe</button>
 				<a href="userUpdatePassword.jsp" class="btn btn-dark">Back</a>

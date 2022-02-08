@@ -1,10 +1,10 @@
 function showMessage(check)
 {
-var status = check;
-switch(status) {
-	
-  case "loginSucess":
-   var toastMixin = Swal.mixin({
+let status = check;
+switch(status) 
+{
+  case 'loginSucess':
+   let toastMixin = Swal.mixin({
         toast: true,
         icon: 'success',
         title: 'General Title',
@@ -18,15 +18,13 @@ switch(status) {
         toast.addEventListener('mouseleave', Swal.resumeTimer)
         }
         });
-     
         toastMixin.fire({
         animation: true,
         title: 'Login Successfull'
-        });
-    
+        }); 
     break;
-  case "deleteSucess":
-   var toastMixin = Swal.mixin({
+  case 'deleteSucess':
+   let toastMixin = Swal.mixin({
 			toast: true,
 			icon: 'success',
 			title: 'General Title',
@@ -40,16 +38,13 @@ switch(status) {
 			toast.addEventListener('mouseleave', Swal.resumeTimer)
 			}
 			});
-			
 			toastMixin.fire({
 			animation: true,
 			title: 'Successfully Deleted'
-			});
-			
-			
+			});	
     break;
-	case "deleteFailure":
-   var toastMixin = Swal.mixin({
+	case 'deleteFailure':
+   let toastMixin = Swal.mixin({
 			toast: true,
 			icon: 'success',
 			title: 'General Title',
@@ -63,25 +58,20 @@ switch(status) {
 			toast.addEventListener('mouseleave', Swal.resumeTimer)
 			}
 			});
-		
 			toastMixin.fire({
 			animation: true,
 			title: 'Unable To Delete Product Something Went Wrong'
-			});
-			
-	break;			
-			
-	case "productUpdated":
+			});	
+	break;				
+	case 'productUpdated':
 		Swal.fire({
 			  icon: 'success',
 			  title: 'Product Details Updated',
 			  showConfirmButton: false,
 			  timer: 2000})
 	break;
-	
-	case "productAdded":
-	
-	   var toastMixin = Swal.mixin({
+	case 'productAdded':
+	   let toastMixin = Swal.mixin({
 			toast: true,
 			icon: 'success',
 			title: 'General Title',
@@ -94,49 +84,40 @@ switch(status) {
 			toast.addEventListener('mouseenter', Swal.stopTimer)
 			toast.addEventListener('mouseleave', Swal.resumeTimer)
 			}
-			});
-			
+			});	
 			toastMixin.fire({
 			animation: true,
 			title: 'New Product Added Successfully'
 			});
 	break;
-	
-	case "Entered Center not found in data":
+	case 'Entered Center not found in data':
 		Swal.fire({
 			  icon: 'error',
 			  title:status,
 			  showConfirmButton: false,
 			  timer: 2000})
-	          
-			
 		break;
-		
-	case "orderSucess":
+	case 'orderSucess':
 		Swal.fire({
 			  icon: 'success',
 			  title: 'Order Placed Successfully',
 			  showConfirmButton: false,
 			  timer: 2000})
 	break;	
-	
-	case "Not enough Money In Wallet":
+	case 'Not enough Money In Wallet':
 		Swal.fire({
 			  icon: 'error',
 			  title: status+',Go To profile and Recharge Wallet',
 			  showConfirmButton: true,
 			  timer: false})
 	break;
-	
-	case "Delivery Address Not Found,Please update your Address":
+	case 'Delivery Address Not Found,Please update your Address':
 		Swal.fire({
 			  icon: 'error',
 			  title: status,
 			  showConfirmButton: true,
 			  timer: false})
 	break;
-  default:
-      alert("Invalid");
 	}
 	
 }

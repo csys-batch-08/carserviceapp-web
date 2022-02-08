@@ -1,13 +1,14 @@
+<!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" isELIgnored="false"%>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
 <html lang="en">
-<head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
 <title>Update Services</title>
+<link rel="icon" type="image/x-icon" href="assets/images/searchservice.jpg">
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -24,8 +25,8 @@
 <body>
 	<div class="topnavbar">
 		<div class="heading">
-			<a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br>
-			<a href="#" id="secondhead">A one stop solution for all brand car
+			<a id="firsthead"> <strong>Car Service Center</strong></a><br>
+			<a id="secondhead">A one stop solution for all brand car
 				service</a>
 		</div>
 		<div class="navnames">
@@ -33,18 +34,18 @@
 				Us</a> <a href="aboutUs.jsp">About Us</a> <a href="adminPage.jsp">Home</a>
 		</div><hr>
 		<div class="addservice">
-			<h2>Update Service Price</h2>
+			<h1>Update Service Price</h1>
 			<form action="updateservice" method="post">
 				<div class="mb-1 mt-1">
-					<label for="service" class="form-label"><strong>ServiceId</strong></label><br>
+					<label for="serviceid" class="form-label"><strong>ServiceId</strong></label><br>
 					<input type="number" class="form-control"
-						placeholder="Enter ServiceId" name="serviceid" value="${serviceId}"
+						placeholder="Enter ServiceId" name="serviceid" id="serviceid" value="${serviceId}"
 						pattern="^[0-9]{3}$" required autofocus readonly>
 				</div>
 				<div class="mb-2 mt-2">
-					<label for="servnewprice" class="form-label"><strong>New
+					<label for="servamount" class="form-label"><strong>New
 							Service Price</strong></label><br> <input type="number" id="servamount"
-						class="form-control" name="updateservcost"
+						class="form-control" name="servamount"
 						placeholder="Enter New Price" pattern="^[0-9]{3,}$" required>
 				</div>
 				<div class="mb-1 mt-1">
