@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.carserviceapp.daoimpl.CarServicesDAOImpl;
-import com.carserviceapp.exception.ServiceNotFoundException;
 import com.carserviceapp.model.CarServices;
 
 @WebServlet("/updateservice")
@@ -34,14 +33,9 @@ public class UpdateService extends HttpServlet {
 					RequestDispatcher rd = request.getRequestDispatcher("adminPage.jsp?result=addedSuccessfully");
 					rd.forward(request, response);
 				}
-			} else {
-				throw new ServiceNotFoundException();
 			}
 		} catch (ServletException | IOException e1) {
 			e1.getCause();
-		} catch (ServiceNotFoundException e) {
-			response.sendRedirect("serviceNotFound.jsp");
 		}
-
 	}
 }

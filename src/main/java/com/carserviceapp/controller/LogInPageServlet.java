@@ -50,7 +50,13 @@ public class LogInPageServlet extends HttpServlet {
 			try {
 				throw new InvalidUserException();
 			} catch (InvalidUserException e) {
-				response.sendRedirect("invalidUser.jsp");
+				request.setAttribute("invaliduser", e.getMessage());
+				RequestDispatcher rd = request.getRequestDispatcher("logIn.jsp");
+				try {
+					rd.forward(request, response);
+				} catch (ServletException | IOException e1) {
+					e.getCause();
+				}
 			}
 		}
 	}

@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.carserviceapp.daoimpl.CenterDetailsDAOImpl;
-import com.carserviceapp.exception.CenterNotFoundException;
 import com.carserviceapp.model.CenterDetails;
 
 @WebServlet("/deletecenter")
@@ -37,13 +36,9 @@ public class DeleteServiceCenter extends HttpServlet {
 					writer.print(
 							"<script type=\"text/javascript\"> alert('Service Center is Deleted'); window.location = 'adminPage.jsp';</script>");
 				}
-			} else {
-				throw new CenterNotFoundException();
 			}
 		} catch (IOException e) {
 			e.getCause();
-		} catch (CenterNotFoundException e) {
-			response.sendRedirect("centerNotFound.jsp");
 		}
 	}
 }

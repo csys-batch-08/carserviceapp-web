@@ -63,12 +63,12 @@ switch(status)
 			title: 'Unable To Delete Product Something Went Wrong'
 			});	
 	break;			
-	case 'productUpdated':
+	case 'Username and Password does not match try again':
 		Swal.fire({
-			  icon: 'success',
-			  title: 'Product Details Updated',
+			  icon: 'error',
+			  title: 'Username and Password does not match try again',
 			  showConfirmButton: false,
-			  timer: 2000})
+			  timer: 3000})
 	break;
 	case 'productAdded':
 	   let toastMixinthree = Swal.mixin({
@@ -97,24 +97,24 @@ switch(status)
 			  showConfirmButton: false,
 			  timer: 2000})
 		break;
-	case 'orderSucess':
+	case 'Entered UserID not found in data':
 		Swal.fire({
 			  icon: 'success',
 			  title: 'Order Placed Successfully',
 			  showConfirmButton: false,
 			  timer: 2000})
 	break;
-	case 'Not enough Money In Wallet':
+	case 'Entered MailID is  already registered':
 		Swal.fire({
 			  icon: 'error',
-			  title: status+',Go To profile and Recharge Wallet',
+			  title:'Entered MailID is  already registered',
 			  showConfirmButton: true,
 			  timer: false})
 	break;
-	case 'Delivery Address Not Found,Please update your Address':
+	case 'Entered mobileno is  already registered':
 		Swal.fire({
 			  icon: 'error',
-			  title: status,
+			  title: 'Entered mobileno is  already registered',
 			  showConfirmButton: true,
 			  timer: false})
 	break;

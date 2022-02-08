@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +16,12 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+	crossorigin="anonymous"></script>
+	<link rel='stylesheet'
+	href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
+<script
+	src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.10/dist/sweetalert2.all.min.js"
+	integrity="sha384-xP+lCMUO8LdFmTT1hKJJ6XmedxWdYvUDfNWikdOfcEQEww69y4bbSlXcfDDNwvzm"
 	crossorigin="anonymous"></script>
 <link rel="stylesheet" type="text/css" href="assets/css/register.css"></link>
 </head>
@@ -77,7 +84,7 @@
 					<input class="form-check-input" type="checkbox" id="myCheck"
 						name="remember" required> <label class="form-check-label"
 						for="myCheck">By creating an account you agree to our <a
-						href="termsAndPrivacy.jsp" style="color: dodgerblue">Terms &
+						href="termsAndPrivacy.jsp" style="color: dodgerblue">Terms &amp;
 							Privacy</a>.
 					</label>
 					<div class="valid-feedback">Valid.</div>
@@ -89,10 +96,19 @@
 					<a href="index.jsp"><button type="button" class="cancelbtn">Cancel</button></a>
 					<button type="submit" class="signupbtn">Sign Up</button>
 				</div>
-
 			</div>
-
 		</form>
 	</div>
+	<script src="assets/js/popupMessages.js"></script>
+	<c:set var="existmobile" scope="request" value="${existmobile}"></c:set>
+	<c:if test="${existmobile!=null}">
+		<script type="text/javascript"> showMessage('${existmobile}')</script>
+		<c:remove var="existmobile" scope="request" />
+     </c:if>
+	<c:set var="existemail" scope="request" value="${existemail}"></c:set>
+	<c:if test="${existemail!=null}">
+		<script type="text/javascript"> showMessage('${existemail}')</script>
+		<c:remove var="existemail" scope="request" />
+	</c:if>
 </body>
 </html>

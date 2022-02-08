@@ -17,6 +17,12 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 	crossorigin="anonymous"></script>
+<link rel='stylesheet'
+	href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
+<script
+	src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.10/dist/sweetalert2.all.min.js"
+	integrity="sha384-xP+lCMUO8LdFmTT1hKJJ6XmedxWdYvUDfNWikdOfcEQEww69y4bbSlXcfDDNwvzm"
+	crossorigin="anonymous"></script>
 <link rel="stylesheet" type="text/css" href="assets/css/login.css"></link>
 </head>
 <body>
@@ -57,5 +63,11 @@
 		</fieldset>
 	</form>
 	<script src="assets/js/logIn.js"></script>
+	<script src="assets/js/popupMessages.js"></script>
+	<c:set var="invaliduser" scope="request" value="${invaliduser}"></c:set>
+	<c:if test="${invaliduser!=null}">
+		<script type="text/javascript"> showMessage('${invaliduser}')</script>
+		<c:remove var="invaliduser" scope="request" />
+	</c:if>
 </body>
 </html>
