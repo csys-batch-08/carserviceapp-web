@@ -35,30 +35,29 @@
 
 	<div class="container mt-1">
 		<form action="paymentpage" method="post" class="was-validated">
-			<div class="register">
 				<h2>Payment</h2>
 				<hr>
 				<div class="mb-0 mt-0">
 					<label for="cardnum" class="form-label"><strong>Card
 							Number</strong></label><br> <input type="text" class="form-control"
-						placeholder="Enter CardNumber" name="cardnum" required autofocus
+						placeholder="Enter CardNumber" name="cardnum" required autofocus id="cardnum"
 						pattern="[0-9]{16}" title="please enter 16 numbers">
 				</div>
 				<div class="mb-0 mt-0">
 					<label for="holdername" class="form-label"><strong>Card
 							Holder Name</strong></label><br> <input type="text"
-						placeholder="Enter CardHolderName" class="form-control"
+						placeholder="Enter CardHolderName" class="form-control" id="holdername"
 						name="holdername" pattern="[a-zA-Z]{3,}" required>
 				</div>
 				<div class="mb-0 mt-0">
 					<label for="expdate" class="form-label"><strong>Expiry
 							Date</strong></label><br> <input type="month" id="expdate"
-						class="form-control" name="expdate" min="2022-03" max="2030-03"
+						class="form-control" name="expdate" min="2022-03" max="2030-03" id="expdate"
 						placeholder="Enter ExpDate" required>
 				</div>
 				<div class="mb-0 mt-0">
 					<label for="cvvno" class="form-label"><strong>CVV</strong></label><br>
-					<input type="password" class="form-control"
+					<input type="password" class="form-control" id="cvvno"
 						placeholder="Enter CvvNo" name="cvvno" pattern="^[0-9]{3}$"
 						required><br>
 				</div>
@@ -69,7 +68,7 @@
 				<div class="mb-0 mt-0 cash">
 					<label for="amountpaid" class="form-label"><strong>Amount
 							Paid</strong></label><br> <input type="number" placeholder="Enter Amount"
-						class="form-control" name="amountpaid"
+						class="form-control" name="amountpaid" id="amountpaid"
 						value="<c:out value="${amount}" />" readonly="readonly" required><br>
 				</div>
 				<p id="terms">

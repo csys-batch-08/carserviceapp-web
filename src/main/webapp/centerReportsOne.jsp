@@ -41,7 +41,7 @@
 			<fieldset>
 				<legend></legend>
 				<label for="centerid"><h3>CenterID</h3></label><br> <input
-					type="number" placeholder="Enter CenterID" class="form-control"
+					type="number" placeholder="Enter CenterID" class="form-control" id="centerid"
 					name="centerid" pattern="^[0-9]{3,}$" min="100" max="999" required autofocus><br>
 				<button type="submit" class="btn btn-dark">Search</button>
 				<a href="adminPage.jsp" class="btn btn-dark">Back</a>

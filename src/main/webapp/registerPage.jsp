@@ -31,7 +31,7 @@
 						class="form-control" pattern="[a-zA-Z\s]{3,}"
 						oninvalid="this.setCustomValidity('Enter username more than 3 charcters')"
 						onchange="try{setCustomValidity('')}catch(e){}"
-						oninput="setCustomValidity('')" name="user" required autofocus>
+						oninput="setCustomValidity('')" name="user" id="user" required autofocus>
 				</div>
 
 				<div class="mb-1 mt-1">
@@ -67,7 +67,7 @@
 				<div class="mb-1 mt-1">
 					<label for="address" class="form-label"><strong>Address</strong></label>
 					<input type="text" placeholder="Enter Address" class="form-control"
-						name="address" pattern="^[#.0-9\a-zA-Z\s,-]+$"
+						name="address" id="address" pattern="^[#.0-9\a-zA-Z\s,-]+$"
 						oninvalid="this.setCustomValidity('entered address should be in correct formate')"
 						onchange="try{setCustomValidity('')}catch(e){}"
 						oninput="setCustomValidity('')" required>

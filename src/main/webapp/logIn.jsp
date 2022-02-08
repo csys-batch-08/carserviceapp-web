@@ -30,18 +30,20 @@
 			<div class="container">
 				<label for="uname" class="form-label"><strong>Username</strong></label>
 				<input type="text" placeholder="Enter username" class="form-control"
-					name="uname"
+					name="uname" id="uname"
 					oninvalid="this.setCustomValidity('Enter username more than 3 charcters')"
 					onchange="try{setCustomValidity('')}catch(e){}"
 					oninput="setCustomValidity('')" pattern="[a-zA-Z\\s]{3,}" required
-					autofocus> <label for="psw" class="form-label"><strong>Password</strong></label>
+					autofocus>
+				 <label for="userpass" class="form-label"><strong>Password</strong></label>
 				<input type="password" class="form-control"
-					placeholder="Enter password" name="psw" id="userpass"
+					placeholder="Enter password" name="userpass" id="userpass"
 					oninvalid="this.setCustomValidity('Enter password correctly')"
 					onchange="try{setCustomValidity('')}catch(e){}"
 					oninput="setCustomValidity('')"
 					pattern="(?=.*[0-9])(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,}"
-					required> <input type="checkbox" class="input"
+					required> 
+					<input type="checkbox" class="input" id="showpassword"
 					onclick="showpassword()">Show Password
 				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 				<a href="forgotPassword.jsp">Forgot Password</a>

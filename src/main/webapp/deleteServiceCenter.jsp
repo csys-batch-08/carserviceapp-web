@@ -36,8 +36,8 @@
 			<h1>Delete ServiceCenter</h1>
 			<form action="deletecenter" method="post">
 				<div class="mt-1 mb-1">
-					<label for="center" class="form-label"><strong>CenterId</strong></label><br>
-					<input type="number" class="form-control" value="${centerId}"
+					<label for="centerid" class="form-label"><strong>CenterId</strong></label><br>
+					<input type="number" class="form-control" value="${centerId}" id="centerid"
 						placeholder="Enter CenterId" name="centerid" pattern="^[0-9]{3}$"
 						min="100" max="999" required autofocus readonly>
 				</div>

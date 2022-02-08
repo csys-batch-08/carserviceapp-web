@@ -32,7 +32,7 @@
 			<a href="LogoutPage">Logout</a> <a href="contactUs.jsp">Contact
 				Us</a> <a href="aboutUs.jsp">About Us</a> <a href="userPage.jsp">Home</a>
 		</div><hr>
-
+      </div>
 		<div class="container mt-1	">
 			<h1>
 				<strong>Services</strong>

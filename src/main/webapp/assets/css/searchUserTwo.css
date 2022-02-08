@@ -7,11 +7,9 @@ form{
             height:650px;
             width:420px;
             position:absolute;
-            left:10px;
-            top:20px;
-     margin-left:100px;
-     margin-right:800px;
-     margin-top:80px;
+            left:120px;
+            right:800px;
+            top:100px;
   }
 
 .btn

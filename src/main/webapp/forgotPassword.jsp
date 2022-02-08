@@ -45,7 +45,7 @@
 						pattern="[6-9][0-9]{9}" required autofocus>
 				</div>
 				<div class="m-1 mt-1">
-					<label for="servnewprice"><strong>New Password</strong></label><br>
+					<label for="updatepassword"><strong>New Password</strong></label><br>
 					<input type="password" id="updatepassword" class="form-control"
 						name="updatepassword" placeholder="Enter New Password"
 						pattern="(?=.*[0-9])(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,}"

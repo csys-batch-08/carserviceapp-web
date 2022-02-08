@@ -41,10 +41,10 @@
 				<p>Please fill in this form for pickup purposes</p>
 				<hr>
 				<div class="mb-0 mt-1">
-					<label for="cusname" class="form-label"><strong>Customer
+					<label for="custname" class="form-label"><strong>Customer
 							Name</strong>></label><br> <input type="text" placeholder="Enter Name"
 						class="form-control"
-						title="username should be more than 3 characters" name="custname"
+						title="username should be more than 3 characters" name="custname" id="custname"
 						pattern="[a-zA-Z\\s]{3,}" required autofocus>
 				</div>
 				<div class="mb-0 mt-1">
@@ -54,8 +54,8 @@
 						pattern="[a-zA-Z0-9.]+[@][a-zA-Z]+[.][a-z]+{15,}" required>
 				</div>
 				<div class="mb-0 mt-1">
-					<label for="contact" class="form-label"><strong>Customer
-							Contact</strong></label><br> <input type="tel" id="mob" name="custmob"
+					<label for="mob" class="form-label"><strong>Customer
+							Contact</strong></label><br> <input type="tel" id="mob" name="mob"
 						class="form-control" title="mobile number should be 10 numbers"
 						pattern="[6-9][0-9]{9}" placeholder="Enter Mobilenumber" required>
 				</div>

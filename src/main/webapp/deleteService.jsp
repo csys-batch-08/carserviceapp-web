@@ -35,8 +35,8 @@
 		<div class="addservice">
 			<h2>Delete Services</h2>
 			<form action="deleteservice" method="post">
-				<label for="service"><strong>ServiceId</strong></label><br> <input
-					type="number" placeholder="Enter ServiceId" class="form-control" value="${serviceId}"
+				<label for="serviceid"><strong>ServiceId</strong></label><br> <input
+					type="number" placeholder="Enter ServiceId" class="form-control" value="${serviceId}" id="serviceid"
 					name="serviceid" pattern="^[0-9]{3}$" min="100" max="999" required autofocus readonly><br>
 				<button type="submit" class="btn btn-dark">Delete Service</button>
 				<a href="adminPage.jsp" class="btn btn-dark">Back</a>
