@@ -2,10 +2,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en">
+<head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<head>
 <title>SearchCenter(2)</title>
 <link rel="icon" type="image/x-icon" href="assets/images/searchservice.jpg">
 <link
@@ -18,8 +18,7 @@
 	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 	crossorigin="anonymous"></script>
 <link rel="stylesheet" type="text/css" href="assets/css/inner.css"></link>
-<link rel="stylesheet" type="text/css"
-	href="assets/css/searchUserTwo.css"></link>
+<link rel="stylesheet" type="text/css" href="assets/css/searchUserTwo.css"></link>
 </head>
 <body>
 	<div class="topnavbar">
@@ -60,7 +59,7 @@
 						pattern="[6-9][0-9]{9}" placeholder="Enter Mobilenumber" required>
 				</div>
 				<div class="mb-0 mt-1">
-					<label for="address" class="form-label"><strong>Car
+					<label for="custaddress" class="form-label"><strong>Car
 							PickupAddress</strong></label><br> <input type="text"
 						placeholder="Enter PickUp Address.." class="form-control"
 						name="custaddress" id="custaddress" pattern="^[#.0-9a-zA-Z\s,-]+$" required>
