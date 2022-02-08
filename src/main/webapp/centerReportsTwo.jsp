@@ -13,10 +13,16 @@
 	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
 	crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="assets/css/navBar.css"></link>
-<link rel="stylesheet" type="text/css" href="assets/css/centerReportsTwo.css"></link>
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.css">
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="assets/css/centerReportsTwo.css"></link>
+<script src="https://code.jquery.com/jquery-3.5.1.js"
+	integrity="sha384-/LjQZzcpTzaYn7qWqRIWYC5l8FWEZ2bIHIz0D73Uzba4pShEcdLdZyZkI4Kv676E"
+	crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.css">
+<script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.js"
+	integrity="sha384-J1VTqRX3eTNk2nvwiGSqxuZEoboOJHEARFiWWeRcyH+cTelYBIQPq9iNWeCqQV2S"
+	crossorigin="anonymous"></script>
 </head>
 <body>
 	<div class="topnavbar">
@@ -28,7 +34,8 @@
 		<div class="navnames">
 			<a href="LogoutPage">Logout</a> <a href="contactUs.jsp">Contact
 				Us</a> <a href="aboutUs.jsp">About Us</a> <a href="adminPage.jsp">Home</a>
-		</div><hr>
+		</div>
+		<hr>
 	</div>
 
 	<div class="container mt-1">
@@ -48,24 +55,24 @@
 				</tr>
 			</thead>
 			<tbody>
-			<c:forEach items="${viewcenters}" var="p">
-				<tr>
-					<td>${p.pickupId}</td>
-					<td>${p.userId}</td>
-					<td>${p.cName}</td>
-					<td>${p.cMobile}</td>
-					<td>${p.pickAddress}</td>
-					<td>${p.centerId}</td>
-				</tr>
-			</c:forEach>
+				<c:forEach items="${viewcenters}" var="p">
+					<tr>
+						<td>${p.pickupId}</td>
+						<td>${p.userId}</td>
+						<td>${p.cName}</td>
+						<td>${p.cMobile}</td>
+						<td>${p.pickAddress}</td>
+						<td>${p.centerId}</td>
+					</tr>
+				</c:forEach>
 			</tbody>
 		</table>
 	</div>
 	<a href="adminPage.jsp"><button type="submit" class="btn btn-dark">Back</button></a>
 	<script>
-	$(document).ready( function () {
-	    $('#example').DataTable();
-	} );
+		$(document).ready(function() {
+			$('#example').DataTable();
+		});
 	</script>
 </body>
 </html>

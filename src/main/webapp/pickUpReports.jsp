@@ -16,9 +16,14 @@
 <link rel="stylesheet" type="text/css" href="assets/css/navBar.css"></link>
 <link rel="stylesheet" type="text/css"
 	href="assets/css/pickupReports.css"></link>
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.css">
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.js"></script>	
+<script src="https://code.jquery.com/jquery-3.5.1.js"
+	integrity="sha384-/LjQZzcpTzaYn7qWqRIWYC5l8FWEZ2bIHIz0D73Uzba4pShEcdLdZyZkI4Kv676E"
+	crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.css">
+<script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.js"
+	integrity="sha384-J1VTqRX3eTNk2nvwiGSqxuZEoboOJHEARFiWWeRcyH+cTelYBIQPq9iNWeCqQV2S"
+	crossorigin="anonymous"></script>
 </head>
 <body>
 	<div class="topnavbar">
@@ -37,7 +42,7 @@
 		<h1>
 			<strong>PickUp Reports</strong>
 		</h1>
-		<table  class="table table-bordered table-sm" id="example">
+		<table class="table table-bordered table-sm" id="example">
 			<caption style="visibility: hidden;">customer details</caption>
 			<thead class="table-dark">
 				<tr>
@@ -52,35 +57,38 @@
 				</tr>
 			</thead>
 			<tbody>
-			<c:forEach items="${pickuplist}" var="p">
-				<tr>
-					<td>${p.pickupId}</td>
-					<td>${p.userId}</td>
-					<td>${p.cName}</td>
-					<td>${p.cMobile}</td>
-					<td>${p.pickAddress}</td>
-					<td>${p.centerId}</td>
-					<td>${p.status}</td>
-					<c:choose>
-					   <c:when test="${p.status=='requested'}">
-					<td><a href="billreportsone?userId=${p.userId}"><button
-							type="button" class="btn btn-dark active" >Generate Bill</button> </a></td>
-						</c:when>
-						<c:otherwise>
-							<td><a href="billreportsone?userId=${p.userId}"><button
-							type="button" class="btn btn-dark disabled" >Generate Bill</button> </a></td>
-						</c:otherwise>
-					</c:choose>	
-				</tr>
-			</c:forEach>
+				<c:forEach items="${pickuplist}" var="p">
+					<tr>
+						<td>${p.pickupId}</td>
+						<td>${p.userId}</td>
+						<td>${p.cName}</td>
+						<td>${p.cMobile}</td>
+						<td>${p.pickAddress}</td>
+						<td>${p.centerId}</td>
+						<td>${p.status}</td>
+						<c:choose>
+							<c:when test="${p.status=='requested'}">
+								<td><a href="billreportsone?userId=${p.userId}"><button
+											type="button" class="btn btn-dark active">Generate
+											Bill</button> </a></td>
+							</c:when>
+							<c:otherwise>
+								<td><a href="billreportsone?userId=${p.userId}"><button
+											type="button" class="btn btn-dark disabled">Generate
+											Bill</button> </a></td>
+							</c:otherwise>
+						</c:choose>
+					</tr>
+				</c:forEach>
 			</tbody>
 		</table>
 	</div>
-	<a href="adminPage.jsp" id="backbtn"><button type="submit" class="btn btn-dark">Back</button></a>
+	<a href="adminPage.jsp" id="backbtn"><button type="submit"
+			class="btn btn-dark">Back</button></a>
 	<script>
-	$(document).ready( function () {
-	    $('#example').DataTable();
-	} );
+		$(document).ready(function() {
+			$('#example').DataTable();
+		});
 	</script>
 </body>
 </html>

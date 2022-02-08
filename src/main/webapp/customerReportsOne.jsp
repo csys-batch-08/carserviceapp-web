@@ -16,9 +16,14 @@
 <link rel="stylesheet" type="text/css" href="assets/css/navBar.css"></link>
 <link rel="stylesheet" type="text/css"
 	href="assets/css/customerReports.css"></link>
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.css">
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.js"></script>	
+<script src="https://code.jquery.com/jquery-3.5.1.js"
+	integrity="sha384-/LjQZzcpTzaYn7qWqRIWYC5l8FWEZ2bIHIz0D73Uzba4pShEcdLdZyZkI4Kv676E"
+	crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.css">
+<script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.js"
+	integrity="sha384-J1VTqRX3eTNk2nvwiGSqxuZEoboOJHEARFiWWeRcyH+cTelYBIQPq9iNWeCqQV2S"
+	crossorigin="anonymous"></script>
 </head>
 <body>
 	<div class="uppernav">
@@ -31,7 +36,8 @@
 			<a href="LogoutPage">Logout</a> <a href="contactUs.jsp">Contact
 				Us</a> <a href="aboutUs.jsp">About Us</a> <a href="adminPage.jsp">Home</a>
 		</div>
-	</div><hr>
+	</div>
+	<hr>
 	<div class="container mt-1">
 		<h1>
 			<strong>Customers</strong>
@@ -48,23 +54,23 @@
 				</tr>
 			</thead>
 			<tbody>
-			<c:forEach items="${custlist}" var="p">
-				<tr>
-					<td>${p.name}</td>
-					<td>${p.mobileNo}</td>
-					<td>${p.email}</td>
-					<td>${p.address}</td>
-					<td>${p.userId}</td>
-				</tr>
-			</c:forEach>
+				<c:forEach items="${custlist}" var="p">
+					<tr>
+						<td>${p.name}</td>
+						<td>${p.mobileNo}</td>
+						<td>${p.email}</td>
+						<td>${p.address}</td>
+						<td>${p.userId}</td>
+					</tr>
+				</c:forEach>
 			</tbody>
 		</table>
 	</div>
 	<a href="adminPage.jsp"><button type="button" class="btn btn-dark">Back</button></a>
- 	<script>
-	$(document).ready( function () {
-	    $('#example').DataTable();
-	} );
+	<script>
+		$(document).ready(function() {
+			$('#example').DataTable();
+		});
 	</script>
 </body>
 </html>

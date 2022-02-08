@@ -5,8 +5,12 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.10/dist/sweetalert2.all.min.js"></script>
-<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'> 
+<script
+	src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.10/dist/sweetalert2.all.min.js"
+	integrity="sha384-xP+lCMUO8LdFmTT1hKJJ6XmedxWdYvUDfNWikdOfcEQEww69y4bbSlXcfDDNwvzm"
+	crossorigin="anonymous"></script>
+<link rel='stylesheet'
+	href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
 <title>AdminPage</title>
 <link rel="stylesheet" type="text/css" href="assets/css/inner.css"></link>
 <link rel="stylesheet" type="text/css" href="assets/css/adminPage.css"></link>
@@ -25,9 +29,9 @@
 		<hr>
 		<form action="adminaccess" method="post">
 			<div class="cruds">
-			<a	href="addServiceCenter.jsp"><h2 class="btn button2">Add
+				<a href="addServiceCenter.jsp"><h2 class="btn button2">Add
 						Service Center</h2></a> <a href="ShowServiceCenter"><h2
-						class="btn button3">View Service Center</h2></a>  <a
+						class="btn button3">View Service Center</h2></a> <a
 					href="addServices.jsp"><h2 class="btn button6">Add
 						Services</h2></a> <a href="serviceshow"><h2 class="btn button7">View
 						Services</h2></a> <a href="userUpdatePassword.jsp"><h2
@@ -42,9 +46,11 @@
 			</div>
 		</form>
 	</div>
-		<script src="assets/js/popupMessages.js"></script>	
+	<script src="assets/js/popupMessages.js"></script>
 	<c:if test="${param.result!=null}">
-	<script type="text/javascript">showMessage('productUpdated')</script>
+		<script type="text/javascript">
+			showMessage('productUpdated')
+		</script>
 	</c:if>
 </body>
 </html>

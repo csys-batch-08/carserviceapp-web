@@ -44,12 +44,11 @@
 					pattern="(?=.*[0-9])(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,}"
 					required> 
 					<input type="checkbox" class="input" id="showpassword"
-					onclick="showpassword()"><label for="showpassword">Show Password</label>
+					onclick="showpassword()" onKeyDown="showpassword()" onKeyPress="showpassword()" onKeyUp="showpassword()"><label for="showpassword">Show Password</label>
 				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 				<a href="forgotPassword.jsp">Forgot Password</a>
 				<button type="submit">Login</button>
 			</div>
-
 			<div class="container">
 				<a href="index.jsp"><button type="button" class="cancelbtn">Cancel</button></a>
 				<a href="registerPage.jsp"><button type="button"

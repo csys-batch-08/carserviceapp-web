@@ -33,13 +33,11 @@ public class UpdateService extends HttpServlet {
 				CarServicesDAOImpl cents = new CarServicesDAOImpl();
 				boolean flag = cents.update(obj2);
 				if (flag) {
-					// writer.print("<script type=\"text/javascript\"> alert('Service price
-					// Updated'); window.location = 'adminPage.jsp';</script>");
 					RequestDispatcher rd = request.getRequestDispatcher("adminPage.jsp?result=addedSuccessfully");
 					try {
 						rd.forward(request, response);
 					} catch (ServletException | IOException e1) {
-						e1.printStackTrace();
+						e1.getCause();
 					}
 				}
 			} else {

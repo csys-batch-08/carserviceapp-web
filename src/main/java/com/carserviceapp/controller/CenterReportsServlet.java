@@ -37,7 +37,7 @@ public class CenterReportsServlet extends HttpServlet {
 				throw new CenterNotFoundException();
 			}
 		} catch (IOException e) {
-			e.printStackTrace();
+			e.getCause();
 		} catch (CenterNotFoundException e) {
 			request.setAttribute("centernotfound", e.getMessage());
 			System.out.println(e.getMessage());
@@ -45,7 +45,7 @@ public class CenterReportsServlet extends HttpServlet {
 			try {
 				rd.forward(request, response);
 			} catch (ServletException | IOException e1) {
-				e1.printStackTrace();
+				e1.getCause();
 			}
 		}
 	}

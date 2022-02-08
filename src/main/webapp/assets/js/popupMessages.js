@@ -1,8 +1,3 @@
-function run()
-{
-	break;
-}
-
 function showMessage(check)
 {
 let status = check;
@@ -27,7 +22,7 @@ switch(status)
         animation: true,
         title: 'Login Successfull'
         }); 
-    run();
+    break;
   case 'deleteSucess':
    let toastMixin = Swal.mixin({
 			toast: true,
@@ -47,7 +42,7 @@ switch(status)
 			animation: true,
 			title: 'Successfully Deleted'
 			});	
-    run();
+    break;
 	case 'deleteFailure':
    let toastMixin = Swal.mixin({
 			toast: true,
@@ -67,14 +62,14 @@ switch(status)
 			animation: true,
 			title: 'Unable To Delete Product Something Went Wrong'
 			});	
-	run();				
+	break;			
 	case 'productUpdated':
 		Swal.fire({
 			  icon: 'success',
 			  title: 'Product Details Updated',
 			  showConfirmButton: false,
 			  timer: 2000})
-	run();
+	break;
 	case 'productAdded':
 	   let toastMixin = Swal.mixin({
 			toast: true,
@@ -94,34 +89,38 @@ switch(status)
 			animation: true,
 			title: 'New Product Added Successfully'
 			});
-	run();
+	break;
 	case 'Entered Center not found in data':
 		Swal.fire({
 			  icon: 'error',
 			  title:status,
 			  showConfirmButton: false,
 			  timer: 2000})
-		run();
+		break;
 	case 'orderSucess':
 		Swal.fire({
 			  icon: 'success',
 			  title: 'Order Placed Successfully',
 			  showConfirmButton: false,
 			  timer: 2000})
-	run();
+	break;
 	case 'Not enough Money In Wallet':
 		Swal.fire({
 			  icon: 'error',
 			  title: status+',Go To profile and Recharge Wallet',
 			  showConfirmButton: true,
 			  timer: false})
-	run();
+	break;
 	case 'Delivery Address Not Found,Please update your Address':
 		Swal.fire({
 			  icon: 'error',
 			  title: status,
 			  showConfirmButton: true,
 			  timer: false})
-	run();
+	break;
 	}	
+}
+function run()
+{
+	break;
 }

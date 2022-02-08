@@ -15,21 +15,28 @@
 	crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="assets/css/navBar.css"></link>
 <link rel="stylesheet" type="text/css" href="assets/css/billReports.css"></link>
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.css">
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.js"></script>	
+<script src="https://code.jquery.com/jquery-3.5.1.js"
+	integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+	crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.css">
+<script
+	src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"
+	integrity="sha384-JQOveGFp+ebVxM94coUF7x6YiAUYRPGJb1VhPi3xz7/Uv36AewFNY2AS5PxQh7Vz"
+	crossorigin="anonymous"></script>
 </head>
 <body>
 	<div class="topnavbar">
 		<div class="heading">
-			<a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br>
-			<a href="#" id="secondhead">A one stop solution for all brand car
+			<a id="firsthead"> <strong>Car Service Center</strong></a><br>
+			<a id="secondhead">A one stop solution for all brand car
 				service</a>
 		</div>
 		<div class="navnames">
 			<a href="LogoutPage">Logout</a> <a href="contactUs.jsp">Contact
 				Us</a> <a href="aboutUs.jsp">About Us</a> <a href="adminPage.jsp">Home</a>
-		</div><hr>
+		</div>
+		<hr>
 	</div>
 	<div class="container mt-1">
 		<h1>
@@ -59,9 +66,9 @@
 	</div>
 	<a href="adminPage.jsp"><button type="submit" class="btn btn-dark">Back</button></a>
 	<script>
-	$(document).ready( function () {
-	    $('#example').DataTable();
-	} );
+		$(document).ready(function() {
+			$('#example').DataTable();
+		});
 	</script>
 </body>
 </html>
