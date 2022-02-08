@@ -83,10 +83,6 @@ button{
     outline: none;
     margin-top: 30px;
     cursor:pointer;
-}
-
-button
-{
     transition: transform 0.5s;
 }
 

@@ -1,7 +1,6 @@
 package com.carserviceapp.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,7 +20,6 @@ public class UpdateService extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		PrintWriter writer = response.getWriter();
 		int serviceid = Integer.parseInt(request.getParameter("serviceid"));
 		int newprice = Integer.parseInt(request.getParameter("updateservcost"));
 		CarServices obj1 = new CarServices(serviceid);
@@ -34,15 +32,13 @@ public class UpdateService extends HttpServlet {
 				boolean flag = cents.update(obj2);
 				if (flag) {
 					RequestDispatcher rd = request.getRequestDispatcher("adminPage.jsp?result=addedSuccessfully");
-					try {
-						rd.forward(request, response);
-					} catch (ServletException | IOException e1) {
-						e1.getCause();
-					}
+					rd.forward(request, response);
 				}
 			} else {
 				throw new ServiceNotFoundException();
 			}
+		} catch (ServletException | IOException e1) {
+			e1.getCause();
 		} catch (ServiceNotFoundException e) {
 			response.sendRedirect("serviceNotFound.jsp");
 		}

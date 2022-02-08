@@ -24,7 +24,7 @@ switch(status)
         }); 
     break;
   case 'deleteSucess':
-   let toastMixin = Swal.mixin({
+   let toastMixinone = Swal.mixin({
 			toast: true,
 			icon: 'success',
 			title: 'General Title',
@@ -38,13 +38,13 @@ switch(status)
 			toast.addEventListener('mouseleave', Swal.resumeTimer)
 			}
 			});
-			toastMixin.fire({
+			toastMixinone.fire({
 			animation: true,
 			title: 'Successfully Deleted'
 			});	
     break;
 	case 'deleteFailure':
-   let toastMixin = Swal.mixin({
+   let toastMixintwo = Swal.mixin({
 			toast: true,
 			icon: 'success',
 			title: 'General Title',
@@ -58,7 +58,7 @@ switch(status)
 			toast.addEventListener('mouseleave', Swal.resumeTimer)
 			}
 			});
-			toastMixin.fire({
+			toastMixintwo.fire({
 			animation: true,
 			title: 'Unable To Delete Product Something Went Wrong'
 			});	
@@ -71,7 +71,7 @@ switch(status)
 			  timer: 2000})
 	break;
 	case 'productAdded':
-	   let toastMixin = Swal.mixin({
+	   let toastMixinthree = Swal.mixin({
 			toast: true,
 			icon: 'success',
 			title: 'General Title',
@@ -85,7 +85,7 @@ switch(status)
 			toast.addEventListener('mouseleave', Swal.resumeTimer)
 			}
 			});	
-			toastMixin.fire({
+			toastMixinthree.fire({
 			animation: true,
 			title: 'New Product Added Successfully'
 			});
@@ -119,8 +119,4 @@ switch(status)
 			  timer: false})
 	break;
 	}	
-}
-function run()
-{
-	break;
 }

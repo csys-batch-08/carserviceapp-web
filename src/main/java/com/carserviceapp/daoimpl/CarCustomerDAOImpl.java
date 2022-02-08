@@ -11,6 +11,11 @@ import com.carserviceapp.model.CarCustomer;
 import com.carserviceapp.util.ConnectionUtil;
 
 public class CarCustomerDAOImpl implements CarCustomerDAO {
+	private static final String USERID = "user_id";
+	private static final String MOBNO = "mobileno";
+	private static final String PASSWORD = "u_password";
+	private static final String EMAIL = "u_email";
+
 	@Override
 	public boolean insert(CarCustomer user) {
 		String insertQuery = "insert into userdetails(u_name,mobileno,u_password,u_email,u_address) values(?,?,?,?,?)";
@@ -81,9 +86,8 @@ public class CarCustomerDAOImpl implements CarCustomerDAO {
 			stmt.setString(1, myaccount.getName());
 			rs = stmt.executeQuery();
 			while (rs.next()) {
-				CarCustomer customer = new CarCustomer(rs.getInt("user_id"), rs.getString("u_name"),
-						rs.getLong("mobileno"), rs.getString("u_password"), rs.getString("u_email"),
-						rs.getString("u_address"));
+				CarCustomer customer = new CarCustomer(rs.getInt(USERID), rs.getString("u_name"), rs.getLong(MOBNO),
+						rs.getString(PASSWORD), rs.getString(EMAIL), rs.getString("u_address"));
 				custdetails.add(customer);
 			}
 		} catch (Exception e) {
@@ -108,7 +112,7 @@ public class CarCustomerDAOImpl implements CarCustomerDAO {
 			stmt.setString(1, email.getEmail());
 			rs = stmt.executeQuery();
 			while (rs.next()) {
-				useremail = rs.getString("u_email");
+				useremail = rs.getString(EMAIL);
 			}
 		} catch (Exception e) {
 			e.getCause();
@@ -132,7 +136,7 @@ public class CarCustomerDAOImpl implements CarCustomerDAO {
 			stmt.setLong(1, mobile.getMobileNo());
 			rs = stmt.executeQuery();
 			while (rs.next()) {
-				usermobile = rs.getLong("mobileno");
+				usermobile = rs.getLong(MOBNO);
 			}
 		} catch (Exception e) {
 			e.getCause();
@@ -155,7 +159,7 @@ public class CarCustomerDAOImpl implements CarCustomerDAO {
 			stmt.setString(1, myaccount.getName());
 			rs = stmt.executeQuery();
 			while (rs.next()) {
-				userid = rs.getInt("user_id");
+				userid = rs.getInt(USERID);
 			}
 		} catch (Exception e) {
 			e.getCause();
@@ -269,8 +273,8 @@ public class CarCustomerDAOImpl implements CarCustomerDAO {
 			stmt = con.prepareStatement(showQuery);
 			rs = stmt.executeQuery(showQuery);
 			while (rs.next()) {
-				CarCustomer customer = new CarCustomer(rs.getString("u_name"), rs.getLong("mobileno"),
-						rs.getString("u_email"), rs.getString("u_address"), rs.getInt("user_id"));
+				CarCustomer customer = new CarCustomer(rs.getString("u_name"), rs.getLong(MOBNO), rs.getString(EMAIL),
+						rs.getString("u_address"), rs.getInt(USERID));
 				custlist.add(customer);
 			}
 

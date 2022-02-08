@@ -11,6 +11,11 @@ import com.carserviceapp.model.BillDetails;
 import com.carserviceapp.util.ConnectionUtil;
 
 public class BillDetailsDAOImpl implements BillDetailsDAO {
+	private static final String BILLNUM = "bill_num";
+	private static final String AMOUNT = "amount";
+	private static final String STATUS = "status";
+	private static final String SERVDATE = "serv_date";
+
 	@Override
 	public int insert(BillDetails bill) {
 		String insertQuery = "insert into bill(user_id,serv_date,amount) values (?,?,(SELECT sum(service_cost) from services where service_id in (select service_id from service_details where user_id in ?)))";
@@ -69,8 +74,8 @@ public class BillDetailsDAOImpl implements BillDetailsDAO {
 			stmt.setInt(1, billPojo.getUserId());
 			rsone = stmt.executeQuery();
 			while (rsone.next()) {
-				BillDetails customer = new BillDetails(rsone.getInt("bill_num"),
-						rsone.getDate("serv_date").toLocalDate(), rsone.getInt("amount"), rsone.getString("status"));
+				BillDetails customer = new BillDetails(rsone.getInt(BILLNUM), rsone.getDate(SERVDATE).toLocalDate(),
+						rsone.getInt(AMOUNT), rsone.getString(STATUS));
 				orderslist.add(customer);
 			}
 		} catch (Exception e1) {
@@ -96,8 +101,8 @@ public class BillDetailsDAOImpl implements BillDetailsDAO {
 			stmt.setInt(1, billPojo.getUserId());
 			rstwo = stmt.executeQuery();
 			while (rstwo.next()) {
-				BillDetails customer = new BillDetails(rstwo.getInt("bill_num"),
-						rstwo.getDate("serv_date").toLocalDate(), rstwo.getInt("amount"), rstwo.getString("status"));
+				BillDetails customer = new BillDetails(rstwo.getInt(BILLNUM), rstwo.getDate(SERVDATE).toLocalDate(),
+						rstwo.getInt(AMOUNT), rstwo.getString(STATUS));
 				orderslist.add(customer);
 			}
 		} catch (Exception e1) {
@@ -122,7 +127,7 @@ public class BillDetailsDAOImpl implements BillDetailsDAO {
 			stmt.setInt(2, billpojo1.getBillNum());
 			rs = stmt.executeQuery();
 			while (rs.next()) {
-				return rs.getInt("amount");
+				return rs.getInt(AMOUNT);
 			}
 		} catch (Exception e1) {
 			e1.getCause();
@@ -170,7 +175,7 @@ public class BillDetailsDAOImpl implements BillDetailsDAO {
 			stmt.setInt(1, payment.getUserId());
 			rs = stmt.executeQuery();
 			if (rs.next()) {
-				i = rs.getInt("bill_num");
+				i = rs.getInt(BILLNUM);
 			}
 		} catch (Exception e) {
 			e.getCause();
@@ -192,8 +197,8 @@ public class BillDetailsDAOImpl implements BillDetailsDAO {
 			stmt = con.prepareStatement(showQueryThree);
 			rs = stmt.executeQuery();
 			while (rs.next()) {
-				BillDetails bills = new BillDetails(rs.getInt("bill_num"), rs.getInt("user_id"),
-						rs.getDate("serv_date").toLocalDate(), rs.getInt("amount"), rs.getString("status"));
+				BillDetails bills = new BillDetails(rs.getInt(BILLNUM), rs.getInt("user_id"),
+						rs.getDate(SERVDATE).toLocalDate(), rs.getInt(AMOUNT), rs.getString(STATUS));
 				billlist.add(bills);
 			}
 		} catch (Exception e1) {

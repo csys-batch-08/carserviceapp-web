@@ -40,7 +40,6 @@ public class CenterReportsServlet extends HttpServlet {
 			e.getCause();
 		} catch (CenterNotFoundException e) {
 			request.setAttribute("centernotfound", e.getMessage());
-			System.out.println(e.getMessage());
 			RequestDispatcher rd = request.getRequestDispatcher("centerReportsOne.jsp");
 			try {
 				rd.forward(request, response);
