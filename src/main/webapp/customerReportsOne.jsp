@@ -15,12 +15,12 @@
 <title>Customer Reports</title>
 <link rel="stylesheet" type="text/css" href="assets/css/navBar.css"></link>
 <link rel="stylesheet" type="text/css"
-	href="assets/css/customerReports.css"></link>
+	href="assets/css/customerReports.css"/>
 <script src="https://code.jquery.com/jquery-3.5.1.js"
 	integrity="sha384-/LjQZzcpTzaYn7qWqRIWYC5l8FWEZ2bIHIz0D73Uzba4pShEcdLdZyZkI4Kv676E"
 	crossorigin="anonymous"></script>
 <link rel="stylesheet" type="text/css"
-	href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.css">
+	href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.css"/>
 <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.js"
 	integrity="sha384-J1VTqRX3eTNk2nvwiGSqxuZEoboOJHEARFiWWeRcyH+cTelYBIQPq9iNWeCqQV2S"
 	crossorigin="anonymous"></script>

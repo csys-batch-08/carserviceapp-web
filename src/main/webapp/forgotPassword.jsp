@@ -11,13 +11,13 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-	crossorigin="anonymous">
+	crossorigin="anonymous"/>
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 	crossorigin="anonymous"></script>
-<link rel="stylesheet" type="text/css" href="assets/css/inner.css"></link>
-<link rel="stylesheet" type="text/css" href="assets/css/forgotPassword.css"></link>
+<link rel="stylesheet" type="text/css" href="assets/css/inner.css"/>
+<link rel="stylesheet" type="text/css" href="assets/css/forgotPassword.css"/>
 </head>
 <body>
 	<div class="topnavbar">
@@ -42,14 +42,14 @@
 							MobileNumber</strong></label><br> <input type="tel" id="updatepassword"
 						class="form-control" name="forgotpassword"
 						placeholder="Enter Registered Mobilenumber"
-						pattern="[6-9][0-9]{9}" required autofocus>
+						pattern="[6-9][0-9]{9}" required autofocus/>
 				</div>
 				<div class="m-1 mt-1">
 					<label for="updatepassword"><strong>New Password</strong></label><br>
 					<input type="password" id="updatepassword" class="form-control"
 						name="updatepassword" placeholder="Enter New Password"
 						pattern="(?=.*[0-9])(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,}"
-						required><br>
+						required/><br/>
 					<br>
 				</div>
 				<button type="submit" class="btn btn-dark">Change Password</button>

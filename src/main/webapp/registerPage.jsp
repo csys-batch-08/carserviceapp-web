@@ -12,7 +12,7 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-	crossorigin="anonymous">
+	crossorigin="anonymous"/>
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
@@ -23,7 +23,7 @@
 	src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.10/dist/sweetalert2.all.min.js"
 	integrity="sha384-xP+lCMUO8LdFmTT1hKJJ6XmedxWdYvUDfNWikdOfcEQEww69y4bbSlXcfDDNwvzm"
 	crossorigin="anonymous"></script>
-<link rel="stylesheet" type="text/css" href="assets/css/register.css"></link>
+<link rel="stylesheet" type="text/css" href="assets/css/register.css"/>
 </head>
 <body>
 	<div class="container mt-1">
@@ -31,14 +31,14 @@
 			<div class="register">
 				<h1>Sign Up</h1>
 				<p>Please fill in this form to create an account</p>
-				<hr>
+				<hr/>
 				<div class="mb-1 mt-1">
 					<label for="user" class="form-label"><strong>Username</strong></label>
 					<input type="text" placeholder="Enter username"
 						class="form-control" pattern="[a-zA-Z\s]{3,}"
 						oninvalid="this.setCustomValidity('Enter username more than 3 charcters')"
 						onchange="try{setCustomValidity('')}catch(e){}"
-						oninput="setCustomValidity('')" name="user" id="user" required autofocus>
+						oninput="setCustomValidity('')" name="user" id="user" required autofocus/>
 				</div>
 
 				<div class="mb-1 mt-1">
@@ -47,7 +47,7 @@
 						oninvalid="this.setCustomValidity('mobile number should be 10 numbers and starts with 6-9 only')"
 						onchange="try{setCustomValidity('')}catch(e){}"
 						oninput="setCustomValidity('')" pattern="[6-9]{1}[0-9]{9}"
-						placeholder="Enter Mobilenumber" required>
+						placeholder="Enter Mobilenumber" required/>
 				</div>
 
 				<div class="mb-1 mt-1">
@@ -58,7 +58,7 @@
 						oninvalid="this.setCustomValidity('Enter password should be more dhan 8 digits and 1 UpperCase,1 SpecialCase,1 number')"
 						onchange="try{setCustomValidity('')}catch(e){}"
 						oninput="setCustomValidity('')" placeholder="Enter password"
-						required>
+						required/>
 				</div>
 
 				<div class="mb-1 mt-1">
@@ -68,7 +68,7 @@
 						pattern="[a-zA-Z0-9.]+[@][a-zA-Z]+[.][a-z]+{15,}"
 						oninvalid="this.setCustomValidity('Gmail id should be in correct formate of abc@gmail.com')"
 						onchange="try{setCustomValidity('')}catch(e){}"
-						oninput="setCustomValidity('')" required>
+						oninput="setCustomValidity('')" required/>
 				</div>
 
 				<div class="mb-1 mt-1">
@@ -77,7 +77,7 @@
 						name="address" id="address" pattern="^[#.0-9\a-zA-Z\s,-]+$"
 						oninvalid="this.setCustomValidity('entered address should be in correct formate')"
 						onchange="try{setCustomValidity('')}catch(e){}"
-						oninput="setCustomValidity('')" required>
+						oninput="setCustomValidity('')" required/>
 				</div>
 
 				<div class="form-check mb-3">

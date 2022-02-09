@@ -8,13 +8,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>User Delete Account(1)</title>
 <link rel="stylesheet" type="text/css"
-	href="assets/css/userDeletePage.css"></link>
+	href="assets/css/userDeletePage.css"/>
 </head>
 <body>
-
 	<div class="container">
 		<div class="heading">
-			<a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br>
+			<a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br/>
 			<a href="#" id="secondhead">A one stop solution for all brand car
 				service</a>
 		</div>

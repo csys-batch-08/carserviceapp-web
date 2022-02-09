@@ -12,14 +12,14 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-	crossorigin="anonymous">
+	crossorigin="anonymous"/>
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 	crossorigin="anonymous"></script>
-<link rel="stylesheet" type="text/css" href="assets/css/inner.css"></link>
+<link rel="stylesheet" type="text/css" href="assets/css/inner.css"/>
 <link rel="stylesheet" type="text/css"
-	href="assets/css/searchUserThree.css"></link>
+	href="assets/css/searchUserThree.css"/>
 </head>
 <body>
 	<div class="topnavbar">
@@ -51,7 +51,7 @@
 				<c:forEach items="${servicelist}" var="p">
 					<tr>
 						<td>${p.serviceName}</td>
-						<td>${p.serviceCost}</td>
+						<td>&#x20B9; ${p.serviceCost}</td>
 						<td>${p.serviceDesc}</td>
 						<td>${p.serviceId}</td>
 						<td><a href="chooseservices?serviceId=${p.serviceId}"><button

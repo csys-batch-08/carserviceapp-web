@@ -7,9 +7,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SearchCenter(5)</title>
-<link rel="stylesheet" type="text/css" href="assets/css/inner.css"></link>
+<link rel="stylesheet" type="text/css" href="assets/css/inner.css"/>
 <link rel="stylesheet" type="text/css"
-	href="assets/css/searchUserFive.css"></link>
+	href="assets/css/searchUserFive.css"/>
 </head>
 <body>
 	<div class="topnavbar">

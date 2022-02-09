@@ -15,14 +15,14 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-	crossorigin="anonymous"></script>
-<link rel="stylesheet" type="text/css" href="assets/css/navBar.css"></link>
-<link rel="stylesheet" type="text/css" href="assets/css/addService.css"></link>
+	crossorigin="anonymous"/>
+<link rel="stylesheet" type="text/css" href="assets/css/navBar.css"/>
+<link rel="stylesheet" type="text/css" href="assets/css/addService.css"/>
 </head>
 <body>
 	<div class="topnavbar">
 		<div class="heading">
-			<a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br>
+			<a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br/>
 			<a href="#" id="secondhead">A one stop solution for all brand car
 				service</a>
 		</div>
@@ -40,19 +40,19 @@
 					<label for="servname" class="form-label"><strong>Service
 							Name</strong></label><br> <input type="text" class="form-control"
 						placeholder="Enter Service Name" name="servname" id="servname"
-						pattern="[a-zA-Z\s-]{3,}" required autofocus>
+						pattern="[a-zA-Z\s-]{3,}" required autofocus/>
 				</div>
 				<div class="mt-1 mb-1">
 					<label for="servcost" class="form-label"><strong>Service
 							Cost</strong></label><br> <input type="number" class="form-control"
 						placeholder="Enter Service Cost" name="servcost" id="servcost"
-						pattern="^[0-9]{3,}$" min="100" max="999" required>
+						pattern="^[0-9]{3,}$" min="100" max="999" required/>
 				</div>
 				<div class="mt-1 mb-1">
 					<label for="servdesc" class="form-label"><strong>Service
 							Description</strong></label><br> <input type="text" class="form-control"
 						placeholder="Enter Service description" name="servdesc"
-						id="servdesc" pattern="^[#.0-9a-zA-Z\s,-]+$" required>
+						id="servdesc" pattern="^[#.0-9a-zA-Z\s,-]+$" required/>
 				</div>
 				<div class="mt-2">
 					<button type="submit" class="btn btn-dark" onclick="addservice()">Add

@@ -12,19 +12,19 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-	crossorigin="anonymous">
+	crossorigin="anonymous"/>
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-	crossorigin="anonymous"></script>
-<link rel="stylesheet" type="text/css" href="assets/css/inner.css"></link>
+	crossorigin="anonymous"/>
+<link rel="stylesheet" type="text/css" href="assets/css/inner.css"/>
 <link rel="stylesheet" type="text/css"
-	href="assets/css/deleteServiceCenter.css"></link>
+	href="assets/css/deleteServiceCenter.css"/>
 </head>
 <body>
 	<div class="topnavbar">
 		<div class="heading">
-			<a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br>
+			<a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br/>
 			<a href="#" id="secondhead">A one stop solution for all brand car
 				service</a>
 		</div>
@@ -39,7 +39,7 @@
 					<label for="centerid" class="form-label"><strong>CenterId</strong></label><br>
 					<input type="number" class="form-control" value="${centerId}" id="centerid"
 						placeholder="Enter CenterId" name="centerid" pattern="^[0-9]{3}$"
-						min="100" max="999" required autofocus readonly>
+						min="100" max="999" required autofocus readonly/>
 				</div>
 				<div class="mt-3 mb-1">
 					<button type="submit" class="btn btn-dark">Delete Center

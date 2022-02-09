@@ -23,14 +23,14 @@
 	src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.10/dist/sweetalert2.all.min.js"
 	integrity="sha384-xP+lCMUO8LdFmTT1hKJJ6XmedxWdYvUDfNWikdOfcEQEww69y4bbSlXcfDDNwvzm"
 	crossorigin="anonymous"></script>
-<link rel="stylesheet" type="text/css" href="assets/css/navBar.css"></link>
+<link rel="stylesheet" type="text/css" href="assets/css/navBar.css"/>
 <link rel="stylesheet" type="text/css"
-	href="assets/css/centerReportsOne.css"></link>
+	href="assets/css/centerReportsOne.css"/>
 </head>
 <body>
 	<div class="topnavbar">
 		<div class="heading">
-			<a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br>
+			<a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br/>
 			<a href="#" id="secondhead">A one stop solution for all brand car
 				service</a>
 		</div>
@@ -44,10 +44,10 @@
 		<form action="centerreports" method="post" class="was-validated">
 			<fieldset>
 				<legend></legend>
-				<label for="centerid"><h3>CenterID</h3></label><br> <input
+				<label for="centerid"><h3>CenterID</h3></label><br/> <input
 					type="number" placeholder="Enter CenterID" class="form-control"
 					id="centerid" name="centerid" pattern="^[0-9]{3,}$" min="100"
-					max="999" required autofocus><br>
+					max="999" required autofocus/><br/>
 				<button type="submit" class="btn btn-dark">Search</button>
 				<a href="adminPage.jsp" class="btn btn-dark">Back</a>
 			</fieldset>

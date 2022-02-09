@@ -51,7 +51,7 @@
 				<tr>
 					<td>${p.billNum}</td>
 					<td>${p.servDate}</td>
-					<td>${p.amount}</td>
+					<td>&#x20B9; ${p.amount}</td>
 					<td>${p.status}</td>
 				</tr>
 			</c:forEach>

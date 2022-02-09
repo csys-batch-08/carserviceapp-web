@@ -12,8 +12,8 @@
 <link rel='stylesheet'
 	href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
 <title>AdminPage</title>
-<link rel="stylesheet" type="text/css" href="assets/css/inner.css"></link>
-<link rel="stylesheet" type="text/css" href="assets/css/adminPage.css"></link>
+<link rel="stylesheet" type="text/css" href="assets/css/inner.css"/>
+<link rel="stylesheet" type="text/css" href="assets/css/adminPage.css"/>
 </head>
 <body>
 	<div class="container">

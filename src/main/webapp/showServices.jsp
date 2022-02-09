@@ -12,19 +12,19 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-	crossorigin="anonymous">
+	crossorigin="anonymous"/>
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-	crossorigin="anonymous"></script>
-<link rel="stylesheet" type="text/css" href="assets/css/navBar.css"></link>
+	crossorigin="anonymous"/>
+<link rel="stylesheet" type="text/css" href="assets/css/navBar.css"/>
 <link rel="stylesheet" type="text/css"
-	href="assets/css/showServices.css"></link>
+	href="assets/css/showServices.css"/>
 </head>
 <body>
 	<div class="topnavbar">
 		<div class="heading">
-			<a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br>
+			<a href="#" id="firsthead"> <strong>Car Service Center</strong></a><br/>
 			<a href="#" id="secondhead">A one stop solution for all brand car
 				service</a>
 		</div>
@@ -52,7 +52,7 @@
 				<tr>
 				    <td>${p.serviceId}</td>
 					<td>${p.serviceName}</td>
-					<td>${p.serviceCost}</td>
+					<td>&#x20B9; ${p.serviceCost}</td>
 					<td>${p.serviceDesc}</td>
 					<td><a href="updateService?serviceId=${p.serviceId}"><button
 								type="button" class="btn btn-dark">update</button> </a></td>

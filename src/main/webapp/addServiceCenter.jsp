@@ -15,15 +15,15 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-	crossorigin="anonymous"></script>
-<link rel="stylesheet" type="text/css" href="assets/css/navBar.css"></link>
+	crossorigin="anonymous"/>
+<link rel="stylesheet" type="text/css" href="assets/css/navBar.css"/>
 <link rel="stylesheet" type="text/css"
-	href="assets/css/addServiceCent.css"></link>
+	href="assets/css/addServiceCent.css"/>
 </head>
 <body>
 	<div class="topnavbar">
 		<div class="heading">
-			<a id="firsthead"> <strong>Car Service Center</strong></a><br> <a
+			<a id="firsthead"> <strong>Car Service Center</strong></a><br/> <a
 				id="secondhead">A one stop solution for all brand car service</a>
 		</div>
 		<div class="navnames">
@@ -40,30 +40,30 @@
 					<label for="centername" class="form-label"><strong>Service
 							Center Name</strong></label> <input type="text" class="form-control"
 						placeholder="Enter CenterName" name="centername" id="centername"
-						pattern="^[#.0-9a-zA-Z\s,-]+$" required autofocus>
+						pattern="^[#.0-9a-zA-Z\s,-]+$" required autofocus/>
 				</div>
 				<div class="mt-1 mb-1">
 					<label for="centerlocation" class="form-label"><strong>Service
 							Center Location</strong></label> <input type="text" class="form-control"
 						placeholder="Enter Center Location" name="centerlocation"
-						id="centerlocation" pattern="^[#.0-9a-zA-Z\s,-]+$" required>
+						id="centerlocation" pattern="^[#.0-9a-zA-Z\s,-]+$" required/>
 				</div>
 				<div class="mt-1 mb-1">
 					<label for="centermob" class="form-label"><strong>Service
 							Center Contact</strong></label> <input type="tel" class="form-control"
 						name="centermob" pattern="[6-9][0-9]{9}" id="centermob"
-						placeholder="Enter Center Mobilenumber" required>
+						placeholder="Enter Center Mobilenumber" required/>
 				</div>
 				<label for="centeremail" class="form-label"><strong>Service
 						Center Email</strong></label> <input type="email" class="form-control"
 					name="centeremail" id="centeremail"
 					placeholder="Enter Center Email"
-					pattern="[a-zA-Z0-9.]+[@][a-zA-Z]+[.][a-z]+{15,}" required>
+					pattern="[a-zA-Z0-9.]+[@][a-zA-Z]+[.][a-z]+{15,}" required/>
 				<div class="mt-1 mb-1">
 					<label for="centeraddress" class="form-label"><strong>Service
 							Center Address</strong></label> <input type="text" class="form-control"
 						placeholder="Enter Center Address" id="centeraddress"
-						name="centeraddress" pattern="^[#.0-9/a-zA-Z\s,-]+$" required>
+						name="centeraddress" pattern="^[#.0-9/a-zA-Z\s,-]+$" required/>
 				</div>
 				<div class="mt-3 mb-0">
 					<button type="submit" class="btn btn-dark" onclick="addcenter()">Add

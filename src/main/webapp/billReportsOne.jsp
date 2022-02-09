@@ -13,8 +13,8 @@
 	rel="stylesheet"
 	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
 	crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="assets/css/navBar.css"></link>
-<link rel="stylesheet" type="text/css" href="assets/css/billReports.css"></link>
+<link rel="stylesheet" type="text/css" href="assets/css/navBar.css"/>
+<link rel="stylesheet" type="text/css" href="assets/css/billReports.css"/>
 <script src="https://code.jquery.com/jquery-3.5.1.js"
 	integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
 	crossorigin="anonymous"></script>
@@ -58,7 +58,7 @@
 					<td>${p.billNum}</td>
 					<td>${p.userId}</td>
 					<td>${p.servDate}</td>
-					<td>${p.amount}</td>
+				    <td>&#x20B9; ${p.amount}</td>
 					<td>${p.status}</td>
 				</tr>
 			</c:forEach>

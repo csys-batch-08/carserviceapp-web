@@ -7,30 +7,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
 <title>Log-In</title>
-<link rel="icon" type="image/x-icon" href="assets/images/searchservice.jpg">
+<link rel="icon" type="image/x-icon" href="assets/images/searchservice.jpg"/>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-	crossorigin="anonymous">
+	crossorigin="anonymous"/>
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 	crossorigin="anonymous"></script>
 <link rel='stylesheet'
-	href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
+	href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'/>
 <script
 	src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.10/dist/sweetalert2.all.min.js"
 	integrity="sha384-xP+lCMUO8LdFmTT1hKJJ6XmedxWdYvUDfNWikdOfcEQEww69y4bbSlXcfDDNwvzm"
 	crossorigin="anonymous"></script>
-<link rel="stylesheet" type="text/css" href="assets/css/login.css"></link>
+<link rel="stylesheet" type="text/css" href="assets/css/login.css"/>
 </head>
 <body>
 	<form action="loginpage" method="post" class="was-validated">
 		<fieldset>
 			<legend></legend>
 			<div class="imgcontainer">
-				<img src="assets/images/logo.jpg" alt="avatar" class="avatar">
+				<img src="assets/images/logo.jpg" alt="avatar" class="avatar"/>
 			</div>
 
 			<div class="container">
@@ -40,7 +40,7 @@
 					oninvalid="this.setCustomValidity('Enter username more than 3 charcters')"
 					onchange="try{setCustomValidity('')}catch(e){}"
 					oninput="setCustomValidity('')" pattern="[a-zA-Z\\s]{3,}" required
-					autofocus>
+					autofocus/>
 				 <label for="userpass" class="form-label"><strong>Password</strong></label>
 				<input type="password" class="form-control"
 					placeholder="Enter password" name="userpass" id="userpass"
@@ -48,9 +48,9 @@
 					onchange="try{setCustomValidity('')}catch(e){}"
 					oninput="setCustomValidity('')"
 					pattern="(?=.*[0-9])(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,}"
-					required> 
+					required/> 
 					<input type="checkbox" class="input" id="showpassword"
-					onclick="showpassword()" onKeyDown="showpassword()" onKeyPress="showpassword()" onKeyUp="showpassword()"><label for="showpassword">Show Password</label>
+					onclick="showpassword()" onKeyDown="showpassword()" onKeyPress="showpassword()" onKeyUp="showpassword()"/><label for="showpassword">Show Password</label>
 				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 				<a href="forgotPassword.jsp">Forgot Password</a>
 				<button type="submit">Login</button>
