@@ -46,11 +46,9 @@
 			</div>
 		</form>
 	</div>
-	<script src="assets/js/popupMessages.js"></script>
+	<script type="text/javascript" src="assets/js/popupMessages.js"></script>
 	<c:if test="${param.result!=null}">
-		<script type="text/javascript">
-			showMessage('productUpdated')
-		</script>
+		<script type="text/javascript">showMessage('productUpdated')</script>
 	</c:if>
 </body>
 </html>
